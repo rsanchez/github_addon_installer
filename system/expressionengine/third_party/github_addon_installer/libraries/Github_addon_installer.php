@@ -16,10 +16,21 @@ class Github_addon_installer
 		
 		$this->EE->load->helper('file');
 		
+		$this->EE->config->load('../third_party/github_addon_installer/config/config');
+		
 		$this->temp_path = ($this->EE->config->item('github_addon_installer_temp_path')) ? $this->EE->config->item('github_addon_installer_temp_path') : realpath(dirname(__FILE__).'/../temp/').'/';//PATH_THIRD.'github_addon_installer/temp/';
 	}
 	
-	public function addon_repo($params)
+	/**
+	 * Repo
+	 *
+	 * creates a new instance of Github_addon_repo object
+	 * 
+	 * @param array $params user, repo, branch, etc.
+	 * 
+	 * @return Github_addon_repo
+	 */
+	public function repo($params)
 	{
 		$this->EE->load->helper('array');
 		
@@ -30,6 +41,12 @@ class Github_addon_installer
 		return new Github_addon_repo($user, $repo, $branch, $params);
 	}
 	
+	/**
+	 * Fetch raw data from a github url
+	 *
+	 * @param string $segment,... unlimited number of segments
+	 * @return mixed
+	 */
 	public function fetch_raw()
 	{
 		$segments = func_get_args();
@@ -37,6 +54,12 @@ class Github_addon_installer
 		return $this->curl('https://github.com/'.implode('/', $segments));
 	}
 	
+	/**
+	 * Fetch raw data from the github v2 api
+	 * 
+	 * @param string $segment,... unlimited number of segments
+	 * @return mixed
+	 */
 	public function api_fetch_raw()
 	{
 		$segments = func_get_args();
@@ -46,6 +69,12 @@ class Github_addon_installer
 		return call_user_func_array(array($this, 'fetch_raw'), $segments);
 	}
 	
+	/**
+	 * Fetch json data from the github v2 api
+	 * 
+	 * @param string $segment,... unlimited number of segments
+	 * @return array|false
+	 */
 	public function api_fetch_json()
 	{
 		$segments = func_get_args();
@@ -55,14 +84,23 @@ class Github_addon_installer
 		return ($data) ? json_decode($data) : FALSE;
 	}
 	
+	/**
+	 * Whether the system has git installed
+	 * 
+	 * @return bool
+	 */
 	public function has_git()
 	{
+		//@TODO make this actually work, always returns false for now
+		return FALSE;
+		
 		static $has_git;
 		
 		if (is_null($has_git))
 		{
 			$command = 'git --version';
 			
+			//mac path is screwy when run from php
 			if (strncasecmp(PHP_OS, 'darwin', 6) === 0)
 			{
 				$command = 'PATH=$PATH:/usr/local/bin;'.$command;
@@ -84,6 +122,14 @@ class Github_addon_installer
 		return $this->temp_path;
 	}
 	
+	/**
+	 * Build user manifest
+	 * 
+	 * @param string $user  github username whose repos you wish to cull
+	 * @param bool $forks whether or not you wish to include forked (not original) projects
+	 * 
+	 * @return Type    Description
+	 */
 	public function build_user_manifest($user, $forks = FALSE)
 	{
 		$data = $this->api_fetch_json('repos', 'show', $user);
@@ -107,6 +153,7 @@ class Github_addon_installer
 		
 		$output = var_export($output, TRUE);
 		
+		//this is just how I likes my arrays formatted, thank you very much
 		$output = preg_replace('/=>[\s\r\n]+/', '=> ', $output);
 		
 		$output = str_replace(array('array (', '  '), array('array(', "\t"), $output);
@@ -140,7 +187,7 @@ class Github_addon_installer
  * example
  *
  * $this->EE->load->library('github_addon_installer');
- * $repo = $this->EE->github_addon_installer->addon_repo($user, $repo, $branch);
+ * $repo = $this->EE->github_addon_installer->repo($user, $repo, $branch);
  * $repo->fetch('/path/to/dir/');
  * 
  */
@@ -273,14 +320,12 @@ class Github_addon_repo
 		
 		if ($this->fetch_mode === 'git')
 		{
-			$command_prefix = 'cd '.$this->EE->github_addon_installer->temp_path().'; ';
-			
 			//clone
-			shell_exec($command_prefix.'git clone git://github.com/'.$this->user.'/'.$this->repo.'.git '.$this->sha);
+			shell_exec('git clone https://github.com/'.$this->user.'/'.$this->repo.'.git '.$this->EE->github_addon_installer->temp_path().$this->sha);
 			
 			if ($this->branch !== 'master')
 			{
-				shell_exec($command_prefix.'git checkout '.$this->branch);
+				shell_exec('cd '.$this->EE->github_addon_installer->temp_path().'; git checkout '.$this->branch);
 			}
 			
 			$temp_dir = $this->sha;
@@ -295,16 +340,19 @@ class Github_addon_repo
 				$this->add_error('temp_dir_not_writable');
 				return FALSE;
 			}
-			$this->EE->session->set_flashdata('temp_path', $this->EE->github_addon_installer->temp_path());
 			
 			$file_path = $this->EE->github_addon_installer->temp_path().$this->sha.'.zip';
 			
-			//this is how github packages the zipball
+			//this is how github names the zipball
 			$temp_dir = $this->user.'-'.$this->repo.'-'.substr($this->sha, 0, 7);
 			
-			write_file($file_path, $this->zipball(), FOPEN_WRITE_CREATE_DESTRUCTIVE);
-			
-			$this->EE->unzip->extract($file_path, $this->EE->github_addon_installer->temp_path());
+			//@TODO remove this conditional
+			if ( ! file_exists($file_path))
+			{
+				write_file($file_path, $this->zipball(), FOPEN_WRITE_CREATE_DESTRUCTIVE);
+				
+				$this->EE->unzip->extract($file_path, $this->EE->github_addon_installer->temp_path());
+			}
 		}
 		//grab the files one by one
 		else
@@ -317,11 +365,10 @@ class Github_addon_repo
 			}
 			
 		}
-		$this->EE->session->set_flashdata('files', $files);
 		
-		if ( ! is_null($temp_dir))
+		if ( ! is_null($temp_dir) && $filenames = get_filenames($this->EE->github_addon_installer->temp_path().'/'.$temp_dir, TRUE))
 		{
-			foreach(get_filenames($this->EE->github_addon_installer->temp_path().'/'.$temp_dir, TRUE) as $full_filename)
+			foreach($filenames as $full_filename)
 			{
 				$files[] = str_replace($this->EE->github_addon_installer->temp_path().$temp_dir.'/', '', $full_filename);
 			}
@@ -337,7 +384,7 @@ class Github_addon_repo
 			
 			if (isset($this->fetch_params['addon_path']))
 			{
-				if (strncmp($filename, $this->fetch_params['addon_path'], strlen($this->fetch_params['addon_path'])) !== 0)
+				if (strncmp($filename, $this->fetch_params['addon_path'], strlen($this->fetch_params['addon_path'])) === 0)
 				{
 					$proceed = TRUE;
 					
@@ -352,11 +399,11 @@ class Github_addon_repo
 			
 			if ($proceed === FALSE && isset($this->fetch_params['theme_path']))
 			{
-				if (strncmp($filename, $this->fetch_params['theme_path'], strlen($this->fetch_params['theme_path'])) !== 0)
+				if (strncmp($filename, $this->fetch_params['theme_path'], strlen($this->fetch_params['theme_path'])) === 0)
 				{
 					$proceed = TRUE;
 				
-					$filename = str_replace($this->fetch_params['addon_path'], '', $filename);
+					$filename = str_replace($this->fetch_params['theme_path'], '', $filename);
 					
 					$path = PATH_THEMES.'third_party/';
 				}
@@ -394,13 +441,11 @@ class Github_addon_repo
 				return FALSE;
 			}
 
-			if ($this->fetch_mode === 'zip' || $this->fetch_mode === 'git')
+			if ( ! is_null($temp_dir))
 			{
-				$this->EE->session->set_flashdata('rename_fromm['.$i.']', $this->EE->github_addon_installer->temp_path().$temp_dir.'/'.$full_filename);
-				$this->EE->session->set_flashdata('rename_to['.$i.']', $path.$filename);
 				@rename($this->EE->github_addon_installer->temp_path().$temp_dir.'/'.$full_filename, $path.$filename);
 			}
-			else //$this->fetch_mode === 'files'
+			else //aka. $this->fetch_mode === 'files'
 			{
 				$sha = $i;//for clarity's sake; files mode files are indexed by sha
 				
@@ -411,6 +456,8 @@ class Github_addon_repo
 		//clean up the temp files, if any
 		switch($this->fetch_mode)
 		{
+			default:
+				break;
 			case 'zip':
 				@unlink($this->EE->github_addon_installer->temp_path().$this->sha.'.zip');
 			case 'git':
@@ -419,6 +466,18 @@ class Github_addon_repo
 		}
 	
 		return !! $this->errors;
+	}
+	
+	protected function process_files($files, $temp_dir = NULL)
+	{
+	}
+	
+	protected function rename($from, $to)
+	{
+		var_dump(func_get_args());
+		return;
+		
+		rename($from, $to);
 	}
 	
 	protected function parse_filename(&$path, &$filename)

@@ -75,6 +75,8 @@ class Github_addon_installer_mcp
 			);
 		}
 		
+		//@TODO
+		/*
 		$this->EE->load->library('javascript');
 		
 		$this->EE->javascript->output('
@@ -106,6 +108,7 @@ class Github_addon_installer_mcp
 				return false;
 			});
 		');
+		*/
 		
 		return $this->EE->table->generate();
 	}
@@ -126,7 +129,7 @@ class Github_addon_installer_mcp
 			
 			$this->EE->load->library('github_addon_installer');
 			
-			$repo = $this->EE->github_addon_installer->addon_repo($params);
+			$repo = $this->EE->github_addon_installer->repo($params);
 			
 			$success = ($repo->install()) ? sprintf(lang('successfully_installed'), $addon) : FALSE;
 			

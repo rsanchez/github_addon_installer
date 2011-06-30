@@ -131,12 +131,6 @@ $manifest = array(
 		'addon_path' => 'system/expressionengine/third_party/',
 	),
 	/* iainurquhart */
-	'taxonomy' => array(
-		'user' => 'iainurquhart',
-		'repo' => 'Taxonomy',
-		'addon_path' => 'system/expressionengine/third_party/',
-		'theme_path' => 'themes/third_party/',
-	),
 	'catshit' => array(
 		'user' => 'iainurquhart',
 		'repo' => 'catshit',
@@ -152,5 +146,30 @@ $manifest = array(
 		'user' => 'iainurquhart',
 		'repo' => 'iain_wymeditor',
 		'add_folder' => TRUE,
+	),
+	/* elivz */
+	'vz_address' => array(
+		'user' => 'elivz',
+		'repo' => 'vz_address.ee_addon',
+	),
+	'vz_bad_behavior' => array(
+		'user' => 'elivz',
+		'repo' => 'vz_bad_behavior.ee_addon',
+	),
+	'vz_exif' => array(
+		'user' => 'elivz',
+		'repo' => 'vz_exif.ee_addon',
+	),
+	'vz_members' => array(
+		'user' => 'elivz',
+		'repo' => 'vz_members',
+	),
+	'vz_upload' => array(
+		'user' => 'elivz',
+		'repo' => 'vz_upload',
+	),
+	'vz_url' => array(
+		'user' => 'elivz',
+		'repo' => 'vz_url',
 	),
 );
