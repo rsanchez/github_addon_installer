@@ -1,5 +1,6 @@
 # GitHub Addon Installer for ExpressionEngine #
 
+This is still a work in progress. Please see the [develop](https://github.com/rsanchez/github_addon_installer/tree/develop) branch if you want to play.
 
 
 ## Installation
