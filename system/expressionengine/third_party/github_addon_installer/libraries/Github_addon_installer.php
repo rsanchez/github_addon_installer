@@ -16,8 +16,6 @@ class Github_addon_installer
 		
 		$this->EE->load->helper('file');
 		
-		$this->EE->config->load('../third_party/github_addon_installer/config/config');
-		
 		$this->temp_path = ($this->EE->config->item('github_addon_installer_temp_path')) ? $this->EE->config->item('github_addon_installer_temp_path') : realpath(dirname(__FILE__).'/../temp/').'/';//PATH_THIRD.'github_addon_installer/temp/';
 	}
 	
@@ -363,7 +361,6 @@ class Github_addon_repo
 			{
 				$files = array_flip((array) $data->blobs);
 			}
-			
 		}
 		
 		if ( ! is_null($temp_dir) && $filenames = get_filenames($this->EE->github_addon_installer->temp_path().'/'.$temp_dir, TRUE))
@@ -406,6 +403,17 @@ class Github_addon_repo
 					$filename = str_replace($this->fetch_params['theme_path'], '', $filename);
 					
 					$path = PATH_THEMES.'third_party/';
+				}
+			}
+			
+			//@TODO think about this
+			if ( ! isset($this->fetch_params['addon_path']))
+			{
+				$proceed = TRUE;
+	
+				if (isset($this->fetch_params['add_folder']))
+				{
+					$filename = $this->fetch_params['add_folder'].'/'.$filename;
 				}
 			}
 			
@@ -466,18 +474,6 @@ class Github_addon_repo
 		}
 	
 		return !! $this->errors;
-	}
-	
-	protected function process_files($files, $temp_dir = NULL)
-	{
-	}
-	
-	protected function rename($from, $to)
-	{
-		var_dump(func_get_args());
-		return;
-		
-		rename($from, $to);
 	}
 	
 	protected function parse_filename(&$path, &$filename)

@@ -75,7 +75,7 @@ class Github_addon_installer_mcp
 			);
 		}
 		
-		//@TODO
+		//@TODO removed ajax for now
 		/*
 		$this->EE->load->library('javascript');
 		
