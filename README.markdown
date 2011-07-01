@@ -7,6 +7,7 @@ This is still a work in progress. Please see the [develop](https://github.com/rs
 
 * Copy the system/expressionengine/third_party/github_addon_installer/ folder to system/expressionengine/third_party/
 * Install the module
+* Make sure your system/expressionengine/third_party/ & github_addon_installer/temp/ directories are writable
 
 ## Requirements
 
