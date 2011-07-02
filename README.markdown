@@ -26,7 +26,8 @@ The list of eligible addons is stored in github_addon_installer/config/manifest.
 
 Manifest entry examples:
 
-If your repo directory structure is like…
+If your repo directory structure is like:
+
 	my_addon/
 
 	"my_addon":{
@@ -34,7 +35,8 @@ If your repo directory structure is like…
 		"repo":"reponame"
 	}
 
-If your repo directory structure is like…
+If your repo directory structure is like:
+
 	pi.my_addon.php
 
 	"my_addon":{
@@ -43,7 +45,8 @@ If your repo directory structure is like…
 		"add_folder":true
 	}
 
-If your repo directory structure is like…
+If your repo directory structure is like:
+
 	system/expressionengine/third_party/my_addon/
 
 	"my_addon":{
@@ -52,7 +55,8 @@ If your repo directory structure is like…
 		"addon_path":"system/expressionengine/third_party/"
 	}
 
-If your repo directory structure is like…
+If your repo directory structure is like:
+
 	ee2/third_party/my_addon/
 	themes/third_party/my_addon/
 
