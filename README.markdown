@@ -72,5 +72,5 @@ Manifest Entry:
 		"user":"username",
 		"repo":"reponame",
 		"addon_path":"ee2/third_party/",
-		"theme_path":"themes/third_party/",
+		"theme_path":"themes/third_party/"
 	}
