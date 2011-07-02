@@ -42,6 +42,8 @@ class Github_addon_installer_mcp
 		$this->base = BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=github_addon_installer';
 		
 		$this->manifest = json_decode(file_get_contents(PATH_THIRD.'github_addon_installer/config/manifest.js'), TRUE);
+		
+		ksort($this->manifest);
 	}
 	
 	public function index()
@@ -58,7 +60,7 @@ class Github_addon_installer_mcp
 			'row_alt_start' => '<tr class="odd">',
 		));
 		
-		$this->EE->table->set_heading(lang('addon'), lang('author'), lang('addon_status'));
+		$this->EE->table->set_heading(lang('addon'), lang('github_url'), lang('author'), lang('addon_status'));
 		
 		foreach ($this->manifest as $addon => $params)
 		{
@@ -66,8 +68,16 @@ class Github_addon_installer_mcp
 			$description = (isset($params['description'])) ? br().$params['description'] : '';
 			$status = (in_array($addon, $current_addons)) ? lang('addon_update') : lang('addon_install');
 			
+			$url = 'https://github.com/'.$params['user'].'/'.$params['repo'];
+			
+			if (isset($params['branch']))
+			{
+				$url .= '/tree/'.$params['branch'];
+			}
+			
 			$this->EE->table->add_row(
-				'<strong>'.anchor('https://github.com/'.$params['user'].'/'.$params['repo'], $name, 'rel="external"').'</strong>'.$description,
+				$name,//.$description,
+				anchor($url, $url, 'rel="external"'),
 				$params['user'],
 				anchor($this->base.AMP.'method=install'.AMP.'addon='.$addon, $status)
 			);
@@ -77,24 +87,28 @@ class Github_addon_installer_mcp
 		
 		$this->EE->javascript->output('
 			$("#mainContent .mainTable").tablesorter({
-				//headers: {1: {sorter: false}, 2: {sorter: false}},
+				headers: {1: {sorter: false}},
 				widgets: ["zebra"]
+			}).find("tr").each(function(){
+				$(this).children("td:first").css({"font-weight":"bold"});
 			});
-			$("#mainContent .mainTable a").click(function(){
+			$("#mainContent .mainTable tr td:nth-child(4) a").click(function(){
 				var a = $(this);
 				var td = $(this).parents("tr").children("td");
-				var orig = td.css("backgroundColor");
+				var originalColor = td.css("backgroundColor");
+				var originalText = a.text();
 				td.animate({backgroundColor:"#ddd"});
+				a.html("'.lang('addon_installing').'");
 				$.get(
 					$(this).attr("href"),
 					"",
 					function(data){
-						td.animate({backgroundColor:orig});
+						td.animate({backgroundColor:originalColor});
 						if (data.message_success) {
-							a.html("'.lang('addon_update').'");
-							$.ee_notice(data.message_success, {"type":"success"});
+							window.location.href = EE.BASE+"&C=addons&M=package_settings&package="+data.addon+"&return=addons_modules%2526M%253Dshow_module_cp%2526module%253Dgithub_addon_installer";
 						} else {
 							$.ee_notice(data.message_failure, {"type":"error"});
+							a.html(originalText);
 							//td.animate({backgroundColor:"red"});
 						}
 					},
@@ -122,6 +136,8 @@ class Github_addon_installer_mcp
 			$params = $this->manifest[$addon];
 			
 			$params['name'] = $addon;
+			
+			$this->EE->session->set_flashdata('addon', $addon);
 			
 			$this->EE->load->library('github_addon_installer');
 			

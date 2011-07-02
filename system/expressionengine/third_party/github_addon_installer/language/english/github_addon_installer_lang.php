@@ -20,7 +20,10 @@ $lang = array(
 	'addon' => 'Addon',
 	'addon_status' => 'Status',
 	'addon_install' => 'Install',
+	'addon_installing' => 'Installing...',
 	'addon_update' => 'Update',
+	'author' => 'Author',
+	'github_url' => 'GitHub URL',
 );
 
 /* End of file lang.github_addon_installer.php */
