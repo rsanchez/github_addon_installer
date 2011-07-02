@@ -35,6 +35,11 @@
 		"repo":"entry_type",
 		"add_folder":true
 	},
+	"github_addon_installer":{
+		"user":"rsanchez",
+		"repo":"github_addon_installer",
+		"addon_path":"system/expressionengine/third_party/"
+	},
 	"http_header":{
 		"user":"rsanchez",
 		"repo":"http_header",
