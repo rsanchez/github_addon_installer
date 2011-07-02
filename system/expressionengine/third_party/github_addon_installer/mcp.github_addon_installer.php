@@ -41,9 +41,7 @@ class Github_addon_installer_mcp
 		
 		$this->base = BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=github_addon_installer';
 		
-		include PATH_THIRD.'github_addon_installer/config/manifest.php';
-		
-		$this->manifest = $manifest;
+		$this->manifest = json_decode(file_get_contents(PATH_THIRD.'github_addon_installer/config/manifest.js'), TRUE);
 	}
 	
 	public function index()
@@ -75,11 +73,13 @@ class Github_addon_installer_mcp
 			);
 		}
 		
-		//@TODO removed ajax for now
-		/*
 		$this->EE->load->library('javascript');
 		
 		$this->EE->javascript->output('
+			$("#mainContent .mainTable").tablesorter({
+				//headers: {1: {sorter: false}, 2: {sorter: false}},
+				widgets: ["zebra"]
+			});
 			$("#mainContent .mainTable a").click(function(){
 				var a = $(this);
 				var td = $(this).parents("tr").children("td");
@@ -89,26 +89,20 @@ class Github_addon_installer_mcp
 					$(this).attr("href"),
 					"",
 					function(data){
-					console.log(data);
-					EE.saveData = data;
-						delete EE.flashdata.message_success;
-						delete EE.flashdata.message_failure;
 						td.animate({backgroundColor:orig});
 						if (data.message_success) {
 							a.html("'.lang('addon_update').'");
-							EE.flashdata.message_success = data.message_success;
+							$.ee_notice(data.message_success, {"type":"success"});
 						} else {
-							EE.flashdata.message_failure = data.message_failure;
+							$.ee_notice(data.message_failure, {"type":"error"});
 							//td.animate({backgroundColor:"red"});
 						}
-						EE.cp.display_notices();
 					},
 					"json"
 				);
 				return false;
 			});
 		');
-		*/
 		
 		return $this->EE->table->generate();
 	}
@@ -127,6 +121,8 @@ class Github_addon_installer_mcp
 		{
 			$params = $this->manifest[$addon];
 			
+			$params['name'] = $addon;
+			
 			$this->EE->load->library('github_addon_installer');
 			
 			$repo = $this->EE->github_addon_installer->repo($params);
@@ -135,7 +131,7 @@ class Github_addon_installer_mcp
 			
 			$this->EE->session->set_flashdata('message_success', $success);
 			
-			$this->EE->session->set_flashdata('message_failure', implode('<br>', $repo->errors()));
+			$this->EE->session->set_flashdata('message_failure', '<p>'.implode('</p><p>', $repo->errors()).'</p>');
 		}
 		
 		$this->EE->functions->redirect($this->base);

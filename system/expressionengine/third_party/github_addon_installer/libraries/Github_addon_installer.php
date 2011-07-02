@@ -120,45 +120,6 @@ class Github_addon_installer
 		return $this->temp_path;
 	}
 	
-	/**
-	 * Build user manifest
-	 * 
-	 * @param string $user  github username whose repos you wish to cull
-	 * @param bool $forks whether or not you wish to include forked (not original) projects
-	 * 
-	 * @return Type    Description
-	 */
-	public function build_user_manifest($user, $forks = FALSE)
-	{
-		$data = $this->api_fetch_json('repos', 'show', $user);
-		
-		$output = array();
-		
-		foreach ($data->repositories as $repo)
-		{
-			if ($forks === FALSE && $repo->fork)
-			{
-				continue;
-			}
-			
-			$output[$repo->name] = array(
-				'user' => $user,
-				'repo' => $repo->name,
-			);
-		}
-		
-		ksort($output);
-		
-		$output = var_export($output, TRUE);
-		
-		//this is just how I likes my arrays formatted, thank you very much
-		$output = preg_replace('/=>[\s\r\n]+/', '=> ', $output);
-		
-		$output = str_replace(array('array (', '  '), array('array(', "\t"), $output);
-		
-		return $output;
-	}
-	
 	protected function curl($url)
 	{
 		$ch = curl_init($url);
@@ -227,6 +188,15 @@ class Github_addon_repo
 	 * @var array fetch options
 	 */
 	protected $fetch_params;
+	
+	/**
+	 * @var array ignore files
+	 */
+	protected $ignore = array(
+		'readme',
+		'docs',
+		'.gitignore',
+	);
 	
 	/**
 	 * GitHub default repo properties
@@ -307,6 +277,8 @@ class Github_addon_repo
 	
 	public function install()
 	{
+		$this->errors = array();
+		
 		if ( ! is_really_writable(PATH_THIRD))
 		{
 			$this->add_error(lang('path_third_not_writable'));
@@ -389,7 +361,7 @@ class Github_addon_repo
 		
 					if (isset($this->fetch_params['add_folder']))
 					{
-						$filename = $this->fetch_params['add_folder'].'/'.$filename;
+						$filename = (is_bool($this->fetch_params['add_folder'])) ? $this->fetch_params['name'].'/'.$filename : $this->fetch_params['add_folder'].'/'.$filename;
 					}
 				}
 			}
@@ -409,11 +381,25 @@ class Github_addon_repo
 			//@TODO think about this
 			if ( ! isset($this->fetch_params['addon_path']))
 			{
-				$proceed = TRUE;
-	
-				if (isset($this->fetch_params['add_folder']))
+				$_proceed = TRUE;
+				
+				foreach ($this->ignore as $ignore)
 				{
-					$filename = $this->fetch_params['add_folder'].'/'.$filename;
+					if (strncasecmp($filename, $ignore, strlen($ignore)) === 0)
+					{
+						$_proceed = FALSE;
+						break;
+					}
+				}
+				
+				if ($_proceed)
+				{
+					$proceed = TRUE;
+					
+					if (isset($this->fetch_params['add_folder']))
+					{
+						$filename = (is_bool($this->fetch_params['add_folder'])) ? $this->fetch_params['name'].'/'.$filename : $this->fetch_params['add_folder'].'/'.$filename;
+					}
 				}
 			}
 			
@@ -473,7 +459,7 @@ class Github_addon_repo
 				@rmdir($this->EE->github_addon_installer->temp_path().$temp_dir);
 		}
 	
-		return !! $this->errors;
+		return ! $this->errors;
 	}
 	
 	protected function parse_filename(&$path, &$filename)
