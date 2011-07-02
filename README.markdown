@@ -30,6 +30,8 @@ If your repo directory structure is like:
 
 	my_addon/
 
+Manifest Entry:
+
 	"my_addon":{
 		"user":"username",
 		"repo":"reponame"
@@ -38,6 +40,8 @@ If your repo directory structure is like:
 If your repo directory structure is like:
 
 	pi.my_addon.php
+
+Manifest Entry:
 
 	"my_addon":{
 		"user":"username",
@@ -49,6 +53,8 @@ If your repo directory structure is like:
 
 	system/expressionengine/third_party/my_addon/
 
+Manifest Entry:
+
 	"my_addon":{
 		"user":"username",
 		"repo":"reponame",
@@ -59,6 +65,8 @@ If your repo directory structure is like:
 
 	ee2/third_party/my_addon/
 	themes/third_party/my_addon/
+
+Manifest Entry:
 
 	"my_addon":{
 		"user":"username",
