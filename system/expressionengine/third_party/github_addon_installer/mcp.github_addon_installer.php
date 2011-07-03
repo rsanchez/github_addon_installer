@@ -105,7 +105,9 @@ class Github_addon_installer_mcp
 					function(data){
 						td.animate({backgroundColor:originalColor});
 						if (data.message_success) {
-							window.location.href = EE.BASE+"&C=addons&M=package_settings&package="+data.addon+"&return=addons_modules%2526M%253Dshow_module_cp%2526module%253Dgithub_addon_installer";
+							window.location.href = data.redirect;
+							//window.location.href = EE.BASE+"&C=addons&M=package_settings&package="+data.addon+"&return=addons_modules%2526M%253Dshow_module_cp%2526module%253Dgithub_addon_installer";
+							//window.location.href = EE.BASE+"&C=addons_modules&M=show_module_cp&module=github_addon_installer&method=redirect&addon="+data.addon;
 						} else {
 							$.ee_notice(data.message_failure, {"type":"error"});
 							a.html(originalText);
@@ -148,6 +150,30 @@ class Github_addon_installer_mcp
 			$this->EE->session->set_flashdata('message_success', $success);
 			
 			$this->EE->session->set_flashdata('message_failure', '<p>'.implode('</p><p>', $repo->errors()).'</p>');
+			
+			$this->EE->load->library('addons');
+			
+			$this->EE->session->set_flashdata('redirect', str_replace('&amp;', '&', $this->base).'&installed='.$addon);
+			
+			if ($this->EE->addons->is_package($addon))
+			{
+				$components = $this->EE->addons->_packages[$addon];
+				
+				$plugin_only = TRUE;
+				
+				foreach ($components as $type => $data)
+				{
+					if ($type !== 'plugin')
+					{
+						$plugin_only = FALSE;
+					}
+				}
+				
+				if ( ! $plugin_only)
+				{
+					$this->EE->session->set_flashdata('redirect', BASE.'&C=addons&M=package_settings&package='.$addon.'&return=addons_modules%26M%3Dshow_module_cp%26module%3Dgithub_addon_installer');
+				}
+			}
 		}
 		
 		$this->EE->functions->redirect($this->base);
