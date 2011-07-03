@@ -52,15 +52,8 @@ class Github_addon_installer_mcp
 		
 		$current_addons = scandir(PATH_THIRD);
 		
-		$this->EE->load->library('table');
-		
-		$this->EE->table->set_template(array (
-			'table_open' => '<table class="mainTable" border="0" cellspacing="0" cellpadding="0">',
-			'row_start' => '<tr class="even">',
-			'row_alt_start' => '<tr class="odd">',
-		));
-		
-		$this->EE->table->set_heading(lang('addon'), lang('github_url'), lang('author'), lang('addon_status'));
+		$vars = array();
+		$vars['addons'] = array();
 		
 		foreach ($this->manifest as $addon => $params)
 		{
@@ -75,11 +68,11 @@ class Github_addon_installer_mcp
 				$url .= '/tree/'.$params['branch'];
 			}
 			
-			$this->EE->table->add_row(
-				$name,//.$description,
-				anchor($url, $url, 'rel="external"'),
-				$params['user'],
-				anchor($this->base.AMP.'method=install'.AMP.'addon='.$addon, $status)
+			$vars['addons'][] = array(
+				'name' => $name,//.$description,
+				'github_url' => anchor($url, $url, 'rel="external"'),
+				'author' => $params['user'],
+				'status' => anchor($this->base.AMP.'method=install'.AMP.'addon='.$addon, $status)
 			);
 		}
 		
@@ -89,28 +82,28 @@ class Github_addon_installer_mcp
 			$("#mainContent .mainTable").tablesorter({
 				headers: {1: {sorter: false}},
 				widgets: ["zebra"]
-			}).find("tr").each(function(){
-				$(this).children("td:first").css({"font-weight":"bold"});
 			});
 			$("#mainContent .mainTable tr td:nth-child(4) a").click(function(){
 				var a = $(this);
 				var td = $(this).parents("tr").children("td");
 				var originalColor = td.css("backgroundColor");
 				var originalText = a.text();
-				td.animate({backgroundColor:"#ddd"});
+				td.animate({backgroundColor:"#d0d0d0"});
 				a.html("'.lang('addon_installing').'");
 				$.get(
 					$(this).attr("href"),
 					"",
 					function(data){
 						td.animate({backgroundColor:originalColor});
+						a.html(originalText);
 						if (data.message_success) {
-							window.location.href = data.redirect;
-							//window.location.href = EE.BASE+"&C=addons&M=package_settings&package="+data.addon+"&return=addons_modules%2526M%253Dshow_module_cp%2526module%253Dgithub_addon_installer";
-							//window.location.href = EE.BASE+"&C=addons_modules&M=show_module_cp&module=github_addon_installer&method=redirect&addon="+data.addon;
+							if (data.redirect) {
+								window.location.href = data.redirect;
+								return;
+							}
+							$.ee_notice(data.message_success, {"type":"success"});
 						} else {
 							$.ee_notice(data.message_failure, {"type":"error"});
-							a.html(originalText);
 							//td.animate({backgroundColor:"red"});
 						}
 					},
@@ -118,9 +111,50 @@ class Github_addon_installer_mcp
 				);
 				return false;
 			});
+			$("#addonFilter").change(function(){
+				var filter = $(this).val();
+				$("#addonKeyword").hide();
+				$("table#addons tbody tr").show();
+				if (filter == "") {
+					$("table#addons tbody tr").show();
+				} else if (filter == "keyword") {
+					$("#addonKeyword").val("").show().focus();
+				} else {
+					$("td."+$(this.options[this.selectedIndex]).parents("optgroup").data("filter")).each(function(){
+						if ($(this).text() != filter) {
+							$(this).parents("tr").hide();
+						}
+					});
+				}
+			});
+			$("#addonFilter optgroup").each(function(index, element){
+				var values = [];
+				$("td."+$(this).data("filter")).each(function(){
+					if ($.inArray($(this).text(), values) == -1) {
+						values.push($(this).text());
+					}
+				});
+				values.sort();
+				$.each(values, function(i, value){
+					$(element).append($("<option>", {value: value, text: value}));
+				});
+			});
+			$("#addonKeyword").keyup(function(){
+				$("table#addons tbody tr").show();
+				if ( ! $(this).val()) {
+					return true;
+				}
+				$("table#addons tbody tr td.addon_name").each(function(){
+					if ( ! $(this).text().match(new RegExp($("#addonKeyword").val(), "gi"))) {
+						$(this).parents("tr").hide();
+					}
+				});	
+			}).trigger("focus");
 		');
 		
-		return $this->EE->table->generate();
+		$this->EE->load->helper('array');
+		
+		return $this->EE->load->view('index', $vars, TRUE);
 	}
 	
 	public function install()
@@ -151,10 +185,20 @@ class Github_addon_installer_mcp
 			
 			$this->EE->session->set_flashdata('message_failure', '<p>'.implode('</p><p>', $repo->errors()).'</p>');
 			
+			//reset the addons lib if already loaded, so it knows about our new install
+			unset($this->EE->addons);
+			
 			$this->EE->load->library('addons');
 			
-			$this->EE->session->set_flashdata('redirect', str_replace('&amp;', '&', $this->base).'&installed='.$addon);
+			if ( ! isset($this->EE->addons))
+			{
+				$this->EE->addons = new EE_Addons;
+			}
 			
+			$redirect = FALSE;//str_replace('&amp;', '&', $this->base).'&installed='.$addon;
+			
+			//we're checking to see if this addon is more than just a plugin
+			//if so, we'll redirect to the package installer page
 			if ($this->EE->addons->is_package($addon))
 			{
 				$components = $this->EE->addons->_packages[$addon];
@@ -171,12 +215,16 @@ class Github_addon_installer_mcp
 				
 				if ( ! $plugin_only)
 				{
-					$this->EE->session->set_flashdata('redirect', BASE.'&C=addons&M=package_settings&package='.$addon.'&return=addons_modules%26M%3Dshow_module_cp%26module%3Dgithub_addon_installer');
+					//go to the package installer
+					//a double-url encoded return param
+					$redirect = str_replace('&amp;', '&', BASE).'&C=addons&M=package_settings&package='.$addon.'&return=addons_modules%2526M%253Dshow_module_cp%2526module%253Dgithub_addon_installer';
 				}
 			}
+			
+			$this->EE->session->set_flashdata('redirect', $redirect);
 		}
 		
-		$this->EE->functions->redirect($this->base);
+		$this->EE->functions->redirect(empty($redirect) ? $this->base : $redirect);
 	}
 }
 /* End of file mcp.github_addon_installer.php */

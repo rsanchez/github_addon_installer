@@ -17,13 +17,19 @@ $lang = array(
 	'cant_write_file' => 'The installer could not write the file %s.',
 	'successfully_installed' => 'Successfully installed %s.',
 	'invalid_addon' => 'No definition found for %s.',
-	'addon' => 'Addon',
+	'addon_name' => 'Addon',
 	'addon_status' => 'Status',
 	'addon_install' => 'Install',
 	'addon_installing' => 'Installing...',
 	'addon_update' => 'Update',
-	'author' => 'Author',
-	'github_url' => 'GitHub URL',
+	'addon_author' => 'Author',
+	'addon_github_url' => 'GitHub URL',
+	'filter_by_status' => 'Filter By Status',
+	'filter_by_author' => 'Filter By Author',
+	'keyword' => 'Keyword',
+	'filter_by_keyword' => 'Filter By Keyword',
+	'filter' => 'Filter',
+	'no_filter' => 'No Filter',
 );
 
 /* End of file lang.github_addon_installer.php */
