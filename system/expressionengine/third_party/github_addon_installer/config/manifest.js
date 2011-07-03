@@ -363,5 +363,9 @@
 		"user":"lodewijk",
 		"repo":"low_freeform_field",
 		"addon_path":"ee2/"
-	}
+	},
+    "steak_sauce":{
+        "user":"curtisblackwell",
+        "repo":"cpb_steak_sauce"
+    }
 }
