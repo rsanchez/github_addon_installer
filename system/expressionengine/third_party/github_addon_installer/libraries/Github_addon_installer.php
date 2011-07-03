@@ -196,6 +196,7 @@ class Github_addon_repo
 		'readme',
 		'docs',
 		'.gitignore',
+		'changelog',
 	);
 	
 	/**
