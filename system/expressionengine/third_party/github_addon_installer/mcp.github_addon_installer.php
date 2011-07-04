@@ -145,7 +145,8 @@ class Github_addon_installer_mcp
 					return true;
 				}
 				$("table#addons tbody tr td.addon_name").each(function(){
-					if ( ! $(this).text().match(new RegExp($("#addonKeyword").val(), "gi"))) {
+					var regex = new RegExp($("#addonKeyword").val(), "gi");
+					if ( ! $(this).text().match(regex) && ! $(this).siblings("td.addon_author").text().match(regex)) {
 						$(this).parents("tr").hide();
 					}
 				});	
