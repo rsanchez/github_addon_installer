@@ -763,5 +763,47 @@
       "user": "newism",
       "repo": "nsm.web_profiler.ee_addon",
       "add_folder": true
+   },
+   "antenna": {
+      "user": "vector",
+      "repo": "Antenna",
+      "addon_path": "ee2/"
+   },
+   "template_variables": {
+      "user": "sherpawebstudios",
+      "repo": "acc.template_variables.ee2_addon",
+      "addon_path": "third_party/",
+      "theme_path": "themes/third_party/"
+   },
+   "splash": {
+      "user": "sherpawebstudios",
+      "repo": "pi.splash.ee2_addon",
+      "addon_path": "third_party/"
+   },
+   "eehive_entrylottoree": {
+      "user": "ee-hive",
+      "repo": "Entry-Lottoree-for-ExpressionEngine",
+      "addon_path": "system/third_party/"
+   },
+   "eehive_flickr": {
+      "user": "ee-hive",
+      "repo": "Flickr-for-ExpressionEngine",
+      "addon_path": "system/expressionengine/third_party/",
+      "theme_path": "themes/third_party/"
+   },
+   "eehive_gooee": {
+      "user": "ee-hive",
+      "repo": "Gooee-for-ExpressionEngine",
+      "addon_path": "system/third_party/"
+   },
+   "eehive_hacksaw": {
+      "user": "ee-hive",
+      "repo": "Hacksaw-for-ExpressionEngine",
+      "addon_path": "system/third_party/"
+   },
+   "eehive_inflector": {
+      "user": "ee-hive",
+      "repo": "Inflector-for-ExpressionEngine",
+      "addon_path": "system/third_party/"
    }
 }
