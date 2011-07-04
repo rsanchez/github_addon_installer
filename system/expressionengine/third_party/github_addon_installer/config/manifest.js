@@ -474,7 +474,7 @@
       "addon_path": "third_party/"
    },
    "stash": {
-      "user": "crouton",
+      "user": "croxton",
       "repo": "stash",
       "addon_path": "third_party/"
    },
@@ -680,5 +680,88 @@
       "user": "shapeshed",
       "repo": "human_filesize.ee_addon",
       "addon_path": "system/expressionengine/third_party/"
+   },
+   "nsm_addon_updater": {
+      "user": "newism",
+      "repo": "nsm.addon_updater.ee_addon",
+      "add_folder": true
+   },
+   "nsm_body_class": {
+      "user": "newism",
+      "repo": "nsm.body_class.ee_addon",
+      "add_folder": true
+   },
+   "nsm_entry_select": {
+      "user": "newism",
+      "repo": "nsm.entry_select.ee_addon",
+      "add_folder": true
+   },
+   "nsm_file": {
+      "user": "newism",
+      "repo": "nsm.file.ee_addon",
+      "add_folder": true,
+      "theme_path": "themes/third_party/"
+   },
+   "nsm_if_addon_installed": {
+      "user": "newism",
+      "repo": "nsm.if_addon_installed.ee_addon",
+      "addon_path": "system/thirdparty/"
+   },
+   "nsm_member_form_customiser": {
+      "user": "newism",
+      "repo": "nsm.member_form_customiser.ee_addon",
+      "add_folder": true
+   },
+   "nsm_member_select": {
+      "user": "newism",
+      "repo": "nsm.member_select.ee_addon",
+      "add_folder": true
+   },
+   "nsm_minify": {
+      "user": "newism",
+      "repo": "nsm.minify.ee_addon",
+      "add_folder": true
+   },
+   "nsm_morphine_theme": {
+      "user": "newism",
+      "repo": "nsm.morphine.ee_theme_addon",
+      "add_folder": true,
+      "theme_path": "themes/third_party/"
+   },
+   "nsm_multi_language": {
+      "user": "newism",
+      "repo": "nsm.multi_language.ee_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "nsm_pp_workflow": {
+      "user": "newism",
+      "repo": "nsm.pp_workflow.ee_addon",
+      "add_folder": true
+   },
+   "nsm_publish_hints": {
+      "user": "newism",
+      "repo": "nsm.publish_hints.ee_addon",
+      "add_folder": true,
+      "theme_path": "themes/third_party/"
+   },
+   "nsm_sc_utils": {
+      "user": "newism",
+      "repo": "nsm.sc_utils.ee_addon",
+      "add_folder": true
+   },
+   "nsm_short_url": {
+      "user": "newism",
+      "repo": "nsm.short_url.ee_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "nsm_tiny_mce": {
+      "user": "newism",
+      "repo": "nsm.tiny_mce.ee_addon",
+      "add_folder": true
+   },
+   "nsm_web_profiler": {
+      "user": "newism",
+      "repo": "nsm.web_profiler.ee_addon",
+      "add_folder": true
    }
 }

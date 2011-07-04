@@ -381,7 +381,7 @@ class Github_addon_repo
 			}
 			
 			//@TODO think about this
-			if ( ! isset($this->fetch_params['addon_path']))
+			if ( ! isset($this->fetch_params['addon_path']) && $proceed === FALSE)
 			{
 				$_proceed = TRUE;
 				
