@@ -457,5 +457,228 @@
    "timetravel": {
       "user": "AboutWout",
       "repo": "timetravel.ee2_addon"
+   },
+   "ifelse": {
+      "user": "croxton",
+      "repo": "ifelse",
+      "add_folder": true
+   },
+   "multiplaya": {
+      "user": "croxton",
+      "repo": "multiplaya",
+      "add_folder": true
+   },
+   "search_fields": {
+      "user": "croxton",
+      "repo": "search_fields",
+      "addon_path": "third_party/"
+   },
+   "stash": {
+      "user": "crouton",
+      "repo": "stash",
+      "addon_path": "third_party/"
+   },
+   "cat2": {
+      "user": "croxton",
+      "repo": "cat2",
+      "add_folder": true
+   },
+   "dm_eeck_cat": {
+      "user": "croxton",
+      "repo": "dm_eeck_cat",
+      "addon_path": "third_party/"
+   },
+   "get_parameters": {
+      "user": "croxton",
+      "repo": "get_parameters",
+      "add_folder": true
+   },
+   "structure_channel": {
+      "user": "croxton",
+      "repo": "Structure-Channel",
+      "addon_path": "third_party/"
+   },
+   "switchee": {
+      "user": "croxton",
+      "repo": "Switchee",
+      "add_folder": true
+   },
+   "ci_helpers": {
+      "user": "erikreagan",
+      "repo": "ci_helpers.ee_addon"
+   },
+   "cp_pad_lock": {
+      "user": "erikreagan",
+      "repo": "er.cp_pad_lock.ee_addon"
+   },
+   "er_tweet_me": {
+      "user": "erikreagan",
+      "repo": "er.tweet_me.ee_addon"
+   },
+   "youversion": {
+      "user": "erikreagan",
+      "repo": "er.youversion.ee_addon"
+   },
+   "current": {
+      "user": "green-egg-media",
+      "repo": "Current"
+   },
+   "github": {
+      "user": "green-egg-media",
+      "repo": "EE-GitHub"
+   },
+   "simple_list": {
+      "user": "green-egg-media",
+      "repo": "Simple-List-Fieldtype-for-EE2",
+      "add_folder": true
+   },
+   "gem_parenturl": {
+      "user": "green-egg-media",
+      "repo": "Structure-Parent-URL-for-EE2",
+      "add_folder": true
+   },
+   "traileraddict": {
+      "user": "green-egg-media",
+      "repo": "TrailerAddict-EE2-API-Wrapper",
+      "add_folder": true
+   },
+   "cp_analytics": {
+      "user": "amphibian",
+      "repo": "cp_analytics.ee_addon",
+      "addon_path": "system/expressionengine/third_party/",
+      "theme_path": "themes/third_party/"
+   },
+   "deviant": {
+      "user": "amphibian",
+      "repo": "deviant.ee_addon",
+      "addon_path": "ee2/"
+   },
+   "eevent_helper": {
+      "user": "amphibian",
+      "repo": "eevent_helper.ee2_addon",
+      "addon_path": "third_party/"
+   },
+   "classee_body": {
+      "user": "amphibian",
+      "repo": "pi.classee_body.ee2_addon",
+      "addon_path": "third_party/"
+   },
+   "name_wrangler": {
+      "user": "amphibian",
+      "repo": "pi.name_wrangler.ee2_addon",
+      "addon_path": "third-party/"
+   },
+   "reegion_select": {
+      "user": "amphibian",
+      "repo": "reegion_select.ee2_addon",
+      "addon_path": "third_party/"
+   },
+   "spamfreeform": {
+      "user": "amphibian",
+      "repo": "spamfreeform.ee_addon",
+      "addon_path": "ee2/"
+   },
+   "tag_sync": {
+      "user": "amphibian",
+      "repo": "tag_sync.ee2_addon",
+      "addon_path": "third_party/"
+   },
+   "tally": {
+      "user": "amphibian",
+      "repo": "tally.ee_addon",
+      "addon_path": "ee2/third_party/"
+   },
+   "time_select": {
+      "user": "amphibian",
+      "repo": "time_select.ee2_addon",
+      "addon_path": "third_party/"
+   },
+   "detour": {
+      "user": "cityzen",
+      "repo": "Detour",
+      "add_folder": true
+   },
+   "draggable": {
+      "user": "kevinthompson",
+      "repo": "ee.draggable.ext",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "facelift": {
+      "user": "kevinthompson",
+      "repo": "ee.facelift.php",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "ed_imageresizer": {
+      "user": "erskinedesign",
+      "repo": "ed.imageresizer.ee2_addon",
+      "add_folder": true
+   },
+   "ed_language_switcher": {
+      "user": "erskinedesign",
+      "repo": "ed.language_switcher.ee_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "ed_lastfm": {
+      "user": "erskinedesign",
+      "repo": "ed.lastfm.ee2_addon"
+   },
+   "ed_pagination": {
+      "user": "erskinedesign",
+      "repo": "ed.pagination.ee_addon",
+      "add_folder": true
+   },
+   "deployment_hooks": {
+      "user": "focuslabllc",
+      "repo": "deployment_hooks.ee2_addon"
+   },
+   "tweet_button": {
+      "user": "focuslabllc",
+      "repo": "tweet_button.ee_addon"
+   },
+   "ndg_masked_input": {
+      "user": "NicoDG",
+      "repo": "NDG_masked_input.ee_fieldtype",
+      "addon_path": "system/expressionengine/third_party/",
+      "theme_path": "themes/third_party/"
+   },
+   "ndg_sidebarstructure": {
+      "user": "NicoDG",
+      "repo": "ndg_sidebarstructure.ee2_addon",
+      "add_folder": true
+   },
+   "firelogger": {
+      "user": "timkelty",
+      "repo": "firelogger.ee_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "wygwam_html5_video": {
+      "user": "timkelty",
+      "repo": "wygwam_html5_video",
+      "addon_path": "system/expressionengine/third_party/",
+      "theme_path": "themes/third_party/"
+   },
+   "shrimp": {
+      "user": "dan",
+      "repo": "hivelogic-ee-shrimp"
+   },
+   "copyright": {
+      "user": "shapeshed",
+      "repo": "copyright.ee_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "file_oracle": {
+      "user": "shapeshed",
+      "repo": "file_oracle.ee_addon",
+      "addon_path": "ee2/third_party/"
+   },
+   "friendly_404": {
+      "user": "shapeshed",
+      "repo": "friendly_404.ee_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "human_filesize": {
+      "user": "shapeshed",
+      "repo": "human_filesize.ee_addon",
+      "addon_path": "system/expressionengine/third_party/"
    }
 }

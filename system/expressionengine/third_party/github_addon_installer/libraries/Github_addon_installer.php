@@ -197,6 +197,7 @@ class Github_addon_repo
 		'docs',
 		'.gitignore',
 		'changelog',
+		'license',
 	);
 	
 	/**
