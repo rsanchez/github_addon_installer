@@ -1078,5 +1078,21 @@
       "repo": "ih.textile_editor.ee2_addon",
       "addon_path": "system/expressionengine/third_party/",
       "theme_path": "themes/third_party/"
+   },
+   "jb_breadcrumb": {
+      "user": "joelbradbury",
+      "repo": "jb.breadcrumb.ee_addon",
+      "addon_path": "ee2/"
+   },
+   "jb_friendly": {
+      "user": "joelbradbury",
+      "repo": "jb.friendly.ee_addon",
+      "addon_path": "ee2/"
+   },
+   "jb_graphite": {
+      "user": "joelbradbury",
+      "repo": "jb.graphite.ee_addon",
+      "addon_path": "ee2/third_party/",
+      "theme_path": "ee2/themes/third_party/"
    }
 }
