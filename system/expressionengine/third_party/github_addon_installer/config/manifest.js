@@ -805,5 +805,194 @@
       "user": "ee-hive",
       "repo": "Inflector-for-ExpressionEngine",
       "addon_path": "system/third_party/"
+   },
+   "sc_edit_menu": {
+      "user": "agun",
+      "repo": "SC-Edit-Menu",
+      "addon_path": "third_party/"
+   },
+   "sc_publish_redirect": {
+      "user": "agun",
+      "repo": "SC-Publish-Redirect",
+      "addon_path": "third_party/"
+   },
+   "cp_menu_master": {
+      "user": "crescendo",
+      "repo": "cp_menu_master",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "easy_ical": {
+      "user": "crescendo",
+      "repo": "easy_ical",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "ress": {
+      "user": "crescendo",
+      "repo": "express",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "reelocate": {
+      "user": "crescendo",
+      "repo": "reelocate",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "twitter_search": {
+      "user": "crescendo",
+      "repo": "twitter_search",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "nce_ldap": {
+      "user": "designbyfront",
+      "repo": "LDAP-Authentication-for-ExpressionEngine",
+      "addon_path": "EE2/core/expressionengine/third_party/"
+   },
+   "gmap": {
+      "user": "objectivehtml",
+      "repo": "Google-Map-for-ExpressionEngine",
+      "addon_path": "third_party/"
+   },
+   "first_timer": {
+      "user": "ryanirelan",
+      "repo": "ri.first_timer.ee_addon.2.0"
+   },
+   "yearlist": {
+      "user": "ryanirelan",
+      "repo": "ri.yearlist.ee_addon.2.0",
+      "add_folder": true
+   },
+   "cookie": {
+      "user": "philipzaengle",
+      "repo": "cookie.ee2_addon"
+   },
+   "gravatar": {
+      "user": "philipzaengle",
+      "repo": "gravatar.ee_addon",
+      "addon_path": "2.x/thirdparty/"
+   },
+   "is_iphone": {
+      "user": "philipzaengle",
+      "repo": "is_iphone.ee2_addon"
+   },
+   "urlify": {
+      "user": "philipzaengle",
+      "repo": "urlify.ee_addon"
+   },
+   "moso_preview": {
+      "user": "ckimrie",
+      "repo": "acc.channel_entry_preview.ee_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "cki_mblist": {
+      "user": "ckimrie",
+      "repo": "cki.member_list.ee_addon"
+   },
+   "simplegithub": {
+      "user": "ckimrie",
+      "repo": "cki.simple_github.ee_addon",
+      "add_folder": true
+   },
+   "cki_sitelist": {
+      "user": "ckimrie",
+      "repo": "ft.cki_sitelist.ee_addon"
+   },
+   "content_builder": {
+      "user": "ckimrie",
+      "repo": "ft.content-builder.ee_addon",
+      "addon_path": "system/expressionengine/third_party",
+      "theme_path": "themes/third_party/"
+   },
+   "mosogeocoder": {
+      "user": "moresoda",
+      "repo": "ft.geocoder.ee_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "mosomatrixrelations": {
+      "user": "moresoda",
+      "repo": "ft.matrix_relations.ee_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "beanstalk_ping": {
+      "user": "moresoda",
+      "repo": "mod.beanstalk-deployment-hook.ee_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "moreutilities": {
+      "user": "moresoda",
+      "repo": "moreUtilities",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "disqust": {
+      "user": "aaronmcadam",
+      "repo": "EE-Disqust",
+      "add_folder": true
+   },
+   "currentlee": {
+      "user": "adamwiggall",
+      "repo": "Currentlee"
+   },
+   "fieldbuilder": {
+      "user": "adamwiggall",
+      "repo": "fieldbuilder",
+      "add_folder": true
+   },
+   "taf_freeform_templates": {
+      "user": "adamwiggall",
+      "repo": "Freeform-Templates-Fieldtype"
+   },
+   "cptabs": {
+      "user": "davist11",
+      "repo": "EE-Default-CP-Tabs"
+   },
+   "scroll_to_comment": {
+      "user": "davist11",
+      "repo": "EE-Scroll-To-Comment",
+      "addon_path": "third_party/"
+   },
+   "heelp": {
+      "user": "davist11",
+      "repo": "heelp",
+      "addon_path": "third_party/"
+   },
+   "honeepot": {
+      "user": "davist11",
+      "repo": "Hon-ee-Pot-Captcha",
+      "addon_path": "third_party/"
+   },
+   "css_browser_selector": {
+      "user": "ronnyandre",
+      "repo": "EE-CSS-Browser-Selector",
+      "add_folder": true
+   },
+   "mapster": {
+      "user": "ronnyandre",
+      "repo": "Mapster",
+      "add_folder": true
+   },
+   "microsite_helper": {
+      "user": "ninefour",
+      "repo": "microsite_helper.ext.ee_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "dry_accessible_captcha": {
+      "user": "dry",
+      "repo": "accessible-captcha.ee2_addon"
+   },
+   "dry_stash": {
+      "user": "dry",
+      "repo": "stash.ee2_addon"
+   },
+   "dry_textile": {
+      "user": "dry",
+      "repo": "textile.ee2_addon"
+   },
+   "disqus": {
+      "user": "marcato15",
+      "repo": "Disqus",
+      "add_folder": true
+   },
+   "smugmug": {
+      "user": "marcato15",
+      "repo": "Smugmug",
+      "add_folder": true
    }
 }
