@@ -994,5 +994,89 @@
       "user": "marcato15",
       "repo": "Smugmug",
       "add_folder": true
+   },
+   "github_download": {
+      "user": "ericbarnes",
+      "repo": "github_download.ee_addon"
+   },
+   "download_file": {
+      "user": "bliswebagency",
+      "repo": "Download-File",
+      "add_folder": true
+   },
+   "num2roman": {
+      "user": "GDmac",
+      "repo": "num2roman"
+   },
+   "reevision": {
+      "user": "GDmac",
+      "repo": "Reevision.ee_addon",
+      "add_folder": true
+   },
+   "anonymous_member": {
+      "user": "litzinger",
+      "repo": "Anonymous-Member",
+      "add_folder": true
+   },
+   "disposition": {
+      "user": "litzinger",
+      "repo": "Disposition",
+      "add_folder": true
+   },
+   "structure_navigation_title": {
+      "user": "litzinger",
+      "repo": "Structure-Navigation-Title",
+      "add_folder": true
+   },
+   "template_snippet_select": {
+      "user": "litzinger",
+      "repo": "Template---Snippet-Select",
+      "add_folder": true
+   },
+   "vwm_polls": {
+      "user": "vmichnowicz",
+      "repo": "vwm_polls",
+      "addon_path": "system/expressionengine/third_party/",
+      "theme_path": "themes/third_party/"
+   },
+   "vwm_secure_files": {
+      "user": "vmichnowicz",
+      "repo": "vwm_secure_files",
+      "add_folder": true
+   },
+   "wb_category_select": {
+      "user": "wesbaker",
+      "repo": "wb.category_select.ee2_addon",
+      "addon_path": "third_party/"
+   },
+   "wb_explode": {
+      "user": "wesbaker",
+      "repo": "wb.explode.ee2_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "wb_relative_date": {
+      "user": "wesbaker",
+      "repo": "wb.relative_date.ee2_addon"
+   },
+   "wb_tag_select": {
+      "user": "wesbaker",
+      "repo": "wb.tag_select.ee2_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "wb_tag_suggest": {
+      "user": "wesbaker",
+      "repo": "wb.tag_suggest.ee2_addon",
+      "addon_path": "system/expressionengine/third_party/",
+      "theme_path": "themes/third_party/"
+   },
+   "wb_vimeo_player": {
+      "user": "wesbaker",
+      "repo": "wb.vimeo_player.ee2_addon"
+   },
+   "ih_textile_editor": {
+      "user": "imagehat",
+      "repo": "ih.textile_editor.ee2_addon",
+      "addon_path": "system/expressionengine/third_party/",
+      "theme_path": "themes/third_party/"
    }
 }
