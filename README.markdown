@@ -1,6 +1,6 @@
 # GitHub Addon Installer for ExpressionEngine #
 
-
+![GitHub Addon Installer Screenshot](http://f.cl.ly/items/0b1z031o2l3g2X221E1Z/Screen%20shot%202011-07-04%20at%2012.09.38%20PM.png)
 
 ## Installation
 
