@@ -368,6 +368,10 @@
       "user": "curtisblackwell",
       "repo": "cpb_steak_sauce"
    },
+   "garnish": {
+      "user": "curtisblackwell",
+      "repo": "cpb_garnish"
+   },
    "bitly": {
       "user": "bjornbjorn",
       "repo": "Bitly-for-EE"
