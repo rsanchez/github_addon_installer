@@ -24,6 +24,9 @@
  * @link		http://github.com/rsanchez
  */
 
+/**
+ * @property CI_Controller $EE
+ */
 class Github_addon_installer_mcp
 {
 	private $base;
@@ -50,16 +53,61 @@ class Github_addon_installer_mcp
 	{
 		$this->EE->cp->set_variable('cp_page_title', $this->EE->lang->line('github_addon_installer_module_name'));
 		
-		$current_addons = scandir(PATH_THIRD);
+		$this->EE->load->library('addons');
 		
 		$vars = array();
 		$vars['addons'] = array();
+		
+		$this->EE->load->model('addons_model');
+		
+		$versions = array();
+		
+		//@TODO not works yet, must get leevi to require_once his EpiCurl lib
+		if (FALSE && $this->EE->addons_model->accessory_installed('nsm_addon_updater'))
+		{
+			$nsm_addon_updater = new Nsm_addon_updater_acc;
+			
+			if ($feeds = $nsm_addon_updater->_updateFeeds())
+			{
+				foreach ($feeds as $addon => $feed)
+				{
+					$namespaces = $feed->getNameSpaces(TRUE);
+					
+					$latest_version = 0;
+	
+					include PATH_THIRD.'/'.$addon.'/config.php';
+	
+					foreach ($feed->channel->item as $version)
+					{
+						$ee_addon = $version->children($namespaces['ee_addon']);
+						
+						$version_number = (string) $ee_addon->version;
+						
+						if (version_compare($version_number, $config['version'], '>') && version_compare($version_number, $latest_version, '>'))
+						{
+							$versions[$addon] = $version_number;
+						}
+					}
+				}
+			}
+			
+			unset($nsm_addon_updater);
+		}
 		
 		foreach ($this->manifest as $addon => $params)
 		{
 			$name = (isset($params['name'])) ? $params['name'] : $addon;
 			$description = (isset($params['description'])) ? br().$params['description'] : '';
-			$status = (in_array($addon, $current_addons)) ? lang('addon_update') : lang('addon_install');
+			//$status = (in_array($addon, $current_addons)) ? lang('addon_installed') : lang('addon_not_installed');
+			$status = ($this->EE->addons->is_package($addon)) ? lang('addon_installed') : lang('addon_not_installed');
+			
+			if (isset($versions[$addon]))
+			{
+				//$status = sprintf(lang('addon_update'), $versions[$addon]);
+				$status = lang('addon_update');
+			}
+			
+			//$install = (in_array($addon, $current_addons)) ? lang('addon_install') : lang('addon_reinstall');
 			
 			$url = 'https://github.com/'.$params['user'].'/'.$params['repo'];
 			
@@ -72,18 +120,19 @@ class Github_addon_installer_mcp
 				'name' => $name,//.$description,
 				'github_url' => anchor($url, $url, 'rel="external"'),
 				'author' => $params['user'],
-				'status' => anchor($this->base.AMP.'method=install'.AMP.'addon='.$addon, $status)
+				'status' => $status,
+				'install' => anchor($this->base.AMP.'method=install'.AMP.'addon='.$addon, lang('addon_install'))
 			);
 		}
 		
 		$this->EE->load->library('javascript');
 		
 		$this->EE->javascript->output('
-			$("#mainContent .mainTable").tablesorter({
-				headers: {1: {sorter: false}},
+			$("table#addons").tablesorter({
+				headers: {1: {sorter: false}, 4: {sorter: false}},
 				widgets: ["zebra"]
 			});
-			$("#mainContent .mainTable tr td:nth-child(4) a").click(function(){
+			$("table#addons tr td.addon_install a").click(function(){
 				var a = $(this);
 				var td = $(this).parents("tr").children("td");
 				var originalColor = td.css("backgroundColor");
@@ -111,7 +160,7 @@ class Github_addon_installer_mcp
 				);
 				return false;
 			});
-			$("#addonFilter").change(function(){
+			$("select#addonFilter").change(function(){
 				var filter = $(this).val();
 				$("#addonKeyword").hide();
 				$("table#addons tbody tr").show();
@@ -127,7 +176,7 @@ class Github_addon_installer_mcp
 					});
 				}
 			});
-			$("#addonFilter optgroup").each(function(index, element){
+			$("select#addonFilter optgroup").each(function(index, element){
 				var values = [];
 				$("td."+$(this).data("filter")).each(function(){
 					if ($.inArray($(this).text(), values) == -1) {
@@ -139,7 +188,7 @@ class Github_addon_installer_mcp
 					$(element).append($("<option>", {value: value, text: value}));
 				});
 			});
-			$("#addonKeyword").keyup(function(){
+			$("input#addonKeyword").keyup(function(){
 				$("table#addons tbody tr").show();
 				if ( ! $(this).val()) {
 					return true;

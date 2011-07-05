@@ -29,6 +29,7 @@
 			<th class="addon_github_url"><?=lang('addon_github_url')?></th>
 			<th class="addon_author"><?=lang('addon_author')?></th>
 			<th class="addon_status"><?=lang('addon_status')?></th>
+			<th>&nbsp;</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -38,6 +39,7 @@
 			<td class="addon_github_url"><?=element('github_url', $addon)?></td>
 			<td class="addon_author"><?=element('author', $addon)?></td>
 			<td class="addon_status"><?=element('status', $addon)?></td>
+			<td class="addon_install"><?=element('install', $addon)?></td>
 		</tr>
 		<?php endforeach; ?>
 </table>

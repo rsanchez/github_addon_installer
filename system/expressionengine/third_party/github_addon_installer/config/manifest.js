@@ -1094,5 +1094,95 @@
       "repo": "jb.graphite.ee_addon",
       "addon_path": "ee2/third_party/",
       "theme_path": "ee2/themes/third_party/"
+   },
+   "hs_localize_date": {
+      "user": "hearsay",
+      "repo": "hs_localize_date.ee_addon",
+      "addon_path": "2.x/third_party/"
+   },
+   "hs_redirect": {
+      "user": "hearsay",
+      "repo": "hs_redirect.ee_addon",
+      "addon_path": "2.x/third_party/"
+   },
+   "freebie": {
+      "user": "averyvery",
+      "repo": "Freebie"
+   },
+   "ampersand": {
+      "user": "scottboms",
+      "repo": "ampersandwich.ee2_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "nth": {
+      "user": "scottboms",
+      "repo": "Nth.ee2_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "textile": {
+      "user": "scottboms",
+      "repo": "textile.ee2_addon",
+      "addon_path": "third_party/"
+   },
+   "jg_breadcrumb": {
+      "user": "jgeusebroek",
+      "repo": "jg.breadcrumb.ee_addon",
+      "add_folder": true
+   },
+   "last_updated": {
+      "user": "twosixcode",
+      "repo": "last_updated.ee_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "countdown": {
+      "user": "jackmcdade",
+      "repo": "EE2-Countdown",
+      "add_folder": true
+   },
+   "pinwheel": {
+      "user": "jackmcdade",
+      "repo": "Pinwheel",
+      "add_folder": true
+   },
+   "uri_prettify": {
+      "user": "jackmcdade",
+      "repo": "URI-Prettify",
+      "addon_path": "ee2/third_party/"
+   },
+   "jco_catcount": {
+      "user": "jeromecoupe",
+      "repo": "jco_catcount"
+   },
+   "jco_entry_catcount": {
+      "user": "jeromecoupe",
+      "repo": "jco_entry_catcount"
+   },
+   "jco_getfileinfo": {
+      "user": "jeromecoupe",
+      "repo": "jco_getfileinfo"
+   },
+   "jco_url": {
+      "user": "jeromecoupe",
+      "repo": "jco_url"
+   },
+   "publish_bar": {
+      "user": "ryanjbonnell",
+      "repo": "publish_bar.ee_addon",
+      "add_folder": true
+   },
+   "ajax_form": {
+      "user": "gilgm12",
+      "repo": "Secure-Ajax-Forms",
+      "addon_path": "system/expressionengine/third_party/"
+   },
+   "sp_table_select": {
+      "user": "jamierumbelow",
+      "repo": "sp_table_select",
+      "addon_path": "third_party/"
+   },
+   "sp_title_filler": {
+      "user": "jamierumbelow",
+      "repo": "sp_title_filler",
+      "addon_path": "third_party/"
    }
 }
