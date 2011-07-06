@@ -315,15 +315,36 @@ class Github_addon_repo
 			
 			$file_path = $this->EE->github_addon_installer->temp_path().$this->sha.'.zip';
 			
-			//this is how github names the zipball
-			$temp_dir = $this->user.'-'.$this->repo.'-'.substr($this->sha, 0, 7);
-			
 			//@TODO remove this conditional
 			if ( ! file_exists($file_path))
 			{
 				write_file($file_path, $this->zipball(), FOPEN_WRITE_CREATE_DESTRUCTIVE);
 				
 				$this->EE->unzip->extract($file_path, $this->EE->github_addon_installer->temp_path());
+			}
+			
+			//this is how github names the zipball, usually
+			$short_sha = substr($this->sha, 0, 7);
+			
+			//the sha numbering is off, else is a somewhat messy fallback
+			if (is_dir($this->EE->github_addon_installer->temp_path().$this->user.'-'.$this->repo.'-'.$short_sha))
+			{
+				$temp_dir = $this->user.'-'.$this->repo.'-'.$short_sha;
+			}
+			else
+			{
+				$this->EE->load->helper('directory');
+				
+				$temp_dir = NULL;
+				
+				foreach (directory_map($this->EE->github_addon_installer->temp_path(), 2) as $dirname => $contents)
+				{
+					//it's not a dir, move on
+					if (is_array($contents) && preg_match('/^'.preg_quote($this->user).'-'.preg_quote($this->repo).'-/', $dirname))
+					{
+						$temp_dir = $dirname;
+					}
+				}
 			}
 		}
 		//grab the files one by one
