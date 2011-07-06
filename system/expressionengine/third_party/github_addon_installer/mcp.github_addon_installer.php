@@ -134,22 +134,24 @@ class Github_addon_installer_mcp
 			});
 			$("table#addons tr td.addon_install a").click(function(){
 				var a = $(this);
-				var td = $(this).parents("tr").children("td");
-				var originalColor = td.css("backgroundColor");
+				var tds = a.parents("tr").children("td");
+				var statusTd = a.parents("td").siblings("td.addon_status");
+				var originalColor = tds.css("backgroundColor");
 				var originalText = a.text();
-				td.animate({backgroundColor:"#d0d0d0"});
+				tds.animate({backgroundColor:"#d0d0d0"});
 				a.html("'.lang('addon_installing').'");
 				$.get(
 					$(this).attr("href"),
 					"",
 					function(data){
-						td.animate({backgroundColor:originalColor});
+						tds.animate({backgroundColor:originalColor});
 						a.html(originalText);
 						if (data.message_success) {
 							if (data.redirect) {
 								window.location.href = data.redirect;
 								return;
 							}
+							statusTd.html("'.lang('addon_installed').'");
 							$.ee_notice(data.message_success, {"type":"success"});
 						} else {
 							$.ee_notice(data.message_failure, {"type":"error"});
@@ -169,36 +171,47 @@ class Github_addon_installer_mcp
 				} else if (filter == "keyword") {
 					$("#addonKeyword").val("").show().focus();
 				} else {
-					$("td."+$(this.options[this.selectedIndex]).parents("optgroup").data("filter")).each(function(){
-						if ($(this).text() != filter) {
-							$(this).parents("tr").hide();
-						}
-					});
+					$("td."+$(this.options[this.selectedIndex]).parents("optgroup").data("filter")).filter(function(){
+						return $(this).text() != filter;
+					}).parents("tr").hide();
 				}
 			});
+			//add all values from the table to filter
 			$("select#addonFilter optgroup").each(function(index, element){
 				var values = [];
 				$("td."+$(this).data("filter")).each(function(){
-					if ($.inArray($(this).text(), values) == -1) {
+					if ($.inArray($(this).text(), values) === -1) {
 						values.push($(this).text());
 					}
 				});
-				values.sort();
-				$.each(values, function(i, value){
-					$(element).append($("<option>", {value: value, text: value}));
+				//case insensitive sort
+				values.sort(function(a, b){ 
+					a = a.toLowerCase(); 
+					b = b.toLowerCase(); 
+					if (a > b) {
+						return 1;
+					}
+					if (a < b) {
+						return -1;
+					}
+					return 0; 
 				});
+				for (i in values) {
+					$(element).append($("<option>", {value: values[i], text: values[i]}));
+				};
+			});
+			//case insensitive :contains
+			$.extend($.expr[":"], {
+				containsi: function(el, i, match, array) {
+					return (el.textContent || el.innerText || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+				}
 			});
 			$("input#addonKeyword").keyup(function(){
-				$("table#addons tbody tr").show();
-				if ( ! $(this).val()) {
-					return true;
+				if (this.value == "") {
+					$("table#addons tbody tr").show();
+				} else {
+					$("table#addons tbody tr").hide().find("td:containsi(\'"+this.value.toLowerCase()+"\')").parents("tr").show();
 				}
-				$("table#addons tbody tr td.addon_name").each(function(){
-					var regex = new RegExp($("#addonKeyword").val(), "gi");
-					if ( ! $(this).text().match(regex) && ! $(this).siblings("td.addon_author").text().match(regex)) {
-						$(this).parents("tr").hide();
-					}
-				});	
 			}).trigger("focus");
 		');
 		
