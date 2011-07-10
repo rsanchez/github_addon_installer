@@ -454,6 +454,11 @@
       "repo": "remember_me.ee2_addon",
       "add_folder": true
    },
+   "sassee": {
+      "user": "AboutWout",
+      "repo": "sassee.ee2_addon",
+      "addon_path": "system/expressionengine/third_party/"
+   },
    "single_sticky": {
       "user": "AboutWout",
       "repo": "single_sticky.ee2_addon",
@@ -1189,5 +1194,10 @@
       "user": "jamierumbelow",
       "repo": "sp_title_filler",
       "addon_path": "third_party/"
+   },
+   "simple_submit": {
+      "user": "aphichat",
+      "repo": "Simple-submit",
+      "add_folder": true
    }
 }
