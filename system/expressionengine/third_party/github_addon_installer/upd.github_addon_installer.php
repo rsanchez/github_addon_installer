@@ -26,7 +26,7 @@
 
 class Github_addon_installer_upd {
 	
-	public $version = '1.0.0';
+	public $version;
 	
 	private $EE;
 	
@@ -36,6 +36,10 @@ class Github_addon_installer_upd {
 	public function __construct()
 	{
 		$this->EE =& get_instance();
+		
+		include PATH_THIRD.'github_addon_installer/config.php';
+		
+		$this->version = $config['version'];
 	}
 	
 	// ----------------------------------------------------------------

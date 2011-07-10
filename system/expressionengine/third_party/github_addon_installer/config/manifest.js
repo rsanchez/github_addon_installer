@@ -38,6 +38,7 @@
    "github_addon_installer": {
       "user": "rsanchez",
       "repo": "github_addon_installer",
+      "branch" : "develop",
       "addon_path": "system/expressionengine/third_party/"
    },
    "http_header": {
