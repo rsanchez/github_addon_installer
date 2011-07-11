@@ -2,7 +2,6 @@
    "absolute_total_results": {
       "user": "rsanchez",
       "repo": "absolute_total_results",
-      "branch": "master",
       "addon_path": "system/expressionengine/third_party/"
    },
    "activerecord": {
@@ -101,13 +100,11 @@
    "mailsend": {
       "user": "devdemon",
       "repo": "MailSend",
-      "branch": "master",
       "addon_path": "system/expressionengine/third_party/"
    },
    "pagenumber": {
       "user": "devdemon",
       "repo": "Pagenumber",
-      "branch": "master",
       "addon_path": "system/expressionengine/third_party/"
    },
    "server_info": {

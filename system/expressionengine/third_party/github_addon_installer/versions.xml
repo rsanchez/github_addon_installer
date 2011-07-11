@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:ee_addon="http://newism.com.au/nsm_addon_updater/#rss-xml">
+	<channel>
+		<title>GitHub Addon Installer Changelog</title>
+		<link>https://raw.github.com/rsanchez/github_addon_installer/develop/versions.xml</link>
+		<description>Most recent changes with links to updates.</description>
+        <item>
+			<title>Version 1.0.0</title>
+			<ee_addon:version>1.0.0</ee_addon:version>
+			<link>https://github.com/rsanchez/github_addon_installer#1.0.0</link>
+			<pubDate>Sun, 10 Jul 2011 00:00:00 +0000</pubDate>
+			<description><![CDATA[
+            <ul>
+              <li>Initial Release</li>
+            </ul>
+            ]]></description>
+        </item>
+    </channel>
+</rss>
