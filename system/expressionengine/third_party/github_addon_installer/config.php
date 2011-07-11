@@ -2,4 +2,4 @@
 
 $config['name'] = 'GitHub Addon Installer';
 $config['version'] = '1.0.0';
-$config['nsm_addon_updater']['versions_xml'] = 'https://raw.github.com/rsanchez/github_addon_installer/develop/versions.xml';
+$config['nsm_addon_updater']['versions_xml'] = 'https://raw.github.com/rsanchez/github_addon_installer/develop/system/expressionengine/third_party/github_addon_installer/versions.xml';
