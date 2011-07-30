@@ -197,6 +197,12 @@
       "addon_path": "third_party/",
       "theme_path": "themes/third_party/"
    },
+   "usher": {
+      "user": "experience",
+      "repo": "usher.ee_addon",
+      "addon_path": "third_party/",
+      "theme_path": "themes/third_party/"
+   },
    "you_are_here": {
       "user": "experience",
       "repo": "you_are_here.ee2_addon",
