@@ -1212,5 +1212,10 @@
 		"user": "ninefour",
 		"repo": "encode_decode.pi.ee_addon",
 		"addon_path": "EE2/system/third_party/"
+	},
+	"minimee": {
+		"user": "johndwells",
+		"repo": "Minimee",
+		"addon_path": "system/expressionengine/third_party/"
 	}
 }
