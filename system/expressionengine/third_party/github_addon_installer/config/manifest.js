@@ -1217,5 +1217,10 @@
 		"user": "johndwells",
 		"repo": "Minimee",
 		"addon_path": "system/expressionengine/third_party/"
+	},
+	"pages_autocomplete": {
+		"user": "iainurquhart",
+		"repo": "pages_autocomplete",
+		"addon_path": "system/third_party/"
 	}
 }
