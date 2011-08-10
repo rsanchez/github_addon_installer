@@ -1228,5 +1228,9 @@
 		"repo": "fanceebox",
 		"addon_path": "system/expressionengine/third_party/",
 		"theme_path": "themes/third_party/"
+	},
+	"greeny": {
+		"user": "bliswebagency",
+		"repo": "Greeny"
 	}
 }
