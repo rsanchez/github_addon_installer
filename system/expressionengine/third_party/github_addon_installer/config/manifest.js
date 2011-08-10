@@ -1222,5 +1222,11 @@
 		"user": "iainurquhart",
 		"repo": "pages_autocomplete",
 		"addon_path": "system/third_party/"
+	},
+	"fanceebox": {
+		"user": "Natetronn",
+		"repo": "fanceebox",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
 	}
 }
