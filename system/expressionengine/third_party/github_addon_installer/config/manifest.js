@@ -1232,5 +1232,9 @@
 	"greeny": {
 		"user": "bliswebagency",
 		"repo": "Greeny"
+	},
+	"twittero": {
+		"user": "stwillans",
+		"repo": "Twittero"
 	}
 }
