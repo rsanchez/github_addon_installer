@@ -1236,5 +1236,57 @@
 	"twittero": {
 		"user": "stwillans",
 		"repo": "Twittero"
+	},
+	"cellar": {
+		"user": "themusicman",
+		"repo": "Cellar",
+		"addon_path": "system/expressionengine/third_party/"
+	},
+	"datetime_picker": {
+		"user": "themusicman",
+		"repo": "datetime_picker",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"dumpee": {
+		"user": "themusicman",
+		"repo": "Dumpee",
+		"addon_path": "system/expressionengine/third_party/"
+	},
+	"dynamic_field": {
+		"user": "themusicman",
+		"repo": "Dynamic-Field",
+		"addon_path": "system/expressionengine/third_party/"
+	},
+	"email_encode": {
+		"user": "themusicman",
+		"repo": "Email-Encode",
+		"addon_path": "system/expressionengine/third_party/"
+	},
+	"houdini": {
+		"user": "themusicman",
+		"repo": "Houdini",
+		"addon_path": "system/expressionengine/third_party/"
+	},
+	"sherlock": {
+		"user": "themusicman",
+		"repo": "Sherlock",
+		"addon_path": "system/expressionengine/third_party/"
+	},
+	"splitter": {
+		"user": "themusicman",
+		"repo": "Splitter",
+		"add_folder": true
+	},
+	"tmpldoc": {
+		"user": "themusicman",
+		"repo": "TMPL-Doc",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"trackee": {
+		"user": "themusicman",
+		"repo": "Trackee",
+		"addon_path": "system/expressionengine/third_party/"
 	}
 }
