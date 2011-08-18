@@ -1288,5 +1288,10 @@
 		"user": "themusicman",
 		"repo": "Trackee",
 		"addon_path": "system/expressionengine/third_party/"
+	},
+	"vwm_surveys": {
+		"user": "vmichnowicz",
+		"repo": "vwm_surveys",
+		"add_folder": true
 	}
 }
