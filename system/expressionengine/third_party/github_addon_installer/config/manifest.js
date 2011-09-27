@@ -1293,5 +1293,10 @@
 		"user": "vmichnowicz",
 		"repo": "vwm_surveys",
 		"add_folder": true
+	},
+	"pointee": {
+		"user": "iainurquhart",
+		"repo": "Pointee",
+		"addon_path": "system/expressionengine/third_party/"
 	}
 }
