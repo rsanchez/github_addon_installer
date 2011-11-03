@@ -1297,6 +1297,7 @@
 	"dashee": {
 		"user": "mrtopher",
 		"repo": "dashEE",
-		"addon_path": "third_party/"
+		"addon_path": "third_party/",
+		"theme_path": "themes/third_party/"
 	}
 }
