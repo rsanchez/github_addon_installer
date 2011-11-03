@@ -1293,5 +1293,10 @@
 		"user": "vmichnowicz",
 		"repo": "vwm_surveys",
 		"add_folder": true
+	},
+	"dashee": {
+		"user": "mrtopher",
+		"repo": "dashEE",
+		"addon_path": "third_party/"
 	}
 }
