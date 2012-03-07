@@ -295,7 +295,7 @@
       "add_folder": true
    },
    "trigger": {
-      "user": "addictaddons",
+      "user": "parse19",
       "repo": "Trigger"
    },
    "md_color_picker": {
