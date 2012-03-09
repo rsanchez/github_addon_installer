@@ -299,7 +299,7 @@
 		"add_folder": true
 	},
 	"trigger": {
-		"user": "addictaddons",
+		"user": "parse19",
 		"repo": "Trigger"
 	},
 	"md_color_picker": {
@@ -368,13 +368,17 @@
 		"repo": "low_freeform_field",
 		"addon_path": "ee2/"
 	},
+	"garnish": {
+		"user": "curtisblackwell",
+		"repo": "cpb_garnish"
+	},
 	"steak_sauce": {
 		"user": "curtisblackwell",
 		"repo": "cpb_steak_sauce"
 	},
-	"garnish": {
+	"trigger_shelf": {
 		"user": "curtisblackwell",
-		"repo": "cpb_garnish"
+		"repo": "cpb_trigger_shelf"
 	},
 	"bitly": {
 		"user": "bjornbjorn",
