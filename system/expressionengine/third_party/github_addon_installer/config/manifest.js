@@ -608,7 +608,7 @@
    },
    "draggable": {
       "user": "kevinthompson",
-      "repo": "ee.draggable.ext",
+      "repo": "ee.draggable.php",
       "addon_path": "system/expressionengine/third_party/"
    },
    "facelift": {
