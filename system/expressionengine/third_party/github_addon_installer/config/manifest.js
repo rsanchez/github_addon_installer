@@ -309,6 +309,12 @@
 		"addon_path": "system/expressionengine/third_party/",
 		"theme_path": "themes/third_party"
 	},
+	"devotee": {
+		"user": "mdesign",
+		"repo": "devot-ee-addon",
+		"addon_path": "system/third_party/",
+		"theme_path": "themes/third_party/"
+	},
 	"md_detect_page_type": {
 		"user": "mdesign",
 		"repo": "md.detect_page_type.ee2_addon",
@@ -319,6 +325,11 @@
 		"repo": "md.spam_me_not.ee_addon",
 		"addon_path": "EE2/system/expressionengine/third_party/",
 		"theme_path": "themes/third_party/"
+	},
+	"md_character_count": {
+		"user": "mdesign",
+		"repo": "md.character_count.ee_addon",
+		"addon_path": "EE2/system/expressionengine/third_party/"
 	},
 	"shortn_tweet": {
 		"user": "mdesign",
