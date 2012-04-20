@@ -1303,7 +1303,7 @@
 		"repo": "dashEE",
 		"addon_path": "third_party/",
 		"theme_path": "themes/third_party/"
-	}
+	},
 	"devot-ee-addon": {
 		"user": "mdesign",
 		"repo": "devot-ee-addon",
