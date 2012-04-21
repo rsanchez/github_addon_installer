@@ -209,28 +209,28 @@
 		"addon_path": "third_party/"
 	},
 	"cp_css_js": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "cp_css_js",
 		"add_folder": true
 	},
 	"matrix_comments": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "matrix_comments",
 		"add_folder": true
 	},
 	"matrix_multi_upload": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "matrix_multi_upload",
 		"addon_path": "ee2/third_party/",
 		"theme_path": "themes/third_party/"
 	},
 	"matrix_radio_group": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "matrix_radio_group",
 		"add_folder": true
 	},
 	"matrix_url_title": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "matrix_url_title",
 		"addon_path": "ee2/third_party/",
 		"theme_path": "themes/third_party/"
@@ -241,7 +241,7 @@
 		"add_folder": true
 	},
 	"numstyle": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "numstyle",
 		"add_folder": true
 	},
@@ -251,50 +251,50 @@
 		"add_folder": true
 	},
 	"pt_field_pack": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "pt_field_pack",
 		"addon_path": "ee2/third_party/"
 	},
 	"pt_list": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "pt_list",
 		"addon_path": "ee2/third_party/",
 		"theme_path": "themes/third_party/"
 	},
 	"pt_pill": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "pt_pill",
 		"addon_path": "ee2/third_party/",
 		"theme_path": "themes/third_party/"
 	},
 	"pt_switch": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "pt_switch",
 		"addon_path": "ee2/third_party/",
 		"theme_path": "themes/third_party/"
 	},
 	"wygwam_no_upload_tab": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "wygwam_no_upload_tab",
 		"add_folder": true
 	},
 	"wygwam_structure_pages": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "wygwam_structure_pages",
 		"addon_path": "ee2/third_party/"
 	},
 	"wygwam_super_admin_source": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "wygwam_super_admin_source",
 		"add_folder": true
 	},
 	"wygwam_template_links": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "wygwam_template_links",
 		"addon_path": "ee2/third_party/"
 	},
 	"wygwam_upload_tags": {
-		"user": "brandonkelly",
+		"user": "pixelandtonic",
 		"repo": "wygwam_upload_tags",
 		"add_folder": true
 	},
