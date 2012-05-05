@@ -110,18 +110,21 @@ class Github_addon_installer_mcp
 			//$install = (in_array($addon, $current_addons)) ? lang('addon_install') : lang('addon_reinstall');
 			
 			$url = 'https://github.com/'.$params['user'].'/'.$params['repo'];
-			
+
 			if (isset($params['branch']))
 			{
 				$url .= '/tree/'.$params['branch'];
 			}
-			
+
+			$branch = isset($params['branch']) ? $params['branch'] : 'master';
+
 			$vars['addons'][] = array(
 				'name' => $name,//.$description,
 				'github_url' => anchor($url, $url, 'rel="external"'),
+				'branch' => form_input("", $branch, 'class="branch '.$addon.'-branch"'),
 				'author' => $params['user'],
 				'status' => $status,
-				'install' => anchor($this->base.AMP.'method=install'.AMP.'addon='.$addon, lang('addon_install'))
+				'install' => anchor($this->base.AMP.'method=install'.AMP.'addon='.$addon, lang('addon_install'), 'data-addon="'.$addon.'"')
 			);
 		}
 		
@@ -142,7 +145,7 @@ class Github_addon_installer_mcp
 				a.html("'.lang('addon_installing').'");
 				$.get(
 					$(this).attr("href"),
-					"",
+					{branch: $("."+$(this).data("addon")+"-branch").val()},
 					function(data){
 						tds.animate({backgroundColor:originalColor});
 						a.html(originalText);
@@ -235,6 +238,11 @@ class Github_addon_installer_mcp
 			$params = $this->manifest[$addon];
 			
 			$params['name'] = $addon;
+
+			if ($this->EE->input->get('branch'))
+			{
+				$params['branch'] = $this->EE->input->get('branch');
+			}
 			
 			$this->EE->session->set_flashdata('addon', $addon);
 			

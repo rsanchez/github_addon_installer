@@ -1,5 +1,9 @@
 # GitHub Addon Installer for ExpressionEngine #
 
+## Warning
+
+This addon is not considered stable, and does not work in many environments. Do NOT use it in a production environment. For experimental usage only.
+
 ![GitHub Addon Installer Screenshot](http://f.cl.ly/items/0b1z031o2l3g2X221E1Z/Screen%20shot%202011-07-04%20at%2012.09.38%20PM.png)
 
 ## Installation
@@ -28,7 +32,8 @@ Manifest entry examples:
 
 If your repo directory structure is like:
 
-	my_addon/
+	-my_addon
+	 -pi.my_addon.php
 
 Manifest Entry:
 
@@ -39,7 +44,7 @@ Manifest Entry:
 
 If your repo directory structure is like:
 
-	pi.my_addon.php
+	-pi.my_addon.php
 
 Manifest Entry:
 
@@ -51,7 +56,11 @@ Manifest Entry:
 
 If your repo directory structure is like:
 
-	system/expressionengine/third_party/my_addon/
+	-system
+	 -expressionengine
+	  -third_party
+	   -my_addon
+	    -pi.my_addon.php
 
 Manifest Entry:
 
@@ -63,8 +72,14 @@ Manifest Entry:
 
 If your repo directory structure is like:
 
-	ee2/third_party/my_addon/
-	themes/third_party/my_addon/
+	-ee2
+	 -third_party
+	  -my_addon
+	   -pi.my_addon.php
+	-themes
+	 -third_party
+	   -my_addon
+	    -my_addon.css
 
 Manifest Entry:
 
