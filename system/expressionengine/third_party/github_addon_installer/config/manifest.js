@@ -380,6 +380,10 @@
 		"user": "curtisblackwell",
 		"repo": "cpb_trigger_shelf"
 	},
+	"imgsizer": {
+		"user": "curtisblackwell",
+		"repo": "imgsizer"
+	},
 	"bitly": {
 		"user": "bjornbjorn",
 		"repo": "Bitly-for-EE"
