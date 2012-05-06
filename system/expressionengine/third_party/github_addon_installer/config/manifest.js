@@ -392,8 +392,8 @@
 		"repo": "cpb_trigger_shelf"
 	},
 	"imgsizer": {
-		"user": "curtisblackwell",
-		"repo": "imgsizer"
+	   "user": "curtisblackwell",
+	   "repo": "image_sizer"
 	},
 	"bitly": {
 		"user": "bjornbjorn",
@@ -1318,5 +1318,5 @@
 		"repo": "dashEE",
 		"addon_path": "third_party/",
 		"theme_path": "themes/third_party/"
-	},
+	}
 }
