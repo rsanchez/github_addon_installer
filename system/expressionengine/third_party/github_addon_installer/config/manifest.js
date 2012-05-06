@@ -391,6 +391,10 @@
 		"user": "curtisblackwell",
 		"repo": "cpb_trigger_shelf"
 	},
+	"imgsizer": {
+		"user": "curtisblackwell",
+		"repo": "image_sizer"
+	},
 	"bitly": {
 		"user": "bjornbjorn",
 		"repo": "Bitly-for-EE"
