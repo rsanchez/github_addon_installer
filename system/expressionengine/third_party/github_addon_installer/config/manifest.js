@@ -392,8 +392,8 @@
 		"repo": "cpb_trigger_shelf"
 	},
 	"imgsizer": {
-	   "user": "curtisblackwell",
-	   "repo": "image_sizer"
+		"user": "curtisblackwell",
+		"repo": "image_sizer"
 	},
 	"bitly": {
 		"user": "bjornbjorn",
