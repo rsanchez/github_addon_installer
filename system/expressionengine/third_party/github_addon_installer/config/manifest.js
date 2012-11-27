@@ -163,10 +163,22 @@
 		"addon_path": "ee2/third_party/",
 		"theme_path": "themes/third_party/"
 	},
+	"campaigner": {
+		"user": "experience",
+		"repo": "campaigner.ee_addon",
+		"addon_path": "third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"crumbly": {
+		"user": "experience",
+		"repo": "crumbly.ee_addon",
+		"addon_path": "third_party/",
+		"theme_path": "themes/third_party/"
+	},
 	"mailchimp_subscribe": {
 		"user": "experience",
 		"repo": "mailchimp_subscribe.ee_addon",
-		"addon_path": "system/expressionengine/third_party/",
+		"addon_path": "third_party/",
 		"theme_path": "themes/third_party/"
 	},
 	"omnilog": {
@@ -175,21 +187,27 @@
 		"addon_path": "third_party/",
 		"theme_path": "themes/third_party/"
 	},
+	"options": {
+		"user": "experience",
+		"repo": "options.ee_addon",
+		"addon_path": "third_party/",
+		"theme_path": "themes/third_party/"
+	},
 	"dropdate": {
 		"user": "experience",
-		"repo": "sl.dropdate.ee_addon",
-		"addon_path": "ee2/"
+		"repo": "dropdate.ee_addon",
+		"addon_path": "third_party/"
 	},
 	"smartdown": {
 		"user": "experience",
 		"repo": "smartdown.ee_addon",
-		"addon_path": "ee2/third_party/"
+		"addon_path": "third_party/"
 	},
 	"testee": {
 		"user": "experience",
 		"repo": "testee.ee_addon",
-		"addon_path": "ee2/third_party/",
-		"theme_path": "ee2/themes/third_party/"
+		"addon_path": "third_party/",
+		"theme_path": "themes/third_party/"
 	},
 	"tweedee": {
 		"user": "experience",
