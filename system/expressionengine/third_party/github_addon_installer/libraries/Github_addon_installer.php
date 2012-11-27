@@ -397,7 +397,7 @@ class Github_addon_repo
 				
 					$filename = str_replace($this->fetch_params['theme_path'], '', $filename);
 					
-					$path = PATH_THEMES.'third_party/';
+					$path = PATH_THIRD_THEMES;
 				}
 			}
 			
