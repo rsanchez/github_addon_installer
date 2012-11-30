@@ -325,7 +325,7 @@
 		"repo": "md.color_picker.ee_addon",
 		"branch": "ee2",
 		"addon_path": "system/expressionengine/third_party/",
-		"theme_path": "themes/third_party"
+		"theme_path": "themes/third_party/"
 	},
 	"devotee": {
 		"user": "mdesign",
@@ -525,8 +525,9 @@
 	},
 	"stash": {
 		"user": "croxton",
-		"repo": "stash",
-		"addon_path": "third_party/"
+		"repo": "Stash",
+		"branch": "dev",
+		"add_folder": true
 	},
 	"cat2": {
 		"user": "croxton",
@@ -552,6 +553,12 @@
 		"user": "croxton",
 		"repo": "Switchee",
 		"add_folder": true
+	},
+	"dm_eeck": {
+		"user": "dmlogic",
+		"repo": "DM-EECK",
+		"addon_path": "system/third_party/",
+		"theme_path": "themes/third_party/"
 	},
 	"ci_helpers": {
 		"user": "erikreagan",
@@ -948,7 +955,25 @@
 	"content_builder": {
 		"user": "ckimrie",
 		"repo": "ft.content-builder.ee_addon",
-		"addon_path": "system/expressionengine/third_party",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"requirejs" : {
+		"user": "ckimrie",
+		"repo": "RequireJS-for-EE",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"site_manager" : {
+		"user": "ckimrie",
+		"repo": "Site-Manager",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"routemaster" : {
+		"user": "ckimrie",
+		"repo": "routemaster",
+		"addon_path": "system/expressionengine/third_party/",
 		"theme_path": "themes/third_party/"
 	},
 	"mosogeocoder": {
