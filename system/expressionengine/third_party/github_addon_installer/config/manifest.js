@@ -365,6 +365,22 @@
 		"branch": "ee2",
 		"addon_path": "system/expressionengine/third_party/"
 	},
+	"ee_debug_toolbar": {
+		"user": "mithra62",
+		"repo": "ee_debug_toolbar",
+		"add_folder": true
+	},
+	"ee_syntax": {
+		"user": "mithra62",
+		"repo": "ee_syntax",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"meetup": {
+		"user": "mithra62",
+		"repo": "meetup",
+		"add_folder": true
+	},
 	"low_link": {
 		"user": "lodewijk",
 		"repo": "low.link.ee2_addon"
