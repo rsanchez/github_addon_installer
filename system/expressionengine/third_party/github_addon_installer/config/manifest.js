@@ -139,6 +139,18 @@
 		"addon_path": "system/third_party/",
 		"theme_path": "themes/third_party/"
 	},
+	"entry_widgets": {
+		"user": "iainurquhart",
+		"repo": "entry_widgets",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"nolan": {
+		"user": "iainurquhart",
+		"repo": "Nolan",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
 	"vz_address": {
 		"user": "elivz",
 		"repo": "vz_address.ee_addon"
@@ -159,9 +171,7 @@
 	},
 	"vz_url": {
 		"user": "elivz",
-		"repo": "vz_url",
-		"addon_path": "ee2/third_party/",
-		"theme_path": "themes/third_party/"
+		"repo": "vz_url"
 	},
 	"campaigner": {
 		"user": "experience",
@@ -915,6 +925,16 @@
 	"yearlist": {
 		"user": "ryanirelan",
 		"repo": "ri.yearlist.ee_addon.2.0",
+		"add_folder": true
+	},
+	"widgets": {
+		"user": "philsturgeon",
+		"repo": "ee2-widgets",
+		"add_folder": true
+	},
+	"rest": {
+		"user": "philsturgeon",
+		"repo": "ee2-rest",
 		"add_folder": true
 	},
 	"cookie": {
