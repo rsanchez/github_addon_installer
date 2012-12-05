@@ -1218,7 +1218,8 @@
 	},
 	"freebie": {
 		"user": "averyvery",
-		"repo": "Freebie"
+		"repo": "Freebie",
+    "addon_path": "third_party/"
 	},
 	"ampersand": {
 		"user": "scottboms",
