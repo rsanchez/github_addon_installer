@@ -381,6 +381,16 @@
 		"repo": "meetup",
 		"add_folder": true
 	},
+  "gwcode_fileinfo": {
+    "user": "leondijk",
+    "repo": "gwcode_fileinfo",
+    "addon_path": "system/expressionengine/third_party/"
+  },
+  "gwcode_categories": {
+    "user": "leondijk",
+    "repo": "gwcode_categories",
+    "addon_path": "system/expressionengine/third_party/"
+  },
 	"low_link": {
 		"user": "lodewijk",
 		"repo": "low.link.ee2_addon"
