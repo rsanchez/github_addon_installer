@@ -1320,7 +1320,7 @@
 	"encode_decode": {
 		"user": "ninefour",
 		"repo": "encode_decode.pi.ee_addon",
-		"addon_path": "EE2/system/third_party/"
+		"addon_path": "EE2/system/expressionengine/third_party/"
 	},
 	"minimee": {
 		"user": "johndwells",
