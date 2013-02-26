@@ -368,7 +368,8 @@
 	"ee_debug_toolbar": {
 		"user": "mithra62",
 		"repo": "ee_debug_toolbar",
-		"add_folder": true
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
 	},
 	"ee_syntax": {
 		"user": "mithra62",
