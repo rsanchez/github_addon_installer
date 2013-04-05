@@ -1168,32 +1168,28 @@
 	},
 	"wb_category_select": {
 		"user": "wesbaker",
-		"repo": "wb.category_select.ee2_addon",
+		"repo": "category_select.ee2_addon",
 		"addon_path": "third_party/"
 	},
 	"wb_explode": {
 		"user": "wesbaker",
-		"repo": "wb.explode.ee2_addon",
+		"repo": "explode.ee2_addon",
 		"addon_path": "system/expressionengine/third_party/"
 	},
 	"wb_relative_date": {
 		"user": "wesbaker",
-		"repo": "wb.relative_date.ee2_addon"
+		"repo": "relative_date.ee2_addon"
 	},
 	"wb_tag_select": {
 		"user": "wesbaker",
-		"repo": "wb.tag_select.ee2_addon",
+		"repo": "tag_select.ee2_addon",
 		"addon_path": "system/expressionengine/third_party/"
 	},
 	"wb_tag_suggest": {
 		"user": "wesbaker",
-		"repo": "wb.tag_suggest.ee2_addon",
+		"repo": "tag_suggest.ee2_addon",
 		"addon_path": "system/expressionengine/third_party/",
 		"theme_path": "themes/third_party/"
-	},
-	"wb_vimeo_player": {
-		"user": "wesbaker",
-		"repo": "wb.vimeo_player.ee2_addon"
 	},
 	"ih_textile_editor": {
 		"user": "imagehat",
