@@ -16,7 +16,7 @@ class Github_addon_installer
 		
 		$this->EE->load->helper('file');
 		
-		$this->temp_path = ($this->EE->config->item('github_addon_installer_temp_path')) ? $this->EE->config->item('github_addon_installer_temp_path') : realpath(dirname(__FILE__).'/../temp/').'/';//PATH_THIRD.'github_addon_installer/temp/';
+		$this->temp_path = $this->EE->config->item('github_addon_installer_temp_path') ? $this->EE->config->item('github_addon_installer_temp_path') : realpath(dirname(__FILE__).'/../temp/').'/';//PATH_THIRD.'github_addon_installer/temp/';
 	}
 	
 	/**
@@ -43,13 +43,16 @@ class Github_addon_installer
 	 * Fetch raw data from a github url
 	 *
 	 * @param string $segment,... unlimited number of segments
+	 * @param array $params an optional array of query string params
 	 * @return mixed
 	 */
 	public function fetch_raw()
 	{
 		$segments = func_get_args();
+
+		$query_string = is_array(end($segments)) ? '?'.http_build_query(array_pop($segments)) : '';
 		
-		return $this->curl('https://github.com/'.implode('/', $segments));
+		return $this->curl('https://api.github.com/'.implode('/', $segments).$query_string);
 	}
 	
 	/**
@@ -61,8 +64,6 @@ class Github_addon_installer
 	public function api_fetch_raw()
 	{
 		$segments = func_get_args();
-		
-		array_unshift($segments, 'api', 'v2', 'json');
 		
 		return call_user_func_array(array($this, 'fetch_raw'), $segments);
 	}
@@ -236,15 +237,33 @@ class Github_addon_repo
 			return FALSE;
 		}
 		
-		$data = $this->EE->github_addon_installer->api_fetch_json('repos', 'show', $this->user, $this->repo, 'branches');
+		$data = $this->EE->github_addon_installer->api_fetch_json('repos', $this->user, $this->repo, 'branches');
 		
-		if ( ! isset($data->branches->{$this->branch}))
+		if (empty($data))
+		{
+			$this->add_error(sprintf(lang('repo_not_found'), $this->branch));
+			return FALSE;
+		}
+
+		$branch = NULL;
+
+		foreach ($data as $row)
+		{
+			if ($row->name === $this->branch)
+			{
+				$branch = $row;
+
+				break;
+			}
+		}
+
+		if ( ! $branch)
 		{
 			$this->add_error(sprintf(lang('branch_not_found'), $this->branch));
 			return FALSE;
 		}
 		
-		$this->sha = $data->branches->{$this->branch};
+		$this->sha = $branch->commit->sha;
 		
 		/* @TODO use this later */
 		/*
@@ -253,11 +272,11 @@ class Github_addon_repo
 		$this->tags = (isset($data->tags)) ? (array) $data->tags : FALSE;
 		*/
 		
-		$data = $this->EE->github_addon_installer->api_fetch_json('repos', 'show', $this->user, $this->repo);
+		$data = $this->EE->github_addon_installer->api_fetch_json('repos', $this->user, $this->repo);
 		
-		if (isset($data->repository))
+		if (is_object($data))
 		{
-			foreach ((array) $data->repository as $property => $value)
+			foreach ((array) $data as $property => $value)
 			{
 				$this->$property = $value;
 			}
@@ -350,11 +369,16 @@ class Github_addon_repo
 		//grab the files one by one
 		else
 		{
-			$data = $this->EE->github_addon_installer->api_fetch_json('blob', 'all', $this->user, $this->repo, $this->sha);
+			$data = $this->EE->github_addon_installer->api_fetch_json('repos', $this->user, $this->repo, 'git', 'trees', $this->sha, array('recursive' => TRUE));
 			
-			if (isset($data->blobs))
+			if (isset($data->tree))
 			{
-				$files = array_flip((array) $data->blobs);
+				$files = array();
+
+				foreach ($data->tree as $file)
+				{
+					$files[$file->sha] = $file->path;
+				}
 			}
 		}
 		
@@ -397,7 +421,7 @@ class Github_addon_repo
 				
 					$filename = str_replace($this->fetch_params['theme_path'], '', $filename);
 					
-					$path = PATH_THEMES.'third_party/';
+					$path = PATH_THIRD_THEMES;
 				}
 			}
 			
@@ -465,8 +489,13 @@ class Github_addon_repo
 			else //aka. $this->fetch_mode === 'files'
 			{
 				$sha = $i;//for clarity's sake; files mode files are indexed by sha
+
+				$data = $this->EE->github_addon_installer->api_fetch_json('repos', $this->user, $this->repo, 'git', 'blobs', $sha);
 				
-				write_file($path.$filename, $this->fetch_file($sha), FOPEN_WRITE_CREATE_DESTRUCTIVE);
+				if (isset($data->content))
+				{
+					write_file($path.$filename, $data->content, FOPEN_WRITE_CREATE_DESTRUCTIVE);
+				}
 			}
 		}
 		
@@ -514,22 +543,17 @@ class Github_addon_repo
 	
 	public function zipball()
 	{
-		return $this->EE->github_addon_installer->fetch_raw($this->user, $this->repo, 'zipball', $this->branch);
+		return $this->EE->github_addon_installer->fetch_raw('repos', $this->user, $this->repo, 'zipball', $this->branch);
 	}
 	
 	public function tarball()
 	{
-		return $this->EE->github_addon_installer->fetch_raw($this->user, $this->repo, 'tarball', $this->branch);
+		return $this->EE->github_addon_installer->fetch_raw('repos', $this->user, $this->repo, 'tarball', $this->branch);
 	}
 	
 	public function sha()
 	{
 		return $this->sha;
-	}
-	
-	protected function fetch_file($sha)
-	{
-		return $this->EE->github_addon_installer->api_fetch_raw('blob', 'show', $this->user, $this->repo, $sha);
 	}
 	
 	public function errors()

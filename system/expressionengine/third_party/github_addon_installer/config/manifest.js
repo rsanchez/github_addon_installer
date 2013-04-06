@@ -139,6 +139,18 @@
 		"addon_path": "system/third_party/",
 		"theme_path": "themes/third_party/"
 	},
+	"entry_widgets": {
+		"user": "iainurquhart",
+		"repo": "entry_widgets",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"nolan": {
+		"user": "iainurquhart",
+		"repo": "Nolan",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
 	"vz_address": {
 		"user": "elivz",
 		"repo": "vz_address.ee_addon"
@@ -159,14 +171,24 @@
 	},
 	"vz_url": {
 		"user": "elivz",
-		"repo": "vz_url",
-		"addon_path": "ee2/third_party/",
+		"repo": "vz_url"
+	},
+	"campaigner": {
+		"user": "experience",
+		"repo": "campaigner.ee_addon",
+		"addon_path": "third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"crumbly": {
+		"user": "experience",
+		"repo": "crumbly.ee_addon",
+		"addon_path": "third_party/",
 		"theme_path": "themes/third_party/"
 	},
 	"mailchimp_subscribe": {
 		"user": "experience",
 		"repo": "mailchimp_subscribe.ee_addon",
-		"addon_path": "system/expressionengine/third_party/",
+		"addon_path": "third_party/",
 		"theme_path": "themes/third_party/"
 	},
 	"omnilog": {
@@ -175,21 +197,27 @@
 		"addon_path": "third_party/",
 		"theme_path": "themes/third_party/"
 	},
+	"options": {
+		"user": "experience",
+		"repo": "options.ee_addon",
+		"addon_path": "third_party/",
+		"theme_path": "themes/third_party/"
+	},
 	"dropdate": {
 		"user": "experience",
-		"repo": "sl.dropdate.ee_addon",
-		"addon_path": "ee2/"
+		"repo": "dropdate.ee_addon",
+		"addon_path": "third_party/"
 	},
 	"smartdown": {
 		"user": "experience",
 		"repo": "smartdown.ee_addon",
-		"addon_path": "ee2/third_party/"
+		"addon_path": "third_party/"
 	},
 	"testee": {
 		"user": "experience",
 		"repo": "testee.ee_addon",
-		"addon_path": "ee2/third_party/",
-		"theme_path": "ee2/themes/third_party/"
+		"addon_path": "third_party/",
+		"theme_path": "themes/third_party/"
 	},
 	"tweedee": {
 		"user": "experience",
@@ -307,7 +335,7 @@
 		"repo": "md.color_picker.ee_addon",
 		"branch": "ee2",
 		"addon_path": "system/expressionengine/third_party/",
-		"theme_path": "themes/third_party"
+		"theme_path": "themes/third_party/"
 	},
 	"devotee": {
 		"user": "mdesign",
@@ -337,6 +365,33 @@
 		"branch": "ee2",
 		"addon_path": "system/expressionengine/third_party/"
 	},
+	"ee_debug_toolbar": {
+		"user": "mithra62",
+		"repo": "ee_debug_toolbar",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"ee_syntax": {
+		"user": "mithra62",
+		"repo": "ee_syntax",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"meetup": {
+		"user": "mithra62",
+		"repo": "meetup",
+		"add_folder": true
+	},
+  "gwcode_fileinfo": {
+    "user": "leondijk",
+    "repo": "gwcode_fileinfo",
+    "addon_path": "system/expressionengine/third_party/"
+  },
+  "gwcode_categories": {
+    "user": "leondijk",
+    "repo": "gwcode_categories",
+    "addon_path": "system/expressionengine/third_party/"
+  },
 	"low_link": {
 		"user": "lodewijk",
 		"repo": "low.link.ee2_addon"
@@ -390,6 +445,10 @@
 	"trigger_shelf": {
 		"user": "curtisblackwell",
 		"repo": "cpb_trigger_shelf"
+	},
+	"imgsizer": {
+		"user": "curtisblackwell",
+		"repo": "image_sizer"
 	},
 	"bitly": {
 		"user": "bjornbjorn",
@@ -503,8 +562,9 @@
 	},
 	"stash": {
 		"user": "croxton",
-		"repo": "stash",
-		"addon_path": "third_party/"
+		"repo": "Stash",
+		"branch": "dev",
+		"add_folder": true
 	},
 	"cat2": {
 		"user": "croxton",
@@ -530,6 +590,12 @@
 		"user": "croxton",
 		"repo": "Switchee",
 		"add_folder": true
+	},
+	"dm_eeck": {
+		"user": "dmlogic",
+		"repo": "DM-EECK",
+		"addon_path": "system/third_party/",
+		"theme_path": "themes/third_party/"
 	},
 	"ci_helpers": {
 		"user": "erikreagan",
@@ -888,6 +954,16 @@
 		"repo": "ri.yearlist.ee_addon.2.0",
 		"add_folder": true
 	},
+	"widgets": {
+		"user": "philsturgeon",
+		"repo": "ee2-widgets",
+		"add_folder": true
+	},
+	"rest": {
+		"user": "philsturgeon",
+		"repo": "ee2-rest",
+		"add_folder": true
+	},
 	"cookie": {
 		"user": "philipzaengle",
 		"repo": "cookie.ee2_addon"
@@ -926,7 +1002,25 @@
 	"content_builder": {
 		"user": "ckimrie",
 		"repo": "ft.content-builder.ee_addon",
-		"addon_path": "system/expressionengine/third_party",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"requirejs" : {
+		"user": "ckimrie",
+		"repo": "RequireJS-for-EE",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"site_manager" : {
+		"user": "ckimrie",
+		"repo": "Site-Manager",
+		"addon_path": "system/expressionengine/third_party/",
+		"theme_path": "themes/third_party/"
+	},
+	"routemaster" : {
+		"user": "ckimrie",
+		"repo": "routemaster",
+		"addon_path": "system/expressionengine/third_party/",
 		"theme_path": "themes/third_party/"
 	},
 	"mosogeocoder": {
@@ -1074,32 +1168,28 @@
 	},
 	"wb_category_select": {
 		"user": "wesbaker",
-		"repo": "wb.category_select.ee2_addon",
+		"repo": "category_select.ee2_addon",
 		"addon_path": "third_party/"
 	},
 	"wb_explode": {
 		"user": "wesbaker",
-		"repo": "wb.explode.ee2_addon",
+		"repo": "explode.ee2_addon",
 		"addon_path": "system/expressionengine/third_party/"
 	},
 	"wb_relative_date": {
 		"user": "wesbaker",
-		"repo": "wb.relative_date.ee2_addon"
+		"repo": "relative_date.ee2_addon"
 	},
 	"wb_tag_select": {
 		"user": "wesbaker",
-		"repo": "wb.tag_select.ee2_addon",
+		"repo": "tag_select.ee2_addon",
 		"addon_path": "system/expressionengine/third_party/"
 	},
 	"wb_tag_suggest": {
 		"user": "wesbaker",
-		"repo": "wb.tag_suggest.ee2_addon",
+		"repo": "tag_suggest.ee2_addon",
 		"addon_path": "system/expressionengine/third_party/",
 		"theme_path": "themes/third_party/"
-	},
-	"wb_vimeo_player": {
-		"user": "wesbaker",
-		"repo": "wb.vimeo_player.ee2_addon"
 	},
 	"ih_textile_editor": {
 		"user": "imagehat",
@@ -1134,7 +1224,8 @@
 	},
 	"freebie": {
 		"user": "averyvery",
-		"repo": "Freebie"
+		"repo": "Freebie",
+    "addon_path": "third_party/"
 	},
 	"ampersand": {
 		"user": "scottboms",
@@ -1225,7 +1316,7 @@
 	"encode_decode": {
 		"user": "ninefour",
 		"repo": "encode_decode.pi.ee_addon",
-		"addon_path": "EE2/system/third_party/"
+		"addon_path": "EE2/system/expressionengine/third_party/"
 	},
 	"minimee": {
 		"user": "johndwells",
