@@ -80,6 +80,11 @@
 		"repo": "template_menu",
 		"addon_path": "system/expressionengine/third_party/"
 	},
+	"template_routes": {
+		"user": "rsanchez",
+		"repo": "template_routes",
+		"addon_path": "system/expressionengine/third_party/"
+	},
 	"ace_template_code_syntax_highlighter": {
 		"user": "devdemon",
 		"repo": "Ace-Template-Code-Syntax-Highlighter",
