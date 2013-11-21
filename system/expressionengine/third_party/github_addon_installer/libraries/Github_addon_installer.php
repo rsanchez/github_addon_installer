@@ -238,7 +238,7 @@ class Github_addon_repo
 		
 		if (empty($data))
 		{
-			throw new Exception(sprintf(lang('repo_not_found'), $this->branch));
+			throw new Exception(sprintf(lang('repo_not_found'), 'https://github.com/'.$this->user.'/'.$this->repo, $this->repo));
 		}
 
 		$branch = NULL;
@@ -255,7 +255,7 @@ class Github_addon_repo
 
 		if ( ! $branch)
 		{
-			throw new Exception(sprintf(lang('branch_not_found'), $this->branch));
+			throw new Exception(sprintf(lang('branch_not_found'), 'https://github.com/'.$this->user.'/'.$this->repo.'/tree/'.$this->branch, $this->branch));
 		}
 		
 		$this->sha = $branch->commit->sha;

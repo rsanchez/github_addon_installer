@@ -10,7 +10,8 @@ $lang = array(
 // Start inserting custom language keys/values here
 
 	'incomplete_repo_definition' => 'The definition for this repo is incomplete.',
-	'branch_not_found' => 'Branch "%s" not found',
+	'branch_not_found' => 'Branch <a href="%s">%s</a> not found',
+	'repo_not_found' => 'Repo <a href="%s">%s</a> not found',
 	'fetch_dir_doesnt_exist' => 'The directory %s does not exist.',
 	'path_third_not_writable' => 'The third_party/ cannot be written to.',
 	'temp_dir_not_writable' => 'The temp directory cannot be written to.',
