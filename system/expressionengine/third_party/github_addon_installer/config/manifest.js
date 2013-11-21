@@ -1212,11 +1212,10 @@
 		"repo": "jb.friendly.ee_addon",
 		"addon_path": "ee2/"
 	},
-	"jb_graphite": {
+	"graphite": {
 		"user": "joelbradbury",
-		"repo": "jb.graphite.ee_addon",
-		"addon_path": "ee2/third_party/",
-		"theme_path": "ee2/themes/third_party/"
+		"repo": "Graphite.ee_addon",
+		"theme_path": "themes/third_party/"
 	},
 	"hs_localize_date": {
 		"user": "hearsay",
