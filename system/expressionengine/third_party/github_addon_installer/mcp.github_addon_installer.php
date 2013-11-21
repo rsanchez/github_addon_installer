@@ -222,6 +222,104 @@ class Github_addon_installer_mcp
 		
 		return $this->EE->load->view('index', $vars, TRUE);
 	}
+
+	public function validate_manifest()
+	{
+		$count = count($this->manifest);
+		
+		$this->EE->load->library('javascript');
+		
+		$this->EE->javascript->output('(function(addons) {
+			var index = 0,
+				$count = $("#manifest-count"),
+				$button = $("#validate-manifest"),
+				$loading = $("#manifest-loading-message"),
+				base = '.json_encode(str_replace('&amp;', '&', $this->base)).',
+				$messages = $("#manifest-validation-messages");
+
+			function validate() {
+				var addon;
+
+				if (addons[index] === undefined) {
+					return;
+				}
+
+				if (index > 10) {
+					return;
+				}
+
+				addon = addons[index];
+
+				$loading.html("Checking "+addon+"...");
+
+				$.get(
+					base,
+					{addon: addon, method: "validate"},
+					function(data) {
+						if ( ! data.message_success) {
+							$messages.append(data.message_failure);
+						}
+
+						index++;
+
+						$count.html(index);
+
+						$loading.html("");
+
+						validate();
+					},
+					"json"
+				);
+			}
+
+			$button.on("click", function(event) {
+				event.preventDefault();
+
+				$button.prop("disabled", true);
+
+				validate();
+			});
+		})('.json_encode(array_keys($this->manifest)).');');
+
+		return '<p><input class="submit" type="submit" id="validate-manifest" value="Validate Manifest" /></p><div id="manifest-loading-message"></div><div id="manifest-validation-messages"></div><p><span id="manifest-count">0</span> / '.$count.' checked.</p>';
+	}
+
+	public function validate()
+	{			
+		$this->EE->load->library('github_addon_installer');
+
+		$addon = $this->EE->input->get_post('addon');
+		
+		if ( ! isset($this->manifest[$addon]))
+		{
+			$this->EE->session->set_flashdata('message_success', FALSE);
+			
+			$this->EE->session->set_flashdata('message_failure', sprintf(lang('invalid_addon'), $addon));
+		}
+		else
+		{
+			$params = $this->manifest[$addon];
+			
+			$params['name'] = $addon;
+
+			try
+			{
+				$repo = $this->EE->github_addon_installer->repo($params);
+
+				$this->EE->session->set_flashdata('message_success', TRUE);
+				
+				$this->EE->session->set_flashdata('message_failure', '');
+			}
+			catch(Exception $e)
+			{
+				$this->EE->session->set_flashdata('message_success', FALSE);
+				
+				$this->EE->session->set_flashdata('message_failure', $e->getMessage());
+			}
+		}
+		
+		$this->EE->functions->redirect($this->base);
+	}
 	
 	public function install()
 	{
@@ -247,14 +345,33 @@ class Github_addon_installer_mcp
 			$this->EE->session->set_flashdata('addon', $addon);
 			
 			$this->EE->load->library('github_addon_installer');
+
+			$error = '';
+			$success = FALSE;
 			
-			$repo = $this->EE->github_addon_installer->repo($params);
-			
-			$success = ($repo->install()) ? sprintf(lang('successfully_installed'), $addon) : FALSE;
+			try
+			{
+				$repo = $this->EE->github_addon_installer->repo($params);
+
+				try
+				{
+					$repo->install();
+
+					$success = sprintf(lang('successfully_installed'), $addon);
+				}
+				catch(Exception $e)
+				{
+					$error = $e->getMessage();
+				}
+			}
+			catch(Exception $e)
+			{
+				$error = $e->getMessage();
+			}
 			
 			$this->EE->session->set_flashdata('message_success', $success);
 			
-			$this->EE->session->set_flashdata('message_failure', '<p>'.implode('</p><p>', $repo->errors()).'</p>');
+			$this->EE->session->set_flashdata('message_failure', '<p>'.$error.'</p>');
 			
 			//reset the addons lib if already loaded, so it knows about our new install
 			unset($this->EE->addons);

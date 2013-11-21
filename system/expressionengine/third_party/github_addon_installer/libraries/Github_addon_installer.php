@@ -35,7 +35,7 @@ class Github_addon_installer
 		$user = element('user', $params);
 		$repo = element('repo', $params);
 		$branch = (isset($params['branch'])) ? $params['branch'] : 'master';
-		
+
 		return new Github_addon_repo($user, $repo, $branch, $params);
 	}
 	
@@ -153,8 +153,6 @@ class Github_addon_installer
  */
 class Github_addon_repo
 {
-	protected $errors = array();
-	
 	/**
 	 * @var string GitHub user
 	 */
@@ -233,16 +231,14 @@ class Github_addon_repo
 		
 		if ( ! $this->user || ! $this->repo || ! $this->branch)
 		{
-			$this->add_error(lang('incomplete_repo_definition'));
-			return FALSE;
+			throw new Exception(lang('incomplete_repo_definition'));
 		}
 		
 		$data = $this->EE->github_addon_installer->api_fetch_json('repos', $this->user, $this->repo, 'branches');
 		
 		if (empty($data))
 		{
-			$this->add_error(sprintf(lang('repo_not_found'), $this->branch));
-			return FALSE;
+			throw new Exception(sprintf(lang('repo_not_found'), $this->branch));
 		}
 
 		$branch = NULL;
@@ -259,8 +255,7 @@ class Github_addon_repo
 
 		if ( ! $branch)
 		{
-			$this->add_error(sprintf(lang('branch_not_found'), $this->branch));
-			return FALSE;
+			throw new Exception(sprintf(lang('branch_not_found'), $this->branch));
 		}
 		
 		$this->sha = $branch->commit->sha;
@@ -298,12 +293,9 @@ class Github_addon_repo
 	
 	public function install()
 	{
-		$this->errors = array();
-		
 		if ( ! is_really_writable(PATH_THIRD))
 		{
-			$this->add_error(lang('path_third_not_writable'));
-			return FALSE;
+			throw new Exception(lang('path_third_not_writable'));
 		}
 		
 		$temp_dir = NULL;
@@ -328,8 +320,7 @@ class Github_addon_repo
 			
 			if ( ! is_really_writable($this->EE->github_addon_installer->temp_path()))
 			{
-				$this->add_error('temp_dir_not_writable');
-				return FALSE;
+				throw new Exception('temp_dir_not_writable');
 			}
 			
 			$file_path = $this->EE->github_addon_installer->temp_path().$this->sha.'.zip';
@@ -478,8 +469,7 @@ class Github_addon_repo
 			
 			if ( ! is_really_writable($path) || (file_exists($path.$filename) && ! is_really_writable($path.$filename)))
 			{
-				$this->add_error(sprintf(lang('cant_write_file'), $path.$filename));
-				return FALSE;
+				throw new Exception(sprintf(lang('cant_write_file'), $path.$filename));
 			}
 
 			if ( ! is_null($temp_dir))
@@ -510,8 +500,6 @@ class Github_addon_repo
 				delete_files($this->EE->github_addon_installer->temp_path().$temp_dir, TRUE);
 				@rmdir($this->EE->github_addon_installer->temp_path().$temp_dir);
 		}
-	
-		return ! $this->errors;
 	}
 	
 	protected function parse_filename(&$path, &$filename)
@@ -554,15 +542,5 @@ class Github_addon_repo
 	public function sha()
 	{
 		return $this->sha;
-	}
-	
-	public function errors()
-	{
-		return $this->errors;
-	}
-	
-	protected function add_error($msg)
-	{
-		$this->errors[] = $msg;
 	}
 }
