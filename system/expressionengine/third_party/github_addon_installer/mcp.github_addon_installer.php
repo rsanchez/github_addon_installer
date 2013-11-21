@@ -231,6 +231,8 @@ class Github_addon_installer_mcp
 		
 		$this->EE->javascript->output('(function(addons) {
 			var index = 0,
+				$username = $("#github-username"),
+				$password = $("#github-password"),
 				$count = $("#manifest-count"),
 				$button = $("#validate-manifest"),
 				$loading = $("#manifest-loading-message"),
@@ -244,20 +246,21 @@ class Github_addon_installer_mcp
 					return;
 				}
 
-				if (index > 10) {
-					return;
-				}
-
 				addon = addons[index];
 
 				$loading.html("Checking "+addon+"...");
 
 				$.get(
 					base,
-					{addon: addon, method: "validate"},
+					{
+						addon: addon,
+						method: "validate",
+						username: $username.val(),
+						password: $password.val()
+					},
 					function(data) {
 						if ( ! data.message_success) {
-							$messages.append(data.message_failure);
+							$messages.append("<p class=\"notice\">"+data.message_failure+"</p>");
 						}
 
 						index++;
@@ -281,7 +284,7 @@ class Github_addon_installer_mcp
 			});
 		})('.json_encode(array_keys($this->manifest)).');');
 
-		return '<p><input class="submit" type="submit" id="validate-manifest" value="Validate Manifest" /></p><div id="manifest-loading-message"></div><div id="manifest-validation-messages"></div><p><span id="manifest-count">0</span> / '.$count.' checked.</p>';
+		return '<p><input type="text" placeholder="Github Username" id="github-username" /><br /><br /><input type="password" placeholder="Github Password" id="github-password" /><br /><br /><input class="submit" type="submit" id="validate-manifest" value="Validate Manifest" /></p><div id="manifest-loading-message"></div><div id="manifest-validation-messages"></div><p><span id="manifest-count">0</span> / '.$count.' checked.</p>';
 	}
 
 	public function validate()
@@ -289,6 +292,13 @@ class Github_addon_installer_mcp
 		$this->EE->load->library('github_addon_installer');
 
 		$addon = $this->EE->input->get_post('addon');
+		$username = $this->EE->input->get_post('username');
+		$password = $this->EE->input->get_post('password');
+
+		if ($username && $password)
+		{
+			$this->EE->github_addon_installer->set_basic_auth($username, $password);
+		}
 		
 		if ( ! isset($this->manifest[$addon]))
 		{

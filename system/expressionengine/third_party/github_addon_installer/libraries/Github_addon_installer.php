@@ -7,6 +7,9 @@ class Github_addon_installer
 		CURLOPT_FOLLOWLOCATION => TRUE,
 		CURLOPT_SSL_VERIFYPEER => FALSE,//@TODO remove this
 	);
+
+	protected $basic_auth_username;
+	protected $basic_auth_password;
 	
 	protected $temp_path;
 	
@@ -17,6 +20,13 @@ class Github_addon_installer
 		$this->EE->load->helper('file');
 		
 		$this->temp_path = $this->EE->config->item('github_addon_installer_temp_path') ? $this->EE->config->item('github_addon_installer_temp_path') : realpath(dirname(__FILE__).'/../temp/').'/';//PATH_THIRD.'github_addon_installer/temp/';
+	}
+
+	public function set_basic_auth($username, $password)
+	{
+		$this->basic_auth_username = $username;
+		$this->basic_auth_password = $password;
+		return $this;
 	}
 	
 	/**
@@ -56,7 +66,7 @@ class Github_addon_installer
 	}
 	
 	/**
-	 * Fetch raw data from the github v2 api
+	 * Fetch raw data from the github v3 api
 	 * 
 	 * @param string $segment,... unlimited number of segments
 	 * @return mixed
@@ -69,7 +79,7 @@ class Github_addon_installer
 	}
 	
 	/**
-	 * Fetch json data from the github v2 api
+	 * Fetch json data from the github v3 api
 	 * 
 	 * @param string $segment,... unlimited number of segments
 	 * @return array|false
@@ -126,6 +136,11 @@ class Github_addon_installer
 		$ch = curl_init($url);
 		
 		curl_setopt_array($ch, $this->curl_options);
+
+		if ($this->basic_auth_username && $this->basic_auth_password)
+		{
+			curl_setopt($ch, CURLOPT_USERPWD, $this->basic_auth_username.':'.$this->basic_auth_password);
+		}
 		
 		$data = curl_exec($ch);
 		
