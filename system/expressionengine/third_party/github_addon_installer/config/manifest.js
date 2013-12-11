@@ -10,12 +10,12 @@
 		"addon_path": "system/expressionengine/third_party/"
 	},
 	"bn_edit_menu": {
-		"user": "rsanchez",
+		"user": "CartThrob",
 		"repo": "bn_edit_menu",
 		"addon_path": "system/expressionengine/third_party/"
 	},
 	"bn_short_names": {
-		"user": "rsanchez",
+		"user": "CartThrob",
 		"repo": "bn_short_names",
 		"addon_path": "system/expressionengine/third_party/"
 	},
@@ -91,12 +91,6 @@
 		"addon_path": "system/expressionengine/third_party/",
 		"theme_path": "themes/third_party/"
 	},
-	"channel_videos": {
-		"user": "devdemon",
-		"repo": "Channel-Videos",
-		"addon_path": "system/expressionengine/third_party/",
-		"theme_path": "themes/third_party/"
-	},
 	"ee_code_disabler": {
 		"user": "devdemon",
 		"repo": "EE-Code-Disabler",
@@ -122,12 +116,6 @@
 		"repo": "Smart-Switch",
 		"addon_path": "system/expressionengine/third_party/"
 	},
-	"tagger": {
-		"user": "devdemon",
-		"repo": "Tagger",
-		"addon_path": "system/expressionengine/third_party/",
-		"theme_path": "themes/third_party/"
-	},
 	"template2ftp": {
 		"user": "devdemon",
 		"repo": "Template-To-FTP",
@@ -147,12 +135,6 @@
 	"entry_widgets": {
 		"user": "iainurquhart",
 		"repo": "entry_widgets",
-		"addon_path": "system/expressionengine/third_party/",
-		"theme_path": "themes/third_party/"
-	},
-	"nolan": {
-		"user": "iainurquhart",
-		"repo": "Nolan",
 		"addon_path": "system/expressionengine/third_party/",
 		"theme_path": "themes/third_party/"
 	},
@@ -238,7 +220,7 @@
 	},
 	"you_are_here": {
 		"user": "experience",
-		"repo": "you_are_here.ee2_addon",
+		"repo": "you_are_here.ee_addon",
 		"addon_path": "third_party/"
 	},
 	"cp_css_js": {
@@ -342,12 +324,6 @@
 		"addon_path": "system/expressionengine/third_party/",
 		"theme_path": "themes/third_party/"
 	},
-	"devotee": {
-		"user": "mdesign",
-		"repo": "devot-ee-addon",
-		"addon_path": "system/third_party/",
-		"theme_path": "themes/third_party/"
-	},
 	"md_detect_page_type": {
 		"user": "mdesign",
 		"repo": "md.detect_page_type.ee2_addon",
@@ -398,58 +374,58 @@
     "addon_path": "system/expressionengine/third_party/"
   },
 	"low_link": {
-		"user": "lodewijk",
+		"user": "low",
 		"repo": "low.link.ee2_addon"
 	},
 	"low_nice_date": {
-		"user": "lodewijk",
+		"user": "low",
 		"repo": "low.nice_date.ee2_addon"
 	},
 	"low_nospam": {
-		"user": "lodewijk",
+		"user": "low",
 		"repo": "low.nospam.ee2_addon",
 		"add_folder": true
 	},
 	"low_random": {
-		"user": "lodewijk",
+		"user": "low",
 		"repo": "low.random.ee2_addon"
 	},
 	"low_replace": {
-		"user": "lodewijk",
+		"user": "low",
 		"repo": "low.replace.ee2_addon"
 	},
 	"low_safe_encode": {
-		"user": "lodewijk",
+		"user": "low",
 		"repo": "low.safe_encode.ee2_addon"
 	},
 	"low_seg2cat": {
-		"user": "lodewijk",
+		"user": "low",
 		"repo": "low.seg2cat.ee2_addon"
 	},
 	"low_widont": {
-		"user": "lodewijk",
+		"user": "low",
 		"repo": "low.widont.ee2_addon"
 	},
 	"low_yearly_archives": {
-		"user": "lodewijk",
+		"user": "low",
 		"repo": "low.yearly_archives.ee2_addon"
 	},
 	"low_freeform_field": {
-		"user": "lodewijk",
+		"user": "low",
 		"repo": "low_freeform_field",
 		"addon_path": "ee2/"
 	},
 	"garnish": {
 		"user": "curtisblackwell",
-		"repo": "cpb_garnish"
+		"repo": "garnish"
 	},
 	"steak_sauce": {
 		"user": "curtisblackwell",
-		"repo": "cpb_steak_sauce"
+		"repo": "steak_sauce"
 	},
 	"trigger_shelf": {
 		"user": "curtisblackwell",
-		"repo": "cpb_trigger_shelf"
+		"repo": "trigger_shelf"
 	},
 	"imgsizer": {
 		"user": "curtisblackwell",
@@ -622,15 +598,6 @@
 		"user": "green-egg-media",
 		"repo": "Current"
 	},
-	"github": {
-		"user": "green-egg-media",
-		"repo": "EE-GitHub"
-	},
-	"simple_list": {
-		"user": "green-egg-media",
-		"repo": "Simple-List-Fieldtype-for-EE2",
-		"add_folder": true
-	},
 	"gem_parenturl": {
 		"user": "green-egg-media",
 		"repo": "Structure-Parent-URL-for-EE2",
@@ -640,12 +607,6 @@
 		"user": "green-egg-media",
 		"repo": "TrailerAddict-EE2-API-Wrapper",
 		"add_folder": true
-	},
-	"cp_analytics": {
-		"user": "amphibian",
-		"repo": "cp_analytics.ee_addon",
-		"addon_path": "system/expressionengine/third_party/",
-		"theme_path": "themes/third_party/"
 	},
 	"deviant": {
 		"user": "amphibian",
@@ -662,6 +623,10 @@
 		"repo": "pi.classee_body.ee2_addon",
 		"addon_path": "third_party/"
 	},
+	"format_characters": {
+		"user": "amphibian",
+		"repo": "format_characters.ee_addon"
+	},
 	"name_wrangler": {
 		"user": "amphibian",
 		"repo": "pi.name_wrangler.ee2_addon",
@@ -670,6 +635,11 @@
 	"reegion_select": {
 		"user": "amphibian",
 		"repo": "reegion_select.ee2_addon",
+		"addon_path": "third_party/"
+	},
+	"s3_directory": {
+		"user": "amphibian",
+		"repo": "s3_directory.ee2_addon",
 		"addon_path": "third_party/"
 	},
 	"spamfreeform": {
@@ -692,19 +662,9 @@
 		"repo": "time_select.ee2_addon",
 		"addon_path": "third_party/"
 	},
-	"detour": {
-		"user": "cityzen",
-		"repo": "Detour",
-		"add_folder": true
-	},
 	"draggable": {
 		"user": "kevinthompson",
-		"repo": "ee.draggable.php",
-		"addon_path": "system/expressionengine/third_party/"
-	},
-	"facelift": {
-		"user": "kevinthompson",
-		"repo": "ee.facelift.php",
+		"repo": "draggable",
 		"addon_path": "system/expressionengine/third_party/"
 	},
 	"ed_imageresizer": {
@@ -716,10 +676,6 @@
 		"user": "erskinedesign",
 		"repo": "ed.language_switcher.ee_addon",
 		"addon_path": "system/expressionengine/third_party/"
-	},
-	"ed_lastfm": {
-		"user": "erskinedesign",
-		"repo": "ed.lastfm.ee2_addon"
 	},
 	"ed_pagination": {
 		"user": "erskinedesign",
@@ -868,40 +824,29 @@
 		"repo": "Antenna",
 		"addon_path": "ee2/"
 	},
-	"template_variables": {
-		"user": "sherpawebstudios",
-		"repo": "acc.template_variables.ee2_addon",
-		"addon_path": "third_party/",
-		"theme_path": "themes/third_party/"
-	},
-	"splash": {
-		"user": "sherpawebstudios",
-		"repo": "pi.splash.ee2_addon",
-		"addon_path": "third_party/"
-	},
 	"eehive_entrylottoree": {
-		"user": "ee-hive",
+		"user": "brettdewoody",
 		"repo": "Entry-Lottoree-for-ExpressionEngine",
 		"addon_path": "system/third_party/"
 	},
 	"eehive_flickr": {
-		"user": "ee-hive",
+		"user": "brettdewoody",
 		"repo": "Flickr-for-ExpressionEngine",
 		"addon_path": "system/expressionengine/third_party/",
 		"theme_path": "themes/third_party/"
 	},
 	"eehive_gooee": {
-		"user": "ee-hive",
+		"user": "brettdewoody",
 		"repo": "Gooee-for-ExpressionEngine",
 		"addon_path": "system/third_party/"
 	},
 	"eehive_hacksaw": {
-		"user": "ee-hive",
+		"user": "brettdewoody",
 		"repo": "Hacksaw-for-ExpressionEngine",
 		"addon_path": "system/third_party/"
 	},
 	"eehive_inflector": {
-		"user": "ee-hive",
+		"user": "brettdewoody",
 		"repo": "Inflector-for-ExpressionEngine",
 		"addon_path": "system/third_party/"
 	},
@@ -916,28 +861,23 @@
 		"addon_path": "third_party/"
 	},
 	"cp_menu_master": {
-		"user": "crescendo",
+		"user": "expressodev",
 		"repo": "cp_menu_master",
 		"addon_path": "system/expressionengine/third_party/"
 	},
 	"easy_ical": {
-		"user": "crescendo",
-		"repo": "easy_ical",
+		"user": "expressodev",
+		"repo": "easy_icalendar",
 		"addon_path": "system/expressionengine/third_party/"
 	},
-	"ress": {
-		"user": "crescendo",
-		"repo": "express",
+	"freemember": {
+		"user": "expressodev",
+		"repo": "freemember",
 		"addon_path": "system/expressionengine/third_party/"
 	},
 	"reelocate": {
-		"user": "crescendo",
+		"user": "expressodev",
 		"repo": "reelocate",
-		"addon_path": "system/expressionengine/third_party/"
-	},
-	"twitter_search": {
-		"user": "crescendo",
-		"repo": "twitter_search",
 		"addon_path": "system/expressionengine/third_party/"
 	},
 	"nce_ldap": {
@@ -1029,22 +969,22 @@
 		"theme_path": "themes/third_party/"
 	},
 	"mosogeocoder": {
-		"user": "moresoda",
+		"user": "ckimrie",
 		"repo": "ft.geocoder.ee_addon",
 		"addon_path": "system/expressionengine/third_party/"
 	},
 	"mosomatrixrelations": {
-		"user": "moresoda",
+		"user": "ckimrie",
 		"repo": "ft.matrix_relations.ee_addon",
 		"addon_path": "system/expressionengine/third_party/"
 	},
 	"beanstalk_ping": {
-		"user": "moresoda",
+		"user": "ckimrie",
 		"repo": "mod.beanstalk-deployment-hook.ee_addon",
 		"addon_path": "system/expressionengine/third_party/"
 	},
 	"moreutilities": {
-		"user": "moresoda",
+		"user": "ckimrie",
 		"repo": "moreUtilities",
 		"addon_path": "system/expressionengine/third_party/"
 	},
@@ -1103,14 +1043,6 @@
 	"dry_accessible_captcha": {
 		"user": "dry",
 		"repo": "accessible-captcha.ee2_addon"
-	},
-	"dry_stash": {
-		"user": "dry",
-		"repo": "stash.ee2_addon"
-	},
-	"dry_textile": {
-		"user": "dry",
-		"repo": "textile.ee2_addon"
 	},
 	"disqus": {
 		"user": "marcato15",
@@ -1185,17 +1117,6 @@
 		"user": "wesbaker",
 		"repo": "relative_date.ee2_addon"
 	},
-	"wb_tag_select": {
-		"user": "wesbaker",
-		"repo": "tag_select.ee2_addon",
-		"addon_path": "system/expressionengine/third_party/"
-	},
-	"wb_tag_suggest": {
-		"user": "wesbaker",
-		"repo": "tag_suggest.ee2_addon",
-		"addon_path": "system/expressionengine/third_party/",
-		"theme_path": "themes/third_party/"
-	},
 	"ih_textile_editor": {
 		"user": "imagehat",
 		"repo": "ih.textile_editor.ee2_addon",
@@ -1260,11 +1181,6 @@
 	"countdown": {
 		"user": "jackmcdade",
 		"repo": "EE2-Countdown",
-		"add_folder": true
-	},
-	"pinwheel": {
-		"user": "jackmcdade",
-		"repo": "Pinwheel",
 		"add_folder": true
 	},
 	"uri_prettify": {
