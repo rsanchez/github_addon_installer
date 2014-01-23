@@ -3,6 +3,7 @@
 class Github_addon_installer
 {
 	protected $curl_options = array(
+		CURLOPT_USERAGENT      => 'EE Github Addon Installer',
 		CURLOPT_RETURNTRANSFER => TRUE,
 		CURLOPT_FOLLOWLOCATION => TRUE,
 		CURLOPT_SSL_VERIFYPEER => FALSE,//@TODO remove this
