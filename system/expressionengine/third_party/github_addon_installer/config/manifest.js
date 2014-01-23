@@ -716,6 +716,21 @@
 		"user": "dan",
 		"repo": "hivelogic-ee-shrimp"
 	},
+	"navee_select": {
+		"user": "fromtheoutfit",
+		"repo": "navee_select",
+		"addon_path": "system/expressionengine/third_party/"
+	},
+	"dump_truck": {
+		"user": "fromtheoutfit",
+		"repo": "dump_truck",
+		"addon_path": "system/expressionengine/third_party/"
+	},
+	"playa_links": {
+		"user": "fromtheoutfit",
+		"repo": "playa_links",
+		"addon_path": "system/expressionengine/third_party/"
+	},
 	"copyright": {
 		"user": "shapeshed",
 		"repo": "copyright.ee_addon",
