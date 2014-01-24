@@ -4,6 +4,11 @@
 		"repo": "absolute_total_results",
 		"addon_path": "system/expressionengine/third_party/"
 	},
+	"auto_pages_uri": {
+		"user": "rsanchez",
+		"repo": "auto_pages_uri",
+		"addon_path": "system/expressionengine/third_party/"
+	},
 	"activerecord": {
 		"user": "rsanchez",
 		"repo": "activerecord",
