@@ -1254,6 +1254,21 @@
 		"repo": "encode_decode.pi.ee_addon",
 		"addon_path": "EE2/system/expressionengine/third_party/"
 	},
+	"pages_nested_menu": {
+		"user": "ninefour",
+		"repo": "pages_nested_menu.pi.ee_addon",
+		"addon_path": "system/third_party/"
+	},
+	"better_pages": {
+		"user": "ninefour",
+		"repo": "better_pages.acc.ee_addon",
+		"addon_path": "system/third_party/"
+	},
+	"member_online": {
+		"user": "ninefour",
+		"repo": "member_online.pi.ee_addon",
+		"addon_path": "system/third_party/"
+	},
 	"minimee": {
 		"user": "johndwells",
 		"repo": "Minimee",
