@@ -51,7 +51,7 @@ class Github_addon_installer_mcp
 	
 	public function index()
 	{
-		$this->EE->cp->set_variable('cp_page_title', $this->EE->lang->line('github_addon_installer_module_name'));
+		$this->EE->view->cp_page_title = $this->EE->lang->line('github_addon_installer_module_name');
 		
 		$this->EE->load->library('addons');
 		
