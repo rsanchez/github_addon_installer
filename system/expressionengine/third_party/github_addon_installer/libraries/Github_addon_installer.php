@@ -19,8 +19,20 @@ class Github_addon_installer
 		$this->EE =& get_instance();
 		
 		$this->EE->load->helper('file');
-		
-		$this->temp_path = $this->EE->config->item('github_addon_installer_temp_path') ? $this->EE->config->item('github_addon_installer_temp_path') : realpath(dirname(__FILE__).'/../temp/').'/';//PATH_THIRD.'github_addon_installer/temp/';
+
+		if ($temp_path = $this->EE->config->item('github_addon_installer_temp_path'))
+		{
+			$this->temp_path = $temp_path;
+		}
+		else
+		{
+			$this->temp_path = APPPATH.'cache/github_addon_installer/';
+
+			if ( ! is_dir($this->temp_path))
+			{
+				mkdir($this->temp_path);
+			}
+		}
 	}
 
 	public function set_basic_auth($username, $password)
@@ -336,7 +348,7 @@ class Github_addon_repo
 			
 			if ( ! is_really_writable($this->EE->github_addon_installer->temp_path()))
 			{
-				throw new Exception('temp_dir_not_writable');
+				throw new Exception('temp_dir_not_writable: '.$this->EE->github_addon_installer->temp_path());
 			}
 			
 			$file_path = $this->EE->github_addon_installer->temp_path().$this->sha.'.zip';
