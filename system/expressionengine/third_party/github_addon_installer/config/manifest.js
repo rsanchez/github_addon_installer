@@ -357,24 +357,44 @@
   },
 	"low_link": {
 		"user": "low",
-		"repo": "low.link.ee2_addon"
+		"repo": "low_link"
 	},
 	"low_nice_date": {
 		"user": "low",
-		"repo": "low.nice_date.ee2_addon"
+		"repo": "low_nice_date"
 	},
 	"low_nospam": {
 		"user": "low",
 		"repo": "low.nospam.ee2_addon",
 		"add_folder": true
 	},
+	"low_title": {
+		"user": "low",
+		"repo": "low_title"
+	},
+	"low_search_safeguard": {
+		"user": "low",
+		"repo": "low_search_safeguard"
+	},
+	"low_search_tag": {
+		"user": "low",
+		"repo": "low_search_tag"
+	},
+	"low_reorder_titles": {
+		"user": "low",
+		"repo": "low_reorder_titles"
+	},
+	"low_options": {
+		"user": "low",
+		"repo": "low_options"
+	},
 	"low_random": {
 		"user": "low",
-		"repo": "low.random.ee2_addon"
+		"repo": "low_random"
 	},
 	"low_replace": {
 		"user": "low",
-		"repo": "low.replace.ee2_addon"
+		"repo": "low_replace"
 	},
 	"low_safe_encode": {
 		"user": "low",
@@ -382,15 +402,15 @@
 	},
 	"low_seg2cat": {
 		"user": "low",
-		"repo": "low.seg2cat.ee2_addon"
+		"repo": "low_seg2cat"
 	},
 	"low_widont": {
 		"user": "low",
-		"repo": "low.widont.ee2_addon"
+		"repo": "low_widont"
 	},
 	"low_yearly_archives": {
 		"user": "low",
-		"repo": "low.yearly_archives.ee2_addon"
+		"repo": "low_yearly_archives"
 	},
 	"low_freeform_field": {
 		"user": "low",
