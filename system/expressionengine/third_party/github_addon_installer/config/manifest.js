@@ -270,29 +270,6 @@
 		"repo": "plain_text",
 		"add_folder": true
 	},
-	"pt_field_pack": {
-		"user": "pixelandtonic",
-		"repo": "pt_field_pack",
-		"addon_path": "ee2/third_party/"
-	},
-	"pt_list": {
-		"user": "pixelandtonic",
-		"repo": "pt_list",
-		"addon_path": "ee2/third_party/",
-		"theme_path": "themes/third_party/"
-	},
-	"pt_pill": {
-		"user": "pixelandtonic",
-		"repo": "pt_pill",
-		"addon_path": "ee2/third_party/",
-		"theme_path": "themes/third_party/"
-	},
-	"pt_switch": {
-		"user": "pixelandtonic",
-		"repo": "pt_switch",
-		"addon_path": "ee2/third_party/",
-		"theme_path": "themes/third_party/"
-	},
 	"wygwam_no_upload_tab": {
 		"user": "pixelandtonic",
 		"repo": "wygwam_no_upload_tab",
