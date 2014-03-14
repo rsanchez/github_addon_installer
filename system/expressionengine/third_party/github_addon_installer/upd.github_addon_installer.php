@@ -11,7 +11,7 @@
  * @since		Version 2.0
  * @filesource
  */
- 
+
 // ------------------------------------------------------------------------
 
 /**
@@ -25,25 +25,23 @@
  */
 
 class Github_addon_installer_upd {
-	
+
 	public $version;
-	
+
 	private $EE;
-	
+
 	/**
 	 * Constructor
 	 */
 	public function __construct()
 	{
-		$this->EE =& get_instance();
-		
 		include PATH_THIRD.'github_addon_installer/config.php';
-		
+
 		$this->version = $config['version'];
 	}
-	
+
 	// ----------------------------------------------------------------
-	
+
 	/**
 	 * Installation Method
 	 *
@@ -57,58 +55,58 @@ class Github_addon_installer_upd {
 			'has_cp_backend'		=> "y",
 			'has_publish_fields'	=> 'n'
 		);
-		
-		$this->EE->db->insert('modules', $mod_data);
-		
-		// $this->EE->load->dbforge();
+
+		ee()->db->insert('modules', $mod_data);
+
+		// ee()->load->dbforge();
 		/**
-		 * In order to setup your custom tables, uncomment the line above, and 
+		 * In order to setup your custom tables, uncomment the line above, and
 		 * start adding them below!
 		 */
-		
+
 		return TRUE;
 	}
 
 	// ----------------------------------------------------------------
-	
+
 	/**
 	 * Uninstall
 	 *
 	 * @return 	boolean 	TRUE
-	 */	
+	 */
 	public function uninstall()
 	{
-		$mod_id = $this->EE->db->select('module_id')
+		$mod_id = ee()->db->select('module_id')
 								->get_where('modules', array(
 									'module_name'	=> 'Github_addon_installer'
 								))->row('module_id');
-		
-		$this->EE->db->where('module_id', $mod_id)
+
+		ee()->db->where('module_id', $mod_id)
 					 ->delete('module_member_groups');
-		
-		$this->EE->db->where('module_name', 'Github_addon_installer')
+
+		ee()->db->where('module_name', 'Github_addon_installer')
 					 ->delete('modules');
-		
-		// $this->EE->load->dbforge();
-		// Delete your custom tables & any ACT rows 
+
+		// ee()->load->dbforge();
+		// Delete your custom tables & any ACT rows
 		// you have in the actions table
-		
+
 		return TRUE;
 	}
-	
+
 	// ----------------------------------------------------------------
-	
+
 	/**
 	 * Module Updater
 	 *
 	 * @return 	boolean 	TRUE
-	 */	
+	 */
 	public function update($current = '')
 	{
 		// If you have updates, drop 'em in here.
 		return TRUE;
 	}
-	
+
 }
 /* End of file upd.github_addon_installer.php */
 /* Location: /system/expressionengine/third_party/github_addon_installer/upd.github_addon_installer.php */

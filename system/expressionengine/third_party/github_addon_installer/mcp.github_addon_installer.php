@@ -11,7 +11,7 @@
  * @since		Version 2.0
  * @filesource
  */
- 
+
 // ------------------------------------------------------------------------
 
 /**
@@ -30,59 +30,57 @@
 class Github_addon_installer_mcp
 {
 	private $base;
-	
+
 	private $manifest;
-	
+
 	private $temp_path;
-	
+
 	/**
 	 * Constructor
 	 */
 	public function __construct()
 	{
-		$this->EE =& get_instance();
-		
 		$this->base = BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=github_addon_installer';
-		
+
 		$this->manifest = json_decode(file_get_contents(PATH_THIRD.'github_addon_installer/config/manifest.js'), TRUE);
-		
+
 		ksort($this->manifest);
 	}
-	
+
 	public function index()
 	{
-		$this->EE->view->cp_page_title = $this->EE->lang->line('github_addon_installer_module_name');
-		
-		$this->EE->load->library('addons');
-		
+		ee()->view->cp_page_title = ee()->lang->line('github_addon_installer_module_name');
+
+		ee()->load->library('addons');
+
 		$vars = array();
 		$vars['addons'] = array();
-		
-		$this->EE->load->model('addons_model');
-		
+
+		ee()->load->model('addons_model');
+
 		$versions = array();
-		
+
 		//@TODO not works yet, must get leevi to require_once his EpiCurl lib
-		if (FALSE && $this->EE->addons_model->accessory_installed('nsm_addon_updater'))
+		if (FALSE && ee()->addons_model->accessory_installed('nsm_addon_updater'))
 		{
 			$nsm_addon_updater = new Nsm_addon_updater_acc;
-			
+
 			if ($feeds = $nsm_addon_updater->_updateFeeds())
 			{
 				foreach ($feeds as $addon => $feed)
 				{
 					$namespaces = $feed->getNameSpaces(TRUE);
-					
+
 					$latest_version = 0;
-	
+
 					include PATH_THIRD.'/'.$addon.'/config.php';
-	
+
 					foreach ($feed->channel->item as $version)
 					{
 						$ee_addon = $version->children($namespaces['ee_addon']);
-						
+
 						$version_number = (string) $ee_addon->version;
-						
+
 						if (version_compare($version_number, $config['version'], '>') && version_compare($version_number, $latest_version, '>'))
 						{
 							$versions[$addon] = $version_number;
@@ -90,25 +88,25 @@ class Github_addon_installer_mcp
 					}
 				}
 			}
-			
+
 			unset($nsm_addon_updater);
 		}
-		
+
 		foreach ($this->manifest as $addon => $params)
 		{
 			$name = (isset($params['name'])) ? $params['name'] : $addon;
 			$description = (isset($params['description'])) ? br().$params['description'] : '';
 			//$status = (in_array($addon, $current_addons)) ? lang('addon_installed') : lang('addon_not_installed');
-			$status = ($this->EE->addons->is_package($addon)) ? lang('addon_installed') : lang('addon_not_installed');
-			
+			$status = (ee()->addons->is_package($addon)) ? lang('addon_installed') : lang('addon_not_installed');
+
 			if (isset($versions[$addon]))
 			{
 				//$status = sprintf(lang('addon_update'), $versions[$addon]);
 				$status = lang('addon_update');
 			}
-			
+
 			//$install = (in_array($addon, $current_addons)) ? lang('addon_install') : lang('addon_reinstall');
-			
+
 			$url = 'https://github.com/'.$params['user'].'/'.$params['repo'];
 
 			if (isset($params['branch']))
@@ -127,10 +125,10 @@ class Github_addon_installer_mcp
 				'install' => anchor($this->base.AMP.'method=install'.AMP.'addon='.$addon, lang('addon_install'), 'data-addon="'.$addon.'"')
 			);
 		}
-		
-		$this->EE->load->library('javascript');
-		
-		$this->EE->javascript->output('
+
+		ee()->load->library('javascript');
+
+		ee()->javascript->output('
 			$("table#addons").tablesorter({
 				headers: {1: {sorter: false}, 4: {sorter: false}},
 				widgets: ["zebra"]
@@ -188,16 +186,16 @@ class Github_addon_installer_mcp
 					}
 				});
 				//case insensitive sort
-				values.sort(function(a, b){ 
-					a = a.toLowerCase(); 
-					b = b.toLowerCase(); 
+				values.sort(function(a, b){
+					a = a.toLowerCase();
+					b = b.toLowerCase();
 					if (a > b) {
 						return 1;
 					}
 					if (a < b) {
 						return -1;
 					}
-					return 0; 
+					return 0;
 				});
 				for (i in values) {
 					$(element).append($("<option>", {value: values[i], text: values[i]}));
@@ -217,19 +215,19 @@ class Github_addon_installer_mcp
 				}
 			}).trigger("focus");
 		');
-		
-		$this->EE->load->helper('array');
-		
-		return $this->EE->load->view('index', $vars, TRUE);
+
+		ee()->load->helper('array');
+
+		return ee()->load->view('index', $vars, TRUE);
 	}
 
 	public function validate_manifest()
 	{
 		$count = count($this->manifest);
-		
-		$this->EE->load->library('javascript');
-		
-		$this->EE->javascript->output('(function(addons) {
+
+		ee()->load->library('javascript');
+
+		ee()->javascript->output('(function(addons) {
 			var index = 0,
 				$username = $("#github-username"),
 				$password = $("#github-password"),
@@ -288,80 +286,80 @@ class Github_addon_installer_mcp
 	}
 
 	public function validate()
-	{			
-		$this->EE->load->library('github_addon_installer');
+	{
+		ee()->load->library('github_addon_installer');
 
-		$addon = $this->EE->input->get_post('addon');
-		$username = $this->EE->input->get_post('username');
-		$password = $this->EE->input->get_post('password');
+		$addon = ee()->input->get_post('addon');
+		$username = ee()->input->get_post('username');
+		$password = ee()->input->get_post('password');
 
 		if ($username && $password)
 		{
-			$this->EE->github_addon_installer->set_basic_auth($username, $password);
+			ee()->github_addon_installer->set_basic_auth($username, $password);
 		}
-		
+
 		if ( ! isset($this->manifest[$addon]))
 		{
-			$this->EE->session->set_flashdata('message_success', FALSE);
-			
-			$this->EE->session->set_flashdata('message_failure', sprintf(lang('invalid_addon'), $addon));
+			ee()->session->set_flashdata('message_success', FALSE);
+
+			ee()->session->set_flashdata('message_failure', sprintf(lang('invalid_addon'), $addon));
 		}
 		else
 		{
 			$params = $this->manifest[$addon];
-			
+
 			$params['name'] = $addon;
 
 			try
 			{
-				$repo = $this->EE->github_addon_installer->repo($params);
+				$repo = ee()->github_addon_installer->repo($params);
 
-				$this->EE->session->set_flashdata('message_success', TRUE);
-				
-				$this->EE->session->set_flashdata('message_failure', '');
+				ee()->session->set_flashdata('message_success', TRUE);
+
+				ee()->session->set_flashdata('message_failure', '');
 			}
 			catch(Exception $e)
 			{
-				$this->EE->session->set_flashdata('message_success', FALSE);
-				
-				$this->EE->session->set_flashdata('message_failure', $e->getMessage());
+				ee()->session->set_flashdata('message_success', FALSE);
+
+				ee()->session->set_flashdata('message_failure', $e->getMessage());
 			}
 		}
-		
-		$this->EE->functions->redirect($this->base);
+
+		ee()->functions->redirect($this->base);
 	}
-	
+
 	public function install()
 	{
-		$addon = $this->EE->input->get_post('addon');
-		
+		$addon = ee()->input->get_post('addon');
+
 		if ( ! isset($this->manifest[$addon]))
 		{
-			$this->EE->session->set_flashdata('message_success', FALSE);
-			
-			$this->EE->session->set_flashdata('message_failure', sprintf(lang('invalid_addon'), $addon));
+			ee()->session->set_flashdata('message_success', FALSE);
+
+			ee()->session->set_flashdata('message_failure', sprintf(lang('invalid_addon'), $addon));
 		}
 		else
 		{
 			$params = $this->manifest[$addon];
-			
+
 			$params['name'] = $addon;
 
-			if ($this->EE->input->get('branch'))
+			if (ee()->input->get('branch'))
 			{
-				$params['branch'] = $this->EE->input->get('branch');
+				$params['branch'] = ee()->input->get('branch');
 			}
-			
-			$this->EE->session->set_flashdata('addon', $addon);
-			
-			$this->EE->load->library('github_addon_installer');
+
+			ee()->session->set_flashdata('addon', $addon);
+
+			ee()->load->library('github_addon_installer');
 
 			$error = '';
 			$success = FALSE;
-			
+
 			try
 			{
-				$repo = $this->EE->github_addon_installer->repo($params);
+				$repo = ee()->github_addon_installer->repo($params);
 
 				try
 				{
@@ -378,31 +376,31 @@ class Github_addon_installer_mcp
 			{
 				$error = $e->getMessage();
 			}
-			
-			$this->EE->session->set_flashdata('message_success', $success);
-			
-			$this->EE->session->set_flashdata('message_failure', '<p>'.$error.'</p>');
-			
+
+			ee()->session->set_flashdata('message_success', $success);
+
+			ee()->session->set_flashdata('message_failure', '<p>'.$error.'</p>');
+
 			//reset the addons lib if already loaded, so it knows about our new install
-			unset($this->EE->addons);
-			
-			$this->EE->load->library('addons');
-			
-			if ( ! isset($this->EE->addons))
+			unset(ee()->addons);
+
+			ee()->load->library('addons');
+
+			if ( ! isset(ee()->addons))
 			{
-				$this->EE->addons = new EE_Addons;
+				ee()->addons = new EE_Addons;
 			}
-			
+
 			$redirect = FALSE;//str_replace('&amp;', '&', $this->base).'&installed='.$addon;
-			
+
 			//we're checking to see if this addon is more than just a plugin
 			//if so, we'll redirect to the package installer page
-			if ($this->EE->addons->is_package($addon))
+			if (ee()->addons->is_package($addon))
 			{
-				$components = $this->EE->addons->_packages[$addon];
-				
+				$components = ee()->addons->_packages[$addon];
+
 				$plugin_only = TRUE;
-				
+
 				foreach ($components as $type => $data)
 				{
 					if ($type !== 'plugin')
@@ -410,7 +408,7 @@ class Github_addon_installer_mcp
 						$plugin_only = FALSE;
 					}
 				}
-				
+
 				if ( ! $plugin_only)
 				{
 					//go to the package installer
@@ -418,11 +416,11 @@ class Github_addon_installer_mcp
 					$redirect = str_replace('&amp;', '&', BASE).'&C=addons&M=package_settings&package='.$addon.'&return=addons_modules%2526M%253Dshow_module_cp%2526module%253Dgithub_addon_installer';
 				}
 			}
-			
-			$this->EE->session->set_flashdata('redirect', $redirect);
+
+			ee()->session->set_flashdata('redirect', $redirect);
 		}
-		
-		$this->EE->functions->redirect(empty($redirect) ? $this->base : $redirect);
+
+		ee()->functions->redirect(empty($redirect) ? $this->base : $redirect);
 	}
 }
 /* End of file mcp.github_addon_installer.php */

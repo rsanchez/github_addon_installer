@@ -1,12 +1,12 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-$lang = array(	
-	'github_addon_installer_module_name' => 
+$lang = array(
+	'github_addon_installer_module_name' =>
 	'GitHub Addon Installer',
 
-	'github_addon_installer_module_description' => 
+	'github_addon_installer_module_description' =>
 	'Install and update addons with public git repositories.',
-	
+
 // Start inserting custom language keys/values here
 
 	'incomplete_repo_definition' => 'The definition for this repo is incomplete.',

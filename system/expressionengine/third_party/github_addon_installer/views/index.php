@@ -10,7 +10,7 @@
 					</optgroup>
 					<optgroup data-filter="addon_author" label="<?=lang('filter_by_author')?>">
 					</optgroup>
-				</select>					
+				</select>
 			</div>
 
 			<div>
@@ -18,7 +18,7 @@
 				<input type="text" id="addonKeyword" maxlength="200" class="field shun" placeholder="<?=lang('keyword')?>">
 			</div>
 
-		</form>			
+		</form>
 	</fieldset>
 </div>
 
