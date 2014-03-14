@@ -40,6 +40,11 @@ class Github_addon_installer_mcp
 	 */
 	public function __construct()
 	{
+        if (ee()->config->item('github_addon_installer_disabled'))
+        {
+            show_error(lang('unauthorized_access'));
+        }
+
 		$this->base = BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=github_addon_installer';
 
 		$this->manifest = json_decode(file_get_contents(PATH_THIRD.'github_addon_installer/config/manifest.js'), TRUE);
