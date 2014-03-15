@@ -61,54 +61,12 @@ class Github_addon_installer_mcp
 		$vars = array();
 		$vars['addons'] = array();
 
-		ee()->load->model('addons_model');
-
-		$versions = array();
-
-		//@TODO not works yet, must get leevi to require_once his EpiCurl lib
-		if (FALSE && ee()->addons_model->accessory_installed('nsm_addon_updater'))
-		{
-			$nsm_addon_updater = new Nsm_addon_updater_acc;
-
-			if ($feeds = $nsm_addon_updater->_updateFeeds())
-			{
-				foreach ($feeds as $addon => $feed)
-				{
-					$namespaces = $feed->getNameSpaces(TRUE);
-
-					$latest_version = 0;
-
-					include PATH_THIRD.'/'.$addon.'/config.php';
-
-					foreach ($feed->channel->item as $version)
-					{
-						$ee_addon = $version->children($namespaces['ee_addon']);
-
-						$version_number = (string) $ee_addon->version;
-
-						if (version_compare($version_number, $config['version'], '>') && version_compare($version_number, $latest_version, '>'))
-						{
-							$versions[$addon] = $version_number;
-						}
-					}
-				}
-			}
-
-			unset($nsm_addon_updater);
-		}
-
 		foreach ($this->manifest as $addon => $params)
 		{
 			$name = (isset($params['name'])) ? $params['name'] : $addon;
 			$description = (isset($params['description'])) ? br().$params['description'] : '';
 			//$status = (in_array($addon, $current_addons)) ? lang('addon_installed') : lang('addon_not_installed');
 			$status = (ee()->addons->is_package($addon)) ? lang('addon_installed') : lang('addon_not_installed');
-
-			if (isset($versions[$addon]))
-			{
-				//$status = sprintf(lang('addon_update'), $versions[$addon]);
-				$status = lang('addon_update');
-			}
 
 			//$install = (in_array($addon, $current_addons)) ? lang('addon_install') : lang('addon_reinstall');
 
