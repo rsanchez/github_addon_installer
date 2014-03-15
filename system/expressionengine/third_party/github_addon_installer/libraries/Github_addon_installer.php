@@ -276,7 +276,7 @@ class Github_addon_repo
 			}
 		}
 
-		if (FALSE && extension_loaded('zlib'))
+		if (extension_loaded('zlib'))
 		{
 			$this->fetch_mode = 'zlib';
 		}
