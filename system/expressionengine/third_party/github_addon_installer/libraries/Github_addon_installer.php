@@ -104,39 +104,6 @@ class Github_addon_installer
 		return ($data) ? json_decode($data) : FALSE;
 	}
 
-	/**
-	 * Whether the system has git installed
-	 *
-	 * @return bool
-	 */
-	public function has_git()
-	{
-		//@TODO make this actually work, always returns false for now
-		return FALSE;
-
-		static $has_git;
-
-		if (is_null($has_git))
-		{
-			$command = 'git --version';
-
-			//mac path is screwy when run from php
-			if (strncasecmp(PHP_OS, 'darwin', 6) === 0)
-			{
-				$command = 'PATH=$PATH:/usr/local/bin;'.$command;
-			}
-
-			$command .= (strncasecmp(PHP_OS, 'win', 3) === 0) ? ' > NUL;' : ' > /dev/null 2>&1;';
-
-			exec($command, $output, $return_value);
-
-			//$has_git = (bool) $output;
-			$has_git = $return_value === 0;
-		}
-
-		return $has_git;
-	}
-
 	public function temp_path()
 	{
 		return $this->temp_path;
@@ -155,7 +122,15 @@ class Github_addon_installer
 
 		$data = curl_exec($ch);
 
-		if (curl_getinfo($ch, CURLINFO_HTTP_CODE) !== 200)
+		$status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+		if ($status === 403)
+		{
+			$json = json_decode($data);
+
+			throw new Exception($json->message);
+		}
+		elseif ($status !== 200)
 		{
 			$data = FALSE;
 		}
@@ -205,7 +180,7 @@ class Github_addon_repo
 	protected $files;
 
 	/**
-	 * @var string fetch mode, can be 'git', 'zip' or 'files'
+	 * @var string fetch mode, can be 'zlib' or 'files'
 	 */
 	protected $fetch_mode;
 
@@ -301,13 +276,9 @@ class Github_addon_repo
 			}
 		}
 
-		if (ee()->github_addon_installer->has_git())
+		if (FALSE && extension_loaded('zlib'))
 		{
-			$this->fetch_mode = 'git';
-		}
-		else if (extension_loaded('zlib'))
-		{
-			$this->fetch_mode = 'zip';
+			$this->fetch_mode = 'zlib';
 		}
 		else
 		{
@@ -325,20 +296,8 @@ class Github_addon_repo
 		$temp_dir = NULL;
 		$files = array();
 
-		if ($this->fetch_mode === 'git')
-		{
-			//clone
-			shell_exec('git clone https://github.com/'.$this->user.'/'.$this->repo.'.git '.ee()->github_addon_installer->temp_path().$this->sha);
-
-			if ($this->branch !== 'master')
-			{
-				shell_exec('cd '.ee()->github_addon_installer->temp_path().'; git checkout '.$this->branch);
-			}
-
-			$temp_dir = $this->sha;
-		}
 		//use unzip
-		else if ($this->fetch_mode === 'zip')
+		if ($this->fetch_mode === 'zlib')
 		{
 			ee()->load->library('unzip');
 
@@ -392,7 +351,10 @@ class Github_addon_repo
 
 				foreach ($data->tree as $file)
 				{
-					$files[$file->sha] = $file->path;
+					if ($file->type !== 'tree')
+					{
+						$files[$file->sha] = $file->path;
+					}
 				}
 			}
 		}
@@ -496,7 +458,7 @@ class Github_addon_repo
 				throw new Exception(sprintf(lang('cant_write_file'), $path.$filename));
 			}
 
-			if ( ! is_null($temp_dir))
+			if ($this->fetch_mode === 'zlib')
 			{
 				@rename(ee()->github_addon_installer->temp_path().$temp_dir.'/'.$full_filename, $path.$filename);
 			}
@@ -508,7 +470,7 @@ class Github_addon_repo
 
 				if (isset($data->content))
 				{
-					write_file($path.$filename, $data->content, FOPEN_WRITE_CREATE_DESTRUCTIVE);
+					write_file($path.$filename, base64_decode($data->content), FOPEN_WRITE_CREATE_DESTRUCTIVE);
 				}
 			}
 		}
@@ -518,11 +480,8 @@ class Github_addon_repo
 		{
 			default:
 				break;
-			case 'zip':
+			case 'zlib':
 				@unlink(ee()->github_addon_installer->temp_path().$this->sha.'.zip');
-			case 'git':
-				delete_files(ee()->github_addon_installer->temp_path().$temp_dir, TRUE);
-				@rmdir(ee()->github_addon_installer->temp_path().$temp_dir);
 		}
 	}
 
