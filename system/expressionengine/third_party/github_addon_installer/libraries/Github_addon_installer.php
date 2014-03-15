@@ -276,7 +276,11 @@ class Github_addon_repo
 			}
 		}
 
-		if (extension_loaded('zlib'))
+		if (extension_loaded('zip'))
+		{
+			$this->fetch_mode = 'zip';
+		}
+		elseif (extension_loaded('zlib'))
 		{
 			$this->fetch_mode = 'zlib';
 		}
@@ -296,11 +300,9 @@ class Github_addon_repo
 		$temp_dir = NULL;
 		$files = array();
 
-		//use unzip
-		if ($this->fetch_mode === 'zlib')
+		//zip
+		if ($this->fetch_mode === 'zip' || $this->fetch_mode === 'zlib')
 		{
-			ee()->load->library('unzip');
-
 			if ( ! is_really_writable(ee()->github_addon_installer->temp_path()))
 			{
 				throw new Exception('temp_dir_not_writable: '.ee()->github_addon_installer->temp_path());
@@ -313,7 +315,22 @@ class Github_addon_repo
 			{
 				write_file($file_path, $this->zipball(), FOPEN_WRITE_CREATE_DESTRUCTIVE);
 
-				ee()->unzip->extract($file_path, ee()->github_addon_installer->temp_path());
+				if ($this->fetch_mode === 'zlib')
+				{
+					ee()->load->library('unzip');
+
+					ee()->unzip->extract($file_path, ee()->github_addon_installer->temp_path());
+				}
+				else
+				{
+					$zip = new ZipArchive();
+
+					$zip->open($file_path);
+
+					$zip->extractTo(ee()->github_addon_installer->temp_path());
+
+					$zip->close();
+				}
 			}
 
 			//this is how github names the zipball, usually
@@ -458,7 +475,7 @@ class Github_addon_repo
 				throw new Exception(sprintf(lang('cant_write_file'), $path.$filename));
 			}
 
-			if ($this->fetch_mode === 'zlib')
+			if ($this->fetch_mode === 'zlib' || $this->fetch_mode === 'zip')
 			{
 				@rename(ee()->github_addon_installer->temp_path().$temp_dir.'/'.$full_filename, $path.$filename);
 			}
@@ -480,6 +497,7 @@ class Github_addon_repo
 		{
 			default:
 				break;
+			case 'zip':
 			case 'zlib':
 				@unlink(ee()->github_addon_installer->temp_path().$this->sha.'.zip');
 		}
