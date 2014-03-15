@@ -26,21 +26,7 @@
 
 class Github_addon_installer_upd {
 
-	public $version;
-
-	private $EE;
-
-	/**
-	 * Constructor
-	 */
-	public function __construct()
-	{
-		include PATH_THIRD.'github_addon_installer/config.php';
-
-		$this->version = $config['version'];
-	}
-
-	// ----------------------------------------------------------------
+	public $version = '1.0.0';
 
 	/**
 	 * Installation Method
