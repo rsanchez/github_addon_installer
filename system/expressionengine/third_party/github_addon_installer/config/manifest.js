@@ -840,6 +840,16 @@
     "repo": "Antenna",
     "addon_path": "third_party/"
   },
+  "vmg_nested": {
+    "user": "vector",
+    "repo": "VMG-Nested"
+  },
+  "vmg_chosen_member": {
+    "user": "vector",
+    "repo": "VMG-Chosen-Member",
+    "addon_path": "ee2/third_party/",
+    "theme_path": "themes/third_party/"
+  },
   "eehive_entrylottoree": {
     "user": "brettdewoody",
     "repo": "Entry-Lottoree-for-ExpressionEngine",
