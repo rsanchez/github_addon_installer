@@ -839,7 +839,7 @@
   "antenna": {
     "user": "vector",
     "repo": "Antenna",
-    "addon_path": "ee2/"
+    "addon_path": "third_party/"
   },
   "eehive_entrylottoree": {
     "user": "brettdewoody",
