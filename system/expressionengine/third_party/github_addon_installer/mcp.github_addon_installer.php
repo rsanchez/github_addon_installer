@@ -362,21 +362,20 @@ class Github_addon_installer_mcp
 			{
 				$components = ee()->addons->_packages[$addon];
 
-				$plugin_only = TRUE;
+				$needs_package_installer = array_intersect(array('module', 'accessory', 'extension'), array_keys($components));
+				$has_fieldtype = array_key_exists('fieldtype', $components);
 
-				foreach ($components as $type => $data)
-				{
-					if ($type !== 'plugin')
-					{
-						$plugin_only = FALSE;
-					}
-				}
-
-				if ( ! $plugin_only)
+				if ($needs_package_installer)
 				{
 					//go to the package installer
 					//a double-url encoded return param
 					$redirect = str_replace('&amp;', '&', BASE).'&C=addons&M=package_settings&package='.$addon.'&return=addons_modules%2526M%253Dshow_module_cp%2526module%253Dgithub_addon_installer';
+				}
+				elseif ($has_fieldtype)
+				{
+					//go to the fieldtype installer
+					//a double-url encoded return param
+					$redirect = str_replace('&amp;', '&', BASE).'&C=addons_fieldtypes&return=addons_modules%2526M%253Dshow_module_cp%2526module%253Dgithub_addon_installer';
 				}
 			}
 
