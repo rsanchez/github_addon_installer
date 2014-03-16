@@ -84,6 +84,7 @@ class Github_addon_installer_mcp
 				'github_url' => anchor($url, $url, 'rel="external"'),
 				'branch' => form_input("", $branch, 'class="branch '.$addon.'-branch"'),
 				'author' => $params['user'],
+				'stars' => empty($params['stars']) ? '0' : (string) $params['stars'],
 				'status' => $status,
 				'install' => anchor($this->base.AMP.'method=install'.AMP.'addon='.$addon, lang('addon_install'), 'data-addon="'.$addon.'"')
 			);
@@ -93,7 +94,7 @@ class Github_addon_installer_mcp
 
 		ee()->javascript->output('
 			$("table#addons").tablesorter({
-				headers: {1: {sorter: false}, 4: {sorter: false}},
+				headers: {1: {sorter: false}, 6: {sorter: false}},
 				widgets: ["zebra"]
 			});
 			$("table#addons tr td.addon_install a").click(function(){

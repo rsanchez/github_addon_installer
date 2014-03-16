@@ -28,6 +28,7 @@ $lang = array(
 	'addon_update' => 'Update Available',// %s',
 	'addon_author' => 'Author',
 	'addon_branch' => 'Branch',
+	'addon_stars' => 'Stars',
 	'addon_github_url' => 'GitHub URL',
 	'filter_by_status' => 'Filter By Status',
 	'filter_by_author' => 'Filter By Author',

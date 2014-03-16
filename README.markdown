@@ -38,66 +38,72 @@ You can disable Github Addon Installer with a config item. This is useful for di
 
 ## Adding an Addon to the Manifest
 
-The list of eligible addons is stored in github_addon_installer/config/manifest.js. This file contains a JSON object. To add something to this list, fork this project, add repos to the list, and submit a pull request. The key of your manifest entry should be the short name of your add-on.
+The list of eligible addons is stored in github_addon_installer/config/manifest.js. This file contains a JSON object. To add something to this list, fork this project, add repos to the list, and submit a pull request. The key of your manifest entry should be the short name of your add-on. The manifest is indented with two spaces, please adhere to that. Please remember that unlike PHP, you cannot leave a trailing comma in a JSON array/object.
 
 Manifest entry examples:
 
 If your repo directory structure is like:
 
-    -my_addon
-     -pi.my_addon.php
+    <repo root>
+    └── my_addon
+        └── pi.my_addon.php
 
 Manifest Entry:
 
     "my_addon":{
-      "user":"username",
-      "repo":"reponame"
+      "user": "username",
+      "repo": "reponame"
+    }
+
+If your repo directory structure is like this (just the bare addon file in the root of the repo):
+
+    <repo root>
+    └── pi.my_addon.php
+
+Manifest Entry:
+
+    "my_addon": {
+      "user": "username",
+      "repo": "reponame",
+      "add_folder": true,
+      "stars": 10
     }
 
 If your repo directory structure is like:
 
-    -pi.my_addon.php
+    <repo root>
+    └── system
+        └── expressionengine
+            └── third_party
+                └── my_addon
+                    └── pi.my_addon.php
 
 Manifest Entry:
 
-    "my_addon":{
-      "user":"username",
-      "repo":"reponame",
-      "add_folder":true
+    "my_addon": {
+      "user": "username",
+      "repo": "reponame",
+      "addon_path": "system/expressionengine/third_party/",
+      "stars": 10
     }
 
 If your repo directory structure is like:
 
-    -system
-     -expressionengine
-      -third_party
-       -my_addon
-        -pi.my_addon.php
+    <repo root>
+    ├── ee2
+    │   └── third_party
+    │       └── my_addon
+    │           └── pi.my_addon.php
+    └── themes
+        └── third_party
+            └── my_addon
+                └── my_addon.css
 
 Manifest Entry:
 
-    "my_addon":{
-      "user":"username",
-      "repo":"reponame",
-      "addon_path":"system/expressionengine/third_party/"
-    }
-
-If your repo directory structure is like:
-
-    -ee2
-     -third_party
-      -my_addon
-       -pi.my_addon.php
-    -themes
-     -third_party
-       -my_addon
-        -my_addon.css
-
-Manifest Entry:
-
-    "my_addon":{
-      "user":"username",
-      "repo":"reponame",
-      "addon_path":"ee2/third_party/",
-      "theme_path":"themes/third_party/"
+    "my_addon": {
+      "user": "username",
+      "repo": "reponame",
+      "addon_path": "ee2/third_party/",
+      "theme_path": "themes/third_party/"
     }
