@@ -8,7 +8,7 @@ Install and update free EE addons found on Github.
 
 How it works: it downloads a zip file from Github to your temp dir and then it unzips it to your third_party/ folder. If the addon already exists (aka you are updating it), it will be overwritten. If the addon has an installer you will be redirected to the installer page. That's it, no other magic involved.
 
-This addon is not meant to be run on a production environment. You are encouraged to use this addon on local and/or staging environments only.
+This addon is not meant to be run on a production environment. You are encouraged to use this addon on local and/or staging environments only. Your third_party folder on your production environment should not be writable.
 
 ## Installation
 
