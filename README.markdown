@@ -10,6 +10,8 @@ How it works: it downloads a zip file from Github to your temp dir and then it u
 
 This addon is not meant to be run on a production environment. You are encouraged to use this addon on local and/or staging environments only. Your third_party folder on your production environment should not be writable.
 
+I always use this locally on a version controlled repository, where I can easily roll back any changes.
+
 ## Installation
 
 * Copy the system/expressionengine/third_party/github_addon_installer/ folder to system/expressionengine/third_party/
@@ -25,6 +27,12 @@ This addon does not use traditional version releases, but rather rolling release
 * ExpressionEngine 2.6+
 * PHP 5.2+
 * *nix server (no Windows/IIS)
+
+## Usage
+
+Go to Add-Ons > Modules > Github Addon Installer. You are shown an alphabetical list of all the eligible addons. You can filter this list by status (Installed or Not Installed) or by author. You can also type in keywords to quickly find an addon by name using a fuzzy search.
+
+Click the "Install" button to install an addon.
 
 ## Config
 
