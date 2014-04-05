@@ -499,6 +499,78 @@
     "addon_path": "ee2/",
     "stars": 12
   },
+  "helpvars": {
+    "user": "caddis",
+    "repo": "helpvars",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
+  "math": {
+    "user": "caddis",
+    "repo": "math",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 2
+  },
+  "marksmin": {
+    "user": "caddis",
+    "repo": "marksmin",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 2
+  },
+  "streeng": {
+    "user": "caddis",
+    "repo": "streeng",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 5
+  },
+  "scheduled_trigger": {
+    "user": "caddis",
+    "repo": "scheduled-trigger",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 1
+  },
+  "maxee": {
+    "user": "caddis",
+    "repo": "maxee",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
+  "related_open": {
+    "user": "caddis",
+    "repo": "related-open",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
+  "resizer": {
+    "user": "caddis",
+    "repo": "resizer",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
+  "timespan": {
+    "user": "caddis",
+    "repo": "timespan",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 1
+  },
+  "splitee": {
+    "user": "caddis",
+    "repo": "splitee",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
+  "video_length": {
+    "user": "caddis",
+    "repo": "video-length",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 1
+  },
+  "facebook_count": {
+    "user": "caddis",
+    "repo": "facebook-count",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 1
+  },
   "garnish": {
     "user": "curtisblackwell",
     "repo": "garnish",
