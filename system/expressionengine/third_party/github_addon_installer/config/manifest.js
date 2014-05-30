@@ -729,8 +729,8 @@
     "user": "croxton",
     "repo": "Stash",
     "branch": "dev",
-    "add_folder": true,
-    "stars": 161
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 168
   },
   "cat2": {
     "user": "croxton",
