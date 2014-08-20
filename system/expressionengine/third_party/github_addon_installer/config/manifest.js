@@ -604,6 +604,7 @@
   "seo_lite": {
     "user": "bjornbjorn",
     "repo": "SEO-Lite",
+    "addon_path": "system/expressionengine/third_party/",
     "stars": 26
   },
   "categories": {
