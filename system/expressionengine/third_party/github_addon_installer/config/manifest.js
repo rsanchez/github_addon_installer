@@ -356,6 +356,12 @@
     "repo": "Trigger",
     "stars": 32
   },
+  "ce_cache_breaker_for_low_variables": {
+    "user": "mattfordham",
+    "repo": "CE-Cache-Breaker-for-Low-Variables",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 2
+  },
   "md_color_picker": {
     "user": "mdesign",
     "repo": "md.color_picker.ee_addon",
