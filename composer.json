@@ -1,0 +1,14 @@
+{
+    "name": "eecli/github-addon-installer",
+    "description": "Install Github-hosted Addons with eecli.",
+    "authors": [
+        {
+            "name": "Rob Sanchez",
+            "email": "info@robsanchez.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "eecli\\GithubAddonInstaller\\": "system/expressionengine/third_party/github_addon_installer/src/" }
+    },
+    "require": {}
+}

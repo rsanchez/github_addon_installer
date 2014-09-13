@@ -24,6 +24,11 @@
  * @link		http://github.com/rsanchez
  */
 
+use eecli\GithubAddonInstaller\Application;
+use eecli\GithubAddonInstaller\Api;
+use eecli\GithubAddonInstaller\Repo;
+use eecli\GithubAddonInstaller\Installer\Installer;
+
 /**
  * @property CI_Controller $EE
  */
@@ -47,9 +52,36 @@ class Github_addon_installer_mcp
 
 		$this->base = BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=github_addon_installer';
 
-		$this->manifest = json_decode(file_get_contents(PATH_THIRD.'github_addon_installer/config/manifest.js'), TRUE);
+		// no autoloader
+		if (version_compare(APP_VER, '2.9', '<'))
+		{
+			require_once PATH_THIRD.'github_addon_installer/src/Application.php';
+			require_once PATH_THIRD.'github_addon_installer/src/Api.php';
+			require_once PATH_THIRD.'github_addon_installer/src/Repo.php';
+			require_once PATH_THIRD.'github_addon_installer/src/Installer/Installer.php';
+			require_once PATH_THIRD.'github_addon_installer/src/Installer/AbstractZipInstaller.php';
+			require_once PATH_THIRD.'github_addon_installer/src/Installer/FileInstaller.php';
+			require_once PATH_THIRD.'github_addon_installer/src/Installer/SystemUnzipInstaller.php';
+			require_once PATH_THIRD.'github_addon_installer/src/Installer/ZipArchiveInstaller.php';
+		}
+		else
+		{
+			if ( ! class_exists('Autoloader')) {
+				require_once APPPATH.'../EllisLab/ExpressionEngine/Core/Autoloader.php';
+			}
 
-		ksort($this->manifest);
+			Autoloader::getInstance()->addPrefix('eecli\\GithubAddonInstaller', PATH_THIRD.'github_addon_installer/src/');
+		}
+
+		$temp_path = APPPATH.'cache/github_addon_installer/';
+
+		if (! is_dir($temp_path)) {
+			mkdir($temp_path);
+		}
+
+		$this->application = new Application(PATH_THIRD, PATH_THIRD_THEMES, $temp_path);
+
+		$this->manifest = $this->application->getManifest();
 	}
 
 	public function index()
@@ -251,15 +283,13 @@ class Github_addon_installer_mcp
 
 	public function validate()
 	{
-		ee()->load->library('github_addon_installer');
-
 		$addon = ee()->input->get_post('addon');
 		$username = ee()->input->get_post('username');
 		$password = ee()->input->get_post('password');
 
 		if ($username && $password)
 		{
-			ee()->github_addon_installer->set_basic_auth($username, $password);
+			$this->application->getApi()->setBasicAuth($username, $password);
 		}
 
 		if ( ! isset($this->manifest[$addon]))
@@ -270,13 +300,11 @@ class Github_addon_installer_mcp
 		}
 		else
 		{
-			$params = $this->manifest[$addon];
-
-			$params['name'] = $addon;
+			$branch = isset($this->manifest[$addon]['branch']) ? $this->manifest[$addon]['branch'] : 'master';
 
 			try
 			{
-				$repo = ee()->github_addon_installer->repo($params);
+				$repo = $this->application->getRepo($addon, $branch);
 
 				ee()->session->set_flashdata('message_success', TRUE);
 
@@ -309,32 +337,19 @@ class Github_addon_installer_mcp
 
 			$params['name'] = $addon;
 
-			if (ee()->input->get('branch'))
-			{
-				$params['branch'] = ee()->input->get('branch');
-			}
+			$branch = ee()->input->get('branch') ?: 'master';
 
 			ee()->session->set_flashdata('addon', $addon);
-
-			ee()->load->library('github_addon_installer');
 
 			$error = '';
 			$success = FALSE;
 
 			try
 			{
-				$repo = ee()->github_addon_installer->repo($params);
+				$this->application->installAddon($addon, $branch);
 
-				try
-				{
-					$repo->install();
+				$success = sprintf(lang('successfully_installed'), $addon);
 
-					$success = sprintf(lang('successfully_installed'), $addon);
-				}
-				catch(Exception $e)
-				{
-					$error = $e->getMessage();
-				}
 			}
 			catch(Exception $e)
 			{
