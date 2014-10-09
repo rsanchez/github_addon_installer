@@ -62,6 +62,10 @@ class Application
 
     public function getRepo($addon, $branch = null)
     {
+        if (! isset($this->manifest[$addon])) {
+            throw new \Exception('Addon not found in manifest.');
+        }
+
         if (! $branch) {
             $branch = isset($this->manifest[$addon]['branch']) ? isset($this->manifest[$addon]['branch']) : 'master';
         }
