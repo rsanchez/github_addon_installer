@@ -1379,6 +1379,75 @@
     "add_folder": true,
     "stars": 1
   },
+  "mx_title_control": {
+    "user": "MaxLazar",
+    "repo": "mx-title-control",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 5
+  },
+  "mx_cloner": {
+    "user": "MaxLazar",
+    "repo": "mx_cloner",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 4
+  },
+  "mx_tool_box": {
+    "user": "MaxLazar",
+    "repo": "mx_tool_box",
+    "addon_path": "system/expressionengine/third_party/",
+    "theme_path": "themes/third_party/",
+    "stars": 0
+  },
+  "zip": {
+    "user": "MaxLazar",
+    "repo": "zip",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
+  "mx_auto_password": {
+    "user": "MaxLazar",
+    "repo": "mx-auto-password",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
+  "mx_easy_backup": {
+    "user": "MaxLazar",
+    "repo": "mx-easy-backup",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 1
+  },
+  "mx_google_map": {
+    "user": "MaxLazar",
+    "repo": "mx-google-map-v1",
+    "addon_path": "system/expressionengine/third_party/",
+    "theme_path": "themes/third_party/",
+    "stars": 4
+  },
+  "mx_notify_control": {
+    "user": "MaxLazar",
+    "repo": "mx-notify-control",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 2
+  },
+  "mx_stars_field": {
+    "user": "MaxLazar",
+    "repo": "mx-stars-field",
+    "addon_path": "system/expressionengine/third_party/",
+    "theme_path": "themes/third_party/",
+    "stars": 0
+  },
+  "mx_stop_spammers": {
+    "user": "MaxLazar",
+    "repo": "mx_stop_spammers",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
+  "mobile_detect": {
+    "user": "MaxLazar",
+    "repo": "mobile_detect",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
   "github_download": {
     "user": "ericbarnes",
     "repo": "github_download.ee_addon",
