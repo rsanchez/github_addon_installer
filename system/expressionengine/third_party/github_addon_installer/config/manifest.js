@@ -3,7 +3,7 @@
     "user": "rsanchez",
     "repo": "absolute_total_results",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 4
+    "stars": 3
   },
   "auto_pages_uri": {
     "user": "rsanchez",
@@ -15,19 +15,19 @@
     "user": "rsanchez",
     "repo": "activerecord",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 24
+    "stars": 25
   },
   "bn_edit_menu": {
     "user": "CartThrob",
     "repo": "bn_edit_menu",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 4
+    "stars": 3
   },
   "bn_short_names": {
     "user": "CartThrob",
     "repo": "bn_short_names",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 2
+    "stars": 1
   },
   "create_url_title": {
     "user": "rsanchez",
@@ -39,43 +39,43 @@
     "user": "rsanchez",
     "repo": "dynamo",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 11
+    "stars": 10
   },
   "entry_type": {
     "user": "rsanchez",
     "repo": "entry_type",
     "add_folder": true,
-    "stars": 36
+    "stars": 40
   },
   "github_addon_installer": {
     "user": "rsanchez",
     "repo": "github_addon_installer",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 17
+    "stars": 38
   },
   "http_header": {
     "user": "rsanchez",
     "repo": "http_header",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 35
+    "stars": 39
   },
   "json": {
     "user": "rsanchez",
     "repo": "json",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 64
+    "stars": 80
   },
   "mo_variables": {
     "user": "rsanchez",
     "repo": "mo_variables",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 55
+    "stars": 58
   },
   "parse_file_paths": {
     "user": "rsanchez",
     "repo": "parse_file_paths",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 3
+    "stars": 5
   },
   "pre_embed": {
     "user": "rsanchez",
@@ -105,14 +105,7 @@
     "user": "rsanchez",
     "repo": "resource_router",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 18
-  },
-  "ace_template_code_syntax_highlighter": {
-    "user": "devdemon",
-    "repo": "Ace-Template-Code-Syntax-Highlighter",
-    "addon_path": "system/expressionengine/third_party/",
-    "theme_path": "themes/third_party/",
-    "stars": 1
+    "stars": 32
   },
   "ee_code_disabler": {
     "user": "devdemon",
@@ -130,19 +123,19 @@
     "user": "devdemon",
     "repo": "Pagenumber",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 1
+    "stars": 0
   },
   "server_info": {
     "user": "devdemon",
     "repo": "Server-Info",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 1
+    "stars": 0
   },
   "smart_switch": {
     "user": "devdemon",
     "repo": "Smart-Switch",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 2
+    "stars": 1
   },
   "template2ftp": {
     "user": "devdemon",
@@ -168,7 +161,7 @@
     "repo": "entry_widgets",
     "addon_path": "system/expressionengine/third_party/",
     "theme_path": "themes/third_party/",
-    "stars": 15
+    "stars": 16
   },
   "vz_address": {
     "user": "elivz",
@@ -190,19 +183,19 @@
     "user": "elivz",
     "repo": "vz_members",
     "addon_path": "ee2/third_party/",
-    "stars": 11
+    "stars": 12
   },
   "vz_url": {
     "user": "elivz",
     "repo": "vz_url",
-    "stars": 29
+    "stars": 30
   },
   "campaigner": {
     "user": "experience",
     "repo": "campaigner.ee_addon",
     "addon_path": "third_party/",
     "theme_path": "themes/third_party/",
-    "stars": 5
+    "stars": 6
   },
   "crumbly": {
     "user": "experience",
@@ -236,7 +229,7 @@
     "user": "experience",
     "repo": "dropdate.ee_addon",
     "addon_path": "third_party/",
-    "stars": 17
+    "stars": 18
   },
   "smartdown": {
     "user": "experience",
@@ -249,7 +242,7 @@
     "repo": "testee.ee_addon",
     "addon_path": "third_party/",
     "theme_path": "themes/third_party/",
-    "stars": 21
+    "stars": 22
   },
   "tweedee": {
     "user": "experience",
@@ -288,7 +281,7 @@
     "repo": "matrix_multi_upload",
     "addon_path": "ee2/third_party/",
     "theme_path": "themes/third_party/",
-    "stars": 41
+    "stars": 42
   },
   "matrix_radio_group": {
     "user": "pixelandtonic",
@@ -354,13 +347,13 @@
   "trigger": {
     "user": "parse19",
     "repo": "Trigger",
-    "stars": 32
+    "stars": 30
   },
   "ce_cache_breaker_for_low_variables": {
     "user": "mattfordham",
     "repo": "CE-Cache-Breaker-for-Low-Variables",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 2
+    "stars": 3
   },
   "md_color_picker": {
     "user": "mdesign",
@@ -401,7 +394,7 @@
     "repo": "ee_debug_toolbar",
     "addon_path": "system/expressionengine/third_party/",
     "theme_path": "themes/third_party/",
-    "stars": 48
+    "stars": 52
   },
   "ee_syntax": {
     "user": "mithra62",
@@ -420,13 +413,13 @@
     "user": "leondijk",
     "repo": "gwcode_fileinfo",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 1
+    "stars": 3
   },
   "gwcode_categories": {
     "user": "leondijk",
     "repo": "gwcode_categories",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 1
+    "stars": 2
   },
   "low_link": {
     "user": "low",
@@ -440,7 +433,7 @@
   },
   "low_nospam": {
     "user": "low",
-    "repo": "low.nospam.ee2_addon",
+    "repo": "low_nospam",
     "add_folder": true,
     "stars": 8
   },
@@ -452,7 +445,7 @@
   "low_search_safeguard": {
     "user": "low",
     "repo": "low_search_safeguard",
-    "stars": 1
+    "stars": 2
   },
   "low_search_tag": {
     "user": "low",
@@ -467,7 +460,7 @@
   "low_options": {
     "user": "low",
     "repo": "low_options",
-    "stars": 6
+    "stars": 9
   },
   "low_random": {
     "user": "low",
@@ -509,7 +502,7 @@
     "user": "caddis",
     "repo": "helpvars",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 0
+    "stars": 2
   },
   "math": {
     "user": "caddis",
@@ -521,61 +514,61 @@
     "user": "caddis",
     "repo": "marksmin",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 2
+    "stars": 5
   },
   "streeng": {
     "user": "caddis",
     "repo": "streeng",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 5
+    "stars": 7
   },
   "scheduled_trigger": {
     "user": "caddis",
     "repo": "scheduled-trigger",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 1
+    "stars": 5
   },
   "maxee": {
     "user": "caddis",
     "repo": "maxee",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 0
+    "stars": 4
   },
   "related_open": {
     "user": "caddis",
     "repo": "related-open",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 0
+    "stars": 2
   },
   "resizer": {
     "user": "caddis",
     "repo": "resizer",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 0
+    "stars": 5
   },
   "timespan": {
     "user": "caddis",
     "repo": "timespan",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 1
+    "stars": 3
   },
   "splitee": {
     "user": "caddis",
     "repo": "splitee",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 0
+    "stars": 3
   },
   "video_length": {
     "user": "caddis",
     "repo": "video-length",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 1
+    "stars": 2
   },
   "facebook_count": {
     "user": "caddis",
     "repo": "facebook-count",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 1
+    "stars": 2
   },
   "garnish": {
     "user": "curtisblackwell",
@@ -611,7 +604,7 @@
     "user": "bjornbjorn",
     "repo": "SEO-Lite",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 26
+    "stars": 27
   },
   "categories": {
     "user": "bjornbjorn",
@@ -654,7 +647,7 @@
   "bw_required_category": {
     "user": "AboutWout",
     "repo": "bw_required_category.ee2_addon",
-    "stars": 6
+    "stars": 7
   },
   "bw_word_count": {
     "user": "AboutWout",
@@ -718,7 +711,7 @@
     "user": "croxton",
     "repo": "ifelse",
     "add_folder": true,
-    "stars": 29
+    "stars": 26
   },
   "multiplaya": {
     "user": "croxton",
@@ -730,20 +723,20 @@
     "user": "croxton",
     "repo": "search_fields",
     "addon_path": "third_party/",
-    "stars": 16
+    "stars": 18
   },
   "stash": {
     "user": "croxton",
     "repo": "Stash",
     "branch": "dev",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 168
+    "stars": 177
   },
   "cat2": {
     "user": "croxton",
     "repo": "cat2",
     "add_folder": true,
-    "stars": 3
+    "stars": 5
   },
   "dm_eeck_cat": {
     "user": "croxton",
@@ -767,7 +760,7 @@
     "user": "croxton",
     "repo": "Switchee",
     "add_folder": true,
-    "stars": 65
+    "stars": 67
   },
   "dm_eeck": {
     "user": "dmlogic",
@@ -779,7 +772,7 @@
   "ci_helpers": {
     "user": "erikreagan",
     "repo": "ci_helpers.ee_addon",
-    "stars": 9
+    "stars": 8
   },
   "cp_pad_lock": {
     "user": "erikreagan",
@@ -805,7 +798,7 @@
     "user": "green-egg-media",
     "repo": "Structure-Parent-URL-for-EE2",
     "add_folder": true,
-    "stars": 2
+    "stars": 3
   },
   "traileraddict": {
     "user": "green-egg-media",
@@ -834,7 +827,7 @@
   "format_characters": {
     "user": "amphibian",
     "repo": "format_characters.ee_addon",
-    "stars": 0
+    "stars": 2
   },
   "name_wrangler": {
     "user": "amphibian",
@@ -846,13 +839,13 @@
     "user": "amphibian",
     "repo": "reegion_select.ee2_addon",
     "addon_path": "third_party/",
-    "stars": 11
+    "stars": 10
   },
   "s3_directory": {
     "user": "amphibian",
     "repo": "s3_directory.ee2_addon",
     "addon_path": "third_party/",
-    "stars": 2
+    "stars": 3
   },
   "spamfreeform": {
     "user": "amphibian",
@@ -882,13 +875,13 @@
     "user": "kevinthompson",
     "repo": "draggable",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 0
+    "stars": 1
   },
   "ed_imageresizer": {
     "user": "erskinedesign",
     "repo": "ed.imageresizer.ee2_addon",
     "add_folder": true,
-    "stars": 53
+    "stars": 50
   },
   "ed_language_switcher": {
     "user": "erskinedesign",
@@ -905,7 +898,7 @@
   "deployment_hooks": {
     "user": "focuslabllc",
     "repo": "deployment_hooks.ee2_addon",
-    "stars": 16
+    "stars": 15
   },
   "tweet_button": {
     "user": "focuslabllc",
@@ -941,7 +934,7 @@
   "shrimp": {
     "user": "dan",
     "repo": "hivelogic-ee-shrimp",
-    "stars": 31
+    "stars": 32
   },
   "navee_select": {
     "user": "fromtheoutfit",
@@ -953,13 +946,13 @@
     "user": "fromtheoutfit",
     "repo": "dump_truck",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 1
+    "stars": 3
   },
   "playa_links": {
     "user": "fromtheoutfit",
     "repo": "playa_links",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 12
+    "stars": 13
   },
   "copyright": {
     "user": "shapeshed",
@@ -971,7 +964,7 @@
     "user": "shapeshed",
     "repo": "file_oracle.ee_addon",
     "addon_path": "ee2/third_party/",
-    "stars": 10
+    "stars": 8
   },
   "friendly_404": {
     "user": "shapeshed",
@@ -989,7 +982,7 @@
     "user": "newism",
     "repo": "nsm.addon_updater.ee_addon",
     "add_folder": true,
-    "stars": 28
+    "stars": 27
   },
   "nsm_body_class": {
     "user": "newism",
@@ -1001,7 +994,7 @@
     "user": "newism",
     "repo": "nsm.entry_select.ee_addon",
     "add_folder": true,
-    "stars": 13
+    "stars": 11
   },
   "nsm_file": {
     "user": "newism",
@@ -1076,19 +1069,19 @@
     "user": "newism",
     "repo": "nsm.tiny_mce.ee_addon",
     "add_folder": true,
-    "stars": 6
+    "stars": 7
   },
   "nsm_web_profiler": {
     "user": "newism",
     "repo": "nsm.web_profiler.ee_addon",
     "add_folder": true,
-    "stars": 6
+    "stars": 5
   },
   "antenna": {
     "user": "vector",
     "repo": "Antenna",
     "addon_path": "third_party/",
-    "stars": 29
+    "stars": 31
   },
   "vmg_nested": {
     "user": "vector",
@@ -1100,38 +1093,21 @@
     "repo": "VMG-Chosen-Member",
     "addon_path": "ee2/third_party/",
     "theme_path": "themes/third_party/",
-    "stars": 18
+    "stars": 21
   },
-  "eehive_entrylottoree": {
-    "user": "brettdewoody",
-    "repo": "Entry-Lottoree-for-ExpressionEngine",
-    "addon_path": "system/third_party/",
-    "stars": 3
-  },
-  "eehive_flickr": {
-    "user": "brettdewoody",
-    "repo": "Flickr-for-ExpressionEngine",
+  "vmg_s3_direct_upload": {
+    "user": "vector",
+    "repo": "VMG-S3-Direct-Upload",
     "addon_path": "system/expressionengine/third_party/",
     "theme_path": "themes/third_party/",
-    "stars": 20
-  },
-  "eehive_gooee": {
-    "user": "brettdewoody",
-    "repo": "Gooee-for-ExpressionEngine",
-    "addon_path": "system/third_party/",
-    "stars": 3
+    "stars": 4
   },
   "eehive_hacksaw": {
     "user": "brettdewoody",
-    "repo": "Hacksaw-for-ExpressionEngine",
+    "repo": "INACTIVE-Hacksaw-for-ExpressionEngine",
     "addon_path": "system/third_party/",
-    "stars": 14
-  },
-  "eehive_inflector": {
-    "user": "brettdewoody",
-    "repo": "Inflector-for-ExpressionEngine",
-    "addon_path": "system/third_party/",
-    "stars": 4
+    "branch": "master",
+    "stars": 13
   },
   "sc_edit_menu": {
     "user": "agun",
@@ -1143,13 +1119,13 @@
     "user": "agun",
     "repo": "SC-Publish-Redirect",
     "addon_path": "third_party/",
-    "stars": 8
+    "stars": 9
   },
   "cp_menu_master": {
     "user": "expressodev",
     "repo": "cp_menu_master",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 22
+    "stars": 23
   },
   "easy_ical": {
     "user": "expressodev",
@@ -1158,22 +1134,27 @@
     "stars": 23
   },
   "freemember": {
-    "user": "expressodev",
+    "user": "devdemon",
     "repo": "freemember",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 62
+    "stars": 73
   },
   "reelocate": {
     "user": "expressodev",
     "repo": "reelocate",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 43
+    "stars": 46
   },
   "nce_ldap": {
     "user": "designbyfront",
     "repo": "LDAP-Authentication-for-ExpressionEngine",
     "addon_path": "EE2/core/expressionengine/third_party/",
     "stars": 26
+  },
+  "stash_breaker": {
+    "user": "domstubbs",
+    "repo": "ee-stash-breaker",
+    "stars": 3
   },
   "gmap": {
     "user": "objectivehtml",
@@ -1184,25 +1165,25 @@
   "first_timer": {
     "user": "ryanirelan",
     "repo": "ri.first_timer.ee_addon.2.0",
-    "stars": 3
+    "stars": 5
   },
   "yearlist": {
     "user": "ryanirelan",
     "repo": "ri.yearlist.ee_addon.2.0",
     "add_folder": true,
-    "stars": 6
+    "stars": 8
   },
   "widgets": {
     "user": "philsturgeon",
     "repo": "ee2-widgets",
     "add_folder": true,
-    "stars": 16
+    "stars": 17
   },
   "rest": {
     "user": "philsturgeon",
     "repo": "ee2-rest",
     "add_folder": true,
-    "stars": 34
+    "stars": 36
   },
   "cookie": {
     "user": "philipzaengle",
@@ -1229,7 +1210,7 @@
     "user": "ckimrie",
     "repo": "acc.channel_entry_preview.ee_addon",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 3
+    "stars": 4
   },
   "cki_mblist": {
     "user": "ckimrie",
@@ -1259,7 +1240,7 @@
     "repo": "RequireJS-for-EE",
     "addon_path": "system/expressionengine/third_party/",
     "theme_path": "themes/third_party/",
-    "stars": 18
+    "stars": 20
   },
   "site_manager": {
     "user": "ckimrie",
@@ -1279,7 +1260,7 @@
     "user": "ckimrie",
     "repo": "ft.geocoder.ee_addon",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 5
+    "stars": 4
   },
   "mosomatrixrelations": {
     "user": "ckimrie",
@@ -1297,13 +1278,7 @@
     "user": "ckimrie",
     "repo": "moreUtilities",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 12
-  },
-  "disqust": {
-    "user": "aaronmcadam",
-    "repo": "EE-Disqust",
-    "add_folder": true,
-    "stars": 6
+    "stars": 9
   },
   "currentlee": {
     "user": "adamwiggall",
@@ -1342,7 +1317,7 @@
     "user": "davist11",
     "repo": "Hon-ee-Pot-Captcha",
     "addon_path": "third_party/",
-    "stars": 20
+    "stars": 24
   },
   "css_browser_selector": {
     "user": "ronnyandre",
@@ -1356,12 +1331,6 @@
     "add_folder": true,
     "stars": 1
   },
-  "microsite_helper": {
-    "user": "ninefour",
-    "repo": "microsite_helper.ext.ee_addon",
-    "addon_path": "system/expressionengine/third_party/",
-    "stars": 2
-  },
   "dry_accessible_captcha": {
     "user": "dry",
     "repo": "accessible-captcha.ee2_addon",
@@ -1371,7 +1340,7 @@
     "user": "marcato15",
     "repo": "Disqus",
     "add_folder": true,
-    "stars": 22
+    "stars": 24
   },
   "smugmug": {
     "user": "marcato15",
@@ -1389,7 +1358,7 @@
     "user": "MaxLazar",
     "repo": "mx_cloner",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 4
+    "stars": 5
   },
   "mx_tool_box": {
     "user": "MaxLazar",
@@ -1421,7 +1390,7 @@
     "repo": "mx-google-map-v1",
     "addon_path": "system/expressionengine/third_party/",
     "theme_path": "themes/third_party/",
-    "stars": 4
+    "stars": 5
   },
   "mx_notify_control": {
     "user": "MaxLazar",
@@ -1488,18 +1457,12 @@
     "add_folder": true,
     "stars": 4
   },
-  "template_snippet_select": {
-    "user": "litzinger",
-    "repo": "Template---Snippet-Select",
-    "add_folder": true,
-    "stars": 2
-  },
   "vwm_polls": {
     "user": "vmichnowicz",
     "repo": "vwm_polls",
     "addon_path": "system/expressionengine/third_party/",
     "theme_path": "themes/third_party/",
-    "stars": 18
+    "stars": 17
   },
   "vwm_secure_files": {
     "user": "vmichnowicz",
@@ -1524,6 +1487,42 @@
     "repo": "relative_date.ee2_addon",
     "stars": 5
   },
+  "matrix_presets": {
+    "user": "ignetic",
+    "repo": "ee-matrix-presets",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 2
+  },
+  "ee_debug_restrict": {
+    "user": "ignetic",
+    "repo": "ee-debug-restrict",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
+  "wygwam_plugins": {
+    "user": "ignetic",
+    "repo": "ee-wygwam-plugins",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
+  "wygwam_communicate": {
+    "user": "ignetic",
+    "repo": "ee-wygwam-communicate",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
+  "pagination_rel_links": {
+    "user": "ignetic",
+    "repo": "ee-pagination-rel-links",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
+  "enhancer": {
+    "user": "24here",
+    "repo": "ee-enhancer",
+    "add_folder": true,
+    "stars": 2
+  },
   "ih_textile_editor": {
     "user": "imagehat",
     "repo": "ih.textile_editor.ee2_addon",
@@ -1547,7 +1546,7 @@
     "user": "joelbradbury",
     "repo": "Graphite.ee_addon",
     "theme_path": "themes/third_party/",
-    "stars": 12
+    "stars": 13
   },
   "hs_localize_date": {
     "user": "hearsay",
@@ -1565,7 +1564,7 @@
     "user": "averyvery",
     "repo": "Freebie",
     "addon_path": "third_party/",
-    "stars": 59
+    "stars": 63
   },
   "ampersand": {
     "user": "scottboms",
@@ -1622,7 +1621,7 @@
   "jco_getfileinfo": {
     "user": "jeromecoupe",
     "repo": "jco_getfileinfo",
-    "stars": 11
+    "stars": 12
   },
   "jco_url": {
     "user": "jeromecoupe",
@@ -1639,7 +1638,7 @@
     "user": "gilgm12",
     "repo": "Secure-Ajax-Forms",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 7
+    "stars": 5
   },
   "sp_table_select": {
     "user": "jamierumbelow",
@@ -1651,7 +1650,7 @@
     "user": "jamierumbelow",
     "repo": "sp_title_filler",
     "addon_path": "third_party/",
-    "stars": 11
+    "stars": 12
   },
   "simple_submit": {
     "user": "aphichat",
@@ -1666,34 +1665,59 @@
     "stars": 5
   },
   "encode_decode": {
-    "user": "ninefour",
+    "user": "nathanpitman",
     "repo": "encode_decode.pi.ee_addon",
     "addon_path": "EE2/system/expressionengine/third_party/",
-    "stars": 9
+    "stars": 10
   },
   "pages_nested_menu": {
-    "user": "ninefour",
+    "user": "nathanpitman",
     "repo": "pages_nested_menu.pi.ee_addon",
     "addon_path": "system/third_party/",
     "stars": 1
   },
   "better_pages": {
-    "user": "ninefour",
+    "user": "nathanpitman",
     "repo": "better_pages.acc.ee_addon",
     "addon_path": "system/third_party/",
     "stars": 0
   },
   "member_online": {
-    "user": "ninefour",
+    "user": "nathanpitman",
     "repo": "member_online.pi.ee_addon",
     "addon_path": "system/third_party/",
     "stars": 1
+  },
+  "reports": {
+    "user": "nathanpitman",
+    "repo": "reports.mod.ee_addon",
+    "addon_path": "EE2/system/third_party/",
+    "stars": 4
+  },
+  "nf_categories_field": {
+    "user": "nathanpitman",
+    "repo": "categories_field.ft.ee_addon",
+    "addon_path": "third_party/",
+    "theme_path": "themes/third_party/",
+    "stars": 7
+  },
+  "group_by": {
+    "user": "nathanpitman",
+    "repo": "group_by.ext.ee_addon",
+    "addon_path": "system/third_party/",
+    "stars": 4
+  },
+  "fixed_next_prev": {
+    "user": "nathanpitman",
+    "repo": "fixed_next_prev.pi.ee_addon",
+    "addon_path": "system/third_party/",
+    "stars": 0
   },
   "minimee": {
     "user": "johndwells",
     "repo": "Minimee",
     "addon_path": "system/expressionengine/third_party/",
-    "stars": 39
+    "stars": 46
   },
   "pages_autocomplete": {
     "user": "iainurquhart",
@@ -1706,7 +1730,7 @@
     "repo": "fanceebox",
     "addon_path": "system/expressionengine/third_party/",
     "theme_path": "themes/third_party/",
-    "stars": 4
+    "stars": 5
   },
   "greeny": {
     "user": "bliswebagency",
@@ -1729,7 +1753,7 @@
     "repo": "datetime_picker",
     "addon_path": "system/expressionengine/third_party/",
     "theme_path": "themes/third_party/",
-    "stars": 2
+    "stars": 1
   },
   "dumpee": {
     "user": "themusicman",
@@ -1784,13 +1808,13 @@
     "user": "vmichnowicz",
     "repo": "vwm_surveys",
     "add_folder": true,
-    "stars": 9
+    "stars": 10
   },
   "dashee": {
     "user": "mrtopher",
     "repo": "dashEE",
     "addon_path": "third_party/",
     "theme_path": "themes/third_party/",
-    "stars": 35
+    "stars": 38
   }
 }
