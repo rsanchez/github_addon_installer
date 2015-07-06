@@ -270,6 +270,13 @@
     "add_folder": true,
     "stars": 17
   },
+  "fieldpack": {
+    "user": "pixelandtonic",
+    "repo": "fieldpack",
+    "addon_path": "ee2/third_party/",
+    "theme_path": "themes/third_party/",
+    "stars": 56
+  },
   "matrix_comments": {
     "user": "pixelandtonic",
     "repo": "matrix_comments",
