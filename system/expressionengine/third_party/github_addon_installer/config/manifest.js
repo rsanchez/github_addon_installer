@@ -71,6 +71,12 @@
     "addon_path": "system/expressionengine/third_party/",
     "stars": 58
   },
+  "multirel": {
+    "user": "rsanchez",
+    "repo": "multirel",
+    "addon_path": "system/expressionengine/third_party/",
+    "stars": 0
+  },
   "parse_file_paths": {
     "user": "rsanchez",
     "repo": "parse_file_paths",
