@@ -4,6 +4,7 @@ namespace eecli\GithubAddonInstaller;
 
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\ProgressHelper;
+use Symfony\Component\Console\Helper\ProgressBar;
 
 class Api
 {
@@ -22,6 +23,8 @@ class Api
 
     protected $progress;
 
+    protected $progressBar;
+
     public function setBasicAuth($username, $password)
     {
         $this->basicAuthUsername = $username;
@@ -38,6 +41,11 @@ class Api
     public function setProgressHelper(ProgressHelper $progress)
     {
         $this->progress = $progress;
+    }
+
+    public function setProgressBar(ProgressBar $progressBar)
+    {
+        $this->progressBar = $progressBar;
     }
 
     protected function buildUrl(array $segments, array $queryString = null)
@@ -77,15 +85,27 @@ class Api
 
         $url = $this->buildUrl($segments, $queryString);
 
-        if ($this->progress && $this->output) {
-            $output = $this->output;
-            $progress = $this->progress;
+        $progress = $this->progress ? $this->progress : $this->progressBar;
 
-            $progress->start($output, 100);
+        if ($progress && $this->output) {
+            $output = $this->output;
+            $current = 0;
+
+            if ($progress instanceof ProgressBar) {
+                $progress->setMaxSteps(100);
+                $progress->start();
+            } else {
+                $progress->start($output, 100);
+            }
 
             $return = $this->curl($url, function($downloadSize, $downloadedSize) use ($progress, $output) {
                 $current = $downloadSize !== 0 ? round($downloadedSize / $downloadSize * 100) : 0;
-                $progress->setCurrent($current);
+
+                if ($progress instanceof ProgressBar) {
+                    $progress->setProgress($current);
+                } else {
+                    $progress->setCurrent($current);
+                }
             });
 
             $progress->finish();
