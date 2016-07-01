@@ -92,8 +92,7 @@ class Api
             $current = 0;
 
             if ($progress instanceof ProgressBar) {
-                $progress->setMaxSteps(100);
-                $progress->start();
+                $progress->start(100);
             } else {
                 $progress->start($output, 100);
             }
